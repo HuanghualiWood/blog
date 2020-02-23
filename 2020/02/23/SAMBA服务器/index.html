@@ -264,9 +264,15 @@ height:50vh;
             <div class="post-intros">
                 <!-- 文章页标签  -->
                 
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "萌新">萌新</a>
+    
+</div>
+                
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">73</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">206</span>Reading time: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -390,20 +396,26 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+        <h3 id="samba的功能"><a href="#samba的功能" class="headerlink" title="samba的功能"></a>samba的功能</h3><ul>
+<li>共享文件和打印机服务</li>
+<li>身份认证，提供不同身份用户的个别数据</li>
+<li>进行window网络上的主机名解析</li>
+<li>可以进行设备的共享</li>
+</ul>
+<h3 id="samba常见的应用"><a href="#samba常见的应用" class="headerlink" title="samba常见的应用"></a>samba常见的应用</h3><ul>
+<li>1利用软件直接剪辑www主机上面的网页数据</li>
+<li>做成可以直接连接的文件服务器</li>
+<li>打印机服务器</li>
+</ul>
+<p>samba使用的NetBIOS通信协议</p>
+<p>samba使用的daemons</p>
+<ul>
+<li><p>nmbd 这个daemon用来管理工作组，NetBIOS Name 等解析。主要利用UDP协议开启port137，138来负责名称解析的任务</p>
+</li>
+<li><p>smbd 这个daemon主要功能用来管理samba主机共享的目录，文件与打印机等。利用可靠的TCP协议来传输数据，开放的端口139及445</p>
+</li>
+</ul>
+<h4 id="连接模式（Peer-Peer（对等模式），Domain-model（主控模式））"><a href="#连接模式（Peer-Peer（对等模式），Domain-model（主控模式））" class="headerlink" title="连接模式（Peer/Peer（对等模式），Domain model（主控模式））"></a>连接模式（Peer/Peer（对等模式），Domain model（主控模式））</h4>
     </article>
     <!-- license  -->
     
@@ -411,13 +423,13 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/blog/2020/02/23/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/" title= "Hello World">
-                    <div class="nextTitle">Hello World</div>
-                </a>
-            
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/blog/2020/02/23/hello-world/" title= "Hello World">
+                    <div class="prevTitle">Hello World</div>
+                </a>
             
         </li>
     </ul>
@@ -460,7 +472,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Quick-Start"><span class="toc-number">1.</span> <span class="toc-text">Quick Start</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Create-a-new-post"><span class="toc-number">1.1.</span> <span class="toc-text">Create a new post</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-server"><span class="toc-number">1.2.</span> <span class="toc-text">Run server</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Generate-static-files"><span class="toc-number">1.3.</span> <span class="toc-text">Generate static files</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Deploy-to-remote-sites"><span class="toc-number">1.4.</span> <span class="toc-text">Deploy to remote sites</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#samba的功能"><span class="toc-number">1.</span> <span class="toc-text">samba的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#samba常见的应用"><span class="toc-number">2.</span> <span class="toc-text">samba常见的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#连接模式（Peer-Peer（对等模式），Domain-model（主控模式））"><span class="toc-number">2.1.</span> <span class="toc-text">连接模式（Peer&#x2F;Peer（对等模式），Domain model（主控模式））</span></a></li></ol></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
