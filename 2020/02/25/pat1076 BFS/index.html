@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>huanghualiwood</title>
+    <title>Pat1076 BFS · huanghualiwood</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 <meta name="generator" content="Hexo 4.2.0"></head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/blog/" >minhao的BLOG</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Pat1076 BFS</a>
+            </div>
+    </div>
     
     <a class="home-link" href=/blog/>minhao的BLOG</a>
 </header>
@@ -220,24 +231,63 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/blog/)"></div>
+    <div class="site-intro-img" style="background-image: url(/blog/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Pat1076 BFS
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">712</span>Reading time: <span class="post-count reading-time">4 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/02/25</span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,55 +388,72 @@
 </script>        
         <img class="loading" src="/blog/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/blog/2020/02/23/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/" >
-            
-                <span>Samba服务器</span>
-        </a>
-        <div class="abstract-content">
-            samba的功能
-共享文件和打印机服务
-身份认证，提供不同身份用户的个别数据
-进行window网络上的主机名解析
-可以进行设备的共享
+            <main class="main post-page">
+    <article class="article-entry">
+        <hr>
+<p>title: pat1076 BFS<br>tags: </p>
+<ul>
+<li>“BFS”</li>
+<li>“BFS如何记录层数”</li>
+</ul>
+<p>categories: </p>
+<ul>
+<li>“pat”</li>
+</ul>
+<hr>
+<p>Weibo is known as the Chinese version of Twitter. One user on Weibo may have many followers, and may follow many other users as well. Hence a social network is formed with followers relations. When a user makes a post on Weibo, all his/her followers can view and forward his/her post, which can then be forwarded again by their followers. Now given a social network, you are supposed to calculate the maximum potential amount of forwards for any specific user, assuming that only L levels of indirect followers are counted.<br>Input Specification:</p>
+<p>Each input file contains one test case. For each case, the first line contains 2 positive integers: N (≤1000), the number of users; and L (≤6), the number of levels of indirect followers that are counted. Hence it is assumed that all the users are numbered from 1 to N. Then N lines follow, each in the format:</p>
+<p>M[i] user_list[i]</p>
+<p>where M[i] (≤100) is the total number of people that user[i] follows; and user_list[i] is a list of the M[i] users that followed by user[i]. It is guaranteed that no one can follow oneself. All the numbers are separated by a space.</p>
+<p>Then finally a positive K is given, followed by K UserID’s for query.<br>Output Specification:</p>
+<p>For each UserID, you are supposed to print in one line the maximum potential amount of forwards this user can trigger, assuming that everyone who can view the initial post will forward it once, and that only L levels of indirect followers are counted.<br>Sample Input:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">7 3</span><br><span class="line">3 2 3 4</span><br><span class="line">0</span><br><span class="line">2 5 6</span><br><span class="line">2 3 1</span><br><span class="line">2 3 4</span><br><span class="line">1 4</span><br><span class="line">1 5</span><br><span class="line">2 2 6</span><br><span class="line">Sample Output:</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td></tr></table></figure>
 
-samba常见的应用
-1利用软件直接剪辑www主机上面的网页数据
-做成可以直接连接的文件服务器
-打印机服务器
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include &lt;cstring&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;queue&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">using namespace std;</span><br><span class="line">#define MAX 1001</span><br><span class="line">struct Edge &#123;</span><br><span class="line">	int from, to;</span><br><span class="line">	Edge(int a, int b) :from(a), to(b) &#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line">struct Node &#123;</span><br><span class="line">	int nv,level;&#x2F;&#x2F;在结构体中添加路径层数</span><br><span class="line">	Node(int a, int b) :nv(a), level(b) &#123;&#125;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">vector&lt;Edge&gt; G[MAX];</span><br><span class="line">int visited[MAX],num[MAX],pre[MAX];</span><br><span class="line"></span><br><span class="line">void init() &#123;</span><br><span class="line">	memset(visited, 0, sizeof(visited));</span><br><span class="line">&#125;</span><br><span class="line">void BFS(int s,int len) &#123;</span><br><span class="line">	queue&lt;Node&gt; q;</span><br><span class="line">	q.push(Node&#123;s,0&#125;);</span><br><span class="line">	while (!q.empty()) &#123;</span><br><span class="line">		Node node &#x3D; q.front();</span><br><span class="line">		q.pop();</span><br><span class="line">		int v &#x3D; node.nv;</span><br><span class="line">		int level &#x3D; node.level;</span><br><span class="line">		if (level &#x3D;&#x3D; len)break;</span><br><span class="line">		&#x2F;&#x2F;cout &lt;&lt; v;</span><br><span class="line">		visited[v] &#x3D; 1;</span><br><span class="line">		for (Edge&amp; e : G[v]) &#123;</span><br><span class="line">			int w &#x3D; e.to;</span><br><span class="line">			if (visited[w])continue;</span><br><span class="line">			visited[w] &#x3D; 1;	</span><br><span class="line">			num[s]++;</span><br><span class="line">			q.push(Node(w,level+1));</span><br><span class="line">		&#x2F;&#x2F;	cout &lt;&lt; &quot;--&quot;&lt;&lt; w&lt;&lt;&quot; &quot;;</span><br><span class="line">		&#125;</span><br><span class="line">		&#x2F;&#x2F;cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">int main()</span><br><span class="line">&#123;</span><br><span class="line">	memset(G, 0, sizeof(G));</span><br><span class="line">	int M, L,tmp;</span><br><span class="line">	cin &gt;&gt; M &gt;&gt; L;</span><br><span class="line">	for (int i &#x3D; 1; i &lt;&#x3D; M; i++) &#123;</span><br><span class="line">		cin &gt;&gt; tmp;</span><br><span class="line">		for (int j &#x3D; 1; j &lt;&#x3D; tmp; j++) &#123;</span><br><span class="line">			int x;</span><br><span class="line">			cin &gt;&gt; x;</span><br><span class="line">			G[x].push_back(Edge&#123; x,i &#125;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	cin &gt;&gt; tmp;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; tmp; i++) &#123;</span><br><span class="line">		int a;</span><br><span class="line">		cin &gt;&gt; a;</span><br><span class="line">		init();</span><br><span class="line">		BFS(a, L);</span><br><span class="line">		cout &lt;&lt; num[a];</span><br><span class="line">		if (i !&#x3D; tmp - 1)cout &lt;&lt; endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-samba使用的NetBIOS通信协议
-samba使用的daemons
+<h3 id="心得"><a href="#心得" class="headerlink" title="心得"></a>心得</h3><p>这道题是单向无权图–&gt;BFS</p>
+<ul>
+<li>题目编号从1-N；建图应该从1到N方便</li>
+<li>记录BFS遍历图的层数，在结点结构体中添加层数信息。在BFS中更新。</li>
+<li>BFS跟Dijkstra的区别：BFS只要访问到邻接点，邻接点就要被收录而不用再通过邻接点去做松弛操作更新它的邻接点的最小路径</li>
+</ul>
 
-nmbd 这个daemon用来管理工作组，NetBIOS Name 等解析。主要利用UDP协议开启port137，138来负责名称解析的任务
-
-smbd 这个daemon主要功能用来管理samba主机共享的目录，文件与打印机等。利用可靠的TCP协议来传输数据，开放的端口1...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/02/23</span>
-            </div>
-            <!-- tags  -->
-            
-            <div class= abstract-tags >
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags = "萌新">萌新</a>
-    
-</div>
-            
-        </div>
     </article>
+    <!-- license  -->
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/blog/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/" title= "Pat1030">
+                    <div class="nextTitle">Pat1030</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/blog/2020/02/24/markdown%E8%AF%AD%E6%B3%95/" title= "Markdown语法">
+                    <div class="prevTitle">Markdown语法</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -396,6 +463,24 @@ smbd 这个daemon主要功能用来管理samba主机共享的目录，文件与�
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#心得"><span class="toc-number">1.</span> <span class="toc-text">心得</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -595,6 +680,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/blog/scripts/share.js" async></script>    
      
     </body>
 </html>
