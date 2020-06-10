@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Samba服务器 · huanghualiwood</title>
+    <title>线性表习题 · huanghualiwood</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/blog/" >minhao的BLOG</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Samba服务器</a>
+                <a href="#" class="post-name">线性表习题</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Samba服务器
+            线性表习题
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,20 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "萌新">萌新</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据结构">数据结构</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "线性表的操作">线性表的操作</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>Word count: <span class="post-count word-count">206</span>Reading time: <span class="post-count reading-time">1 min</span></span>
+                        <span>Word count: <span class="post-count word-count">1.1k</span>Reading time: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/02/23</span>
+                    <span class="post-intro-time">2020/06/10</span>
                     
                     <span class="shareWrapper">
                         <span class="iconfont-archer shareIcon">&#xe71d;</span>
@@ -396,26 +398,17 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <h3 id="samba的功能"><a href="#samba的功能" class="headerlink" title="samba的功能"></a>samba的功能</h3><ul>
-<li>共享文件和打印机服务</li>
-<li>身份认证，提供不同身份用户的个别数据</li>
-<li>进行window网络上的主机名解析</li>
-<li>可以进行设备的共享</li>
-</ul>
-<h3 id="samba常见的应用"><a href="#samba常见的应用" class="headerlink" title="samba常见的应用"></a>samba常见的应用</h3><ul>
-<li>1利用软件直接剪辑www主机上面的网页数据</li>
-<li>做成可以直接连接的文件服务器</li>
-<li>打印机服务器</li>
-</ul>
-<p>samba使用的NetBIOS通信协议</p>
-<p>samba使用的daemons</p>
-<ul>
-<li><p>nmbd 这个daemon用来管理工作组，NetBIOS Name 等解析。主要利用UDP协议开启port137，138来负责名称解析的任务</p>
-</li>
-<li><p>smbd 这个daemon主要功能用来管理samba主机共享的目录，文件与打印机等。利用可靠的TCP协议来传输数据，开放的端口139及445</p>
-</li>
-</ul>
-<h4 id="连接模式（Peer-Peer（对等模式），Domain-model（主控模式））"><a href="#连接模式（Peer-Peer（对等模式），Domain-model（主控模式））" class="headerlink" title="连接模式（Peer/Peer（对等模式），Domain model（主控模式））"></a>连接模式（Peer/Peer（对等模式），Domain model（主控模式））</h4>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">typedef int Elemtype ;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;顺序存储结构</span><br><span class="line">typedef struct &#123;</span><br><span class="line">	Elemtype data[50] &#x3D; &#123; 4, 3, 3, 4, 2, 4, 5, 6, 6, 6 &#125;;</span><br><span class="line">	Elemtype length;</span><br><span class="line">&#125;Sqlist;</span><br><span class="line">Sqlist L;</span><br><span class="line">&#x2F;&#x2F;链式存储结构</span><br><span class="line">typedef struct LNode &#123;</span><br><span class="line">	Elemtype data;</span><br><span class="line">	struct LNode* next;</span><br><span class="line">&#125;LNode,*Linklist;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;*------------</span><br><span class="line">建立链表，注意双指针以及辅助指针的使用</span><br><span class="line">-------------*&#x2F;</span><br><span class="line">&#x2F;&#x2F;指针的引用</span><br><span class="line">void Linklist_init(Linklist &amp;L) &#123;</span><br><span class="line">	L &#x3D; (Linklist)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; L;&#x2F;&#x2F;必须要一个辅助指针*r</span><br><span class="line">	L-&gt;data &#x3D; -1;</span><br><span class="line">	L-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 5;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;二级指针，传入实参地址</span><br><span class="line">void Linklist_init2(LNode ** L) &#123;</span><br><span class="line">	*L &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; *L;</span><br><span class="line">	r-&gt;data &#x3D; -1;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 5;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;return返回</span><br><span class="line">Linklist Linklist_init3(void) &#123;</span><br><span class="line">	Linklist L &#x3D; (Linklist)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; L;</span><br><span class="line">	r-&gt;data &#x3D; -1;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 5;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	return L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>//————————</p>
+<p>void delet_x(Sqlist &amp;L, int value) {<br>    int i=0, k=0, j=0;<br>    int length = L.length;<br>    j = 0;<br>    while (i&lt;L.length) {<br>        if (k != 0) {<br>            L.data[i-k] = L.data[i];<br>        }<br>        if (L.data[i] == value) {<br>            k++;<br>            length–;<br>        }<br>        i++;<br>    }<br>    for (i = length; i &lt; L.length; i++)<br>        L.data[i] = 0;<br>    L.length = length;<br>}<br>//2-2-4<br>bool delte_x_at(Sqlist &amp;L, int s, int t, int value) {<br>    if (s &gt;= t)return false;<br>    if (L.length &lt;= 0)return false;<br>    int i=0, j=0,k=0;<br>    for (i = s+1; i &lt; t; i++) {<br>        if (L.data[i] != value) {<br>            L.data[k+s+1] = L.data[i];<br>            k++;<br>        }<br>    }<br>    j = t - s - 1 - k;<br>    for (i = t; i &lt; L.length; i++)<br>        L.data[i - j] = L.data[i];<br>    for (i =0; i &lt;j; i++)<br>        L.data[L.length - 1 - i] = 0;<br>    L.length = L.length - (t - s - 1) + k;<br>    return true;<br>}<br>//2-2-8 将数组中两个顺序表的位置置换<br>int arr[10] = { 1,2,3,4,5,6,1,2,3,4 };<br>bool reverse(int arr[], int left, int right) {<br>    if (left &gt; right)return false;<br>    int mid = (left+right) / 2;<br>    for (int i = 0; i &lt;= mid - left; i++) {<br>        int tmp = arr[i+left];<br>        arr[i + left] = arr[right - i];<br>        arr[right - i] = tmp;<br>    }<br>}<br>bool sqlrev(int arr[],int m, int n) {<br>    reverse(arr, 0, m + n - 1);<br>    reverse(arr,0, n - 1);<br>    reverse(arr, n, m+n - 1);<br>    return true;<br>}</p>
+<p>//2-3-1设计一个递归算法，删除不带头结点的单链表L中所有的值为x的结点<br>bool Linklist_delele(Linklist&amp; L, int x) {<br>    if (!L)return false;<br>    if (L-&gt;data == x) {<br>        LNode *q = L;<br>        L = L-&gt;next;<br>        free(q);<br>        Linklist_delele(L, x);<br>    }<br>    Linklist_delele(L-&gt;next, x);<br>}</p>
+<p>//2-2-2在带头结点的单链表L中删除所有值为x的结点，并释放其空间<br>//——————————————————</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">void Linklist_del(Linklist &amp;L, Elemtype x) &#123;</span><br><span class="line">	LNode *q, *p &#x3D; L-&gt;next,  *pre &#x3D; L;</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;&#x2F;&#x2F;p还要往前移一个，和L的位置重合</span><br><span class="line">			pre-&gt;next &#x3D; p;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			pre &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;删除也可以传入一级指针,无需指针的引用</span><br><span class="line">void Linklist_del2(Linklist L, Elemtype x) &#123;&#x2F;&#x2F;L此时为形参，函数内生成L头结点的副本，不过指向的内容仍然</span><br><span class="line">	Linklist q,  p &#x3D; L-&gt;next,  pre &#x3D; L;     &#x2F;&#x2F;是L。可以实现对L的删除。</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">			L-&gt;next &#x3D; p;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			pre &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;尾插法</span><br><span class="line">void Linklist_del3(Linklist &amp;L, Elemtype x) &#123;</span><br><span class="line">	Linklist q, p &#x3D; L-&gt;next, r &#x3D; L;</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data !&#x3D; x) &#123;</span><br><span class="line">		    r-&gt;next&#x3D;p;</span><br><span class="line">			r &#x3D; p;</span><br><span class="line">			p&#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;-------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<p>//2-2-3L为带头节点的单链表，编写算法实现从尾到头反向输出每个结点的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void Linklist_reverse(Linklist L) &#123;</span><br><span class="line">	if(L-&gt;next)</span><br><span class="line">      Linklist_reverse(L-&gt;next);</span><br><span class="line">	printf(&quot;%d &quot;, L-&gt;data);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>int main() {<br>    int n,tmp;<br>    //scanf(“%d”, &amp;n);<br>    //L.length = n;<br>    //for (int i = 0; i &lt; n; i++) {<br>        //scanf(“%d”, &amp;tmp);<br>        //L.data[i] = tmp;<br>    //}<br>    //delet_x(L, 4);<br>    //delte_x_at(L, 0, 7, 4);<br>    //for (int i = 0; i &lt; L.length; i++) {<br>        //printf(“%d “, L.data[i]);<br>    //}<br>    //sqlrev(arr, 6, 4);<br>    Linklist L,L1,L2;<br>    Linklist_init(L);<br>    Linklist_init2(&amp;L1);<br>    L2 = Linklist_init3();<br>    //Linklist_reverse(L-&gt;next);<br>    //Linklist_delele(L, 1);<br>    //Linklist_del(L,0);<br>    //Linklist_del2(L, 2);<br>    Linklist_del3(L, 2);</p>
+<pre><code>return 0;</code></pre><p>}</p>
+
     </article>
     <!-- license  -->
     
@@ -423,13 +416,13 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/blog/2020/02/23/hello-world/" title= "Hello World">
-                    <div class="nextTitle">Hello World</div>
-                </a>
-            
         </li>
         <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/blog/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/" title= "Pat1030 Dijkstra">
+                    <div class="prevTitle">Pat1030 Dijkstra</div>
+                </a>
             
         </li>
     </ul>
@@ -472,7 +465,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#samba的功能"><span class="toc-number">1.</span> <span class="toc-text">samba的功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#samba常见的应用"><span class="toc-number">2.</span> <span class="toc-text">samba常见的应用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#连接模式（Peer-Peer（对等模式），Domain-model（主控模式））"><span class="toc-number">2.1.</span> <span class="toc-text">连接模式（Peer&#x2F;Peer（对等模式），Domain model（主控模式））</span></a></li></ol></li></ol>
+        
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
