@@ -22,7 +22,7 @@
     <meta name="description" content="">
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-    <title>Markdown语法 · huanghualiwood</title>
+    <title>线性表习题 · huanghualiwood</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/blog/" >minhao的BLOG</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Markdown语法</a>
+                <a href="#" class="post-name">线性表习题</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Markdown语法
+            线性表习题
             <!-- 404 -->
             
         </h1>
@@ -266,18 +266,20 @@ height:50vh;
                 
                     <div class= post-intro-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "markdown">markdown</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据结构">数据结构</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "线性表的操作">线性表的操作</a>
     
 </div>
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">800</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">1.1k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2020/02/24</span>
+                    <span class="post-intro-time">2020/06/10</span>
                     
                     <span class="shareWrapper">
                         <span class="iconfont-archer shareIcon">&#xe71d;</span>
@@ -396,120 +398,21 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div style&#x3D;&#39;display: none&#39;&gt;</span><br><span class="line">哈哈我是注释，不会在浏览器中显示。</span><br><span class="line">&lt;&#x2F;div&gt;</span><br><span class="line"></span><br><span class="line">- 标题</span><br><span class="line"># 一级标题</span><br><span class="line">## 二级标题</span><br><span class="line">### 三级标题</span><br><span class="line">#### 四级标题</span><br><span class="line">##### 五级标题</span><br><span class="line">###### 六级标题  &lt;!--最多6级标题--&gt;</span><br><span class="line"></span><br><span class="line">- 任务列表</span><br><span class="line">- [ ] 任务一 未做任务 &#96;- + 空格 + [ ]&#96;</span><br><span class="line">- [x] 任务二 已做任务 &#96;- + 空格 + [x]&#96;</span><br><span class="line">-</span><br></pre></td></tr></table></figure>
-<div style='display: none'>
-哈哈我是注释，不会在浏览器中显示。
-</div>
-
-<ul>
-<li><p>标题</p>
-<h1 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h1><h2 id="二级标题"><a href="#二级标题" class="headerlink" title="二级标题"></a>二级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><h6 id="六级标题"><a href="#六级标题" class="headerlink" title="六级标题  "></a>六级标题  <!--最多6级标题--></h6></li>
-<li><p>任务列表</p>
-</li>
-<li><input disabled="" type="checkbox"> <p>任务一 未做任务 <code>- + 空格 + [ ]</code></p>
-</li>
-<li><input checked="" disabled="" type="checkbox"> <p>任务二 已做任务 <code>- + 空格 + [x]</code></p>
-</li>
-<li></li>
+        <p>#include <iostream><br>#include <string><br>#include<cstdio><br>typedef int Elemtype ;</p>
+<p>//顺序存储结构<br>typedef struct {<br>    Elemtype data[50] = { 4, 3, 3, 4, 2, 4, 5, 6, 6, 6 };<br>    Elemtype length;<br>}Sqlist;<br>Sqlist L;<br>//链式存储结构<br>typedef struct LNode {<br>    Elemtype data;<br>    struct LNode* next;<br>}LNode,*Linklist;</p>
+<h3 id="建立链表"><a href="#建立链表" class="headerlink" title="建立链表"></a>建立链表</h3><ul>
+<li>注意双指针和单指针的操作</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">【1】 &amp;emsp;或&amp;#8195; &#x2F;&#x2F;全角</span><br><span class="line">【2】 &amp;ensp;或&amp;#8194; &#x2F;&#x2F;半角</span><br><span class="line">【3】 &amp;nbsp;或&amp;#160;  &#x2F;&#x2F;半角之半角</span><br><span class="line"></span><br><span class="line">&lt;center&gt;行中心对齐&lt;&#x2F;center&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;left&quot;&gt;行左对齐&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p align&#x3D;&quot;right&quot;&gt;行右对齐&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;指针的引用</span><br><span class="line">void Linklist_init(Linklist &amp;L) &#123;</span><br><span class="line">	L &#x3D; (Linklist)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; L;&#x2F;&#x2F;必须要一个辅助指针*r</span><br><span class="line">	L-&gt;data &#x3D; -1;</span><br><span class="line">	L-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 5;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;二级指针，传入实参地址</span><br><span class="line">void Linklist_init2(LNode ** L) &#123;</span><br><span class="line">	*L &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; *L;</span><br><span class="line">	r-&gt;data &#x3D; -1;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 5;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;return返回</span><br><span class="line">Linklist Linklist_init3(void) &#123;</span><br><span class="line">	Linklist L &#x3D; (Linklist)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; L;</span><br><span class="line">	r-&gt;data &#x3D; -1;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 5;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	return L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>【1】 &emsp;或&#8195; //全角<br>【2】 &ensp;或&#8194; //半角<br>【3】 &nbsp;或&#160;  //半角之半角</p>
-<center>行中心对齐</center>
-<p align="left">行左对齐</p>
-<p align="right">行右对齐</p>
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&gt;*斜体*或_斜体_</span><br><span class="line"></span><br><span class="line">&gt;**粗体**</span><br><span class="line"></span><br><span class="line">&gt;***加粗斜体***</span><br><span class="line"></span><br><span class="line">&gt;~~删除线~~</span><br><span class="line"></span><br><span class="line">&gt;++下划线++</span><br><span class="line"></span><br><span class="line">&gt;&#x3D;&#x3D;背景高亮&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><em>斜体</em>或<em>斜体</em></p>
-</blockquote>
-<blockquote>
-<p><strong>粗体</strong></p>
-</blockquote>
-<blockquote>
-<p><strong><em>加粗斜体</em></strong></p>
-</blockquote>
-<blockquote>
-<p><del>删除线</del></p>
-</blockquote>
-<blockquote>
-<p>++下划线++</p>
-</blockquote>
-<blockquote>
-<p>==背景高亮==</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;font face&#x3D;&quot;黑体&quot;&gt;我是黑体字&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font face&#x3D;&quot;微软雅黑&quot;&gt;我是微软雅黑&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font face&#x3D;&quot;STCAIYUN&quot;&gt;我是华文彩云&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;#0099ff size&#x3D;12 face&#x3D;&quot;黑体&quot;&gt;黑体&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;gray size&#x3D;5&gt;gray&lt;&#x2F;font&gt;</span><br><span class="line">&lt;font color&#x3D;#00ffff size&#x3D;3&gt;null&lt;&#x2F;font&gt;</span><br></pre></td></tr></table></figure>
-<p><font face="黑体">我是黑体字</font><br><font face="微软雅黑">我是微软雅黑</font><br><font face="STCAIYUN">我是华文彩云</font><br><font color=#0099ff size=12 face="黑体">黑体</font><br><font color=gray size=5>gray</font><br><font color=#00ffff size=3>null</font></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* 无序列表项 一</span><br><span class="line">+ 无序列表项 二</span><br><span class="line">- 无序列表项 三</span><br><span class="line">1. 有序列表项 一</span><br><span class="line">2. 有序列表项 二</span><br><span class="line">3. 有序列表项 三</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>无序列表项 一</li>
-</ul>
-<ul>
-<li>无序列表项 二</li>
-</ul>
-<ul>
-<li>无序列表项 三</li>
-</ul>
-<ol>
-<li>有序列表项 一</li>
-<li>有序列表项 二</li>
-<li>有序列表项 三</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&lt;center&gt;  &lt;!--开始居中对齐--&gt;</span><br><span class="line"></span><br><span class="line">![GitHub set up](http:&#x2F;&#x2F;zh.mweb.im&#x2F;asset&#x2F;img&#x2F;set-up-git.gif &quot;图片Title&quot;)</span><br><span class="line"></span><br><span class="line">![图片Alt](图片地址 &quot;图片Title&quot;)</span><br><span class="line"></span><br><span class="line">&lt;&#x2F;center&gt; &lt;!--结束居中对齐--&gt;</span><br><span class="line"></span><br><span class="line">&gt;- 超链接</span><br><span class="line"></span><br><span class="line">&gt;欢迎阅读 [择势勤](https:&#x2F;&#x2F;www.jianshu.com&#x2F;u&#x2F;16d77399d3a7 &quot;择势勤&quot;)</span><br><span class="line"></span><br><span class="line">&gt;网站[Google][1]、[Leanote][2]。</span><br><span class="line"></span><br><span class="line">[1]:http:&#x2F;&#x2F;www.google.com </span><br><span class="line">[2]:http:&#x2F;&#x2F;www.leanote.com</span><br><span class="line"></span><br><span class="line">- 注脚</span><br><span class="line">使用 Markdown[^1]可以效率的书写文档, 直接转换成 HTML[^2]。</span><br><span class="line"></span><br><span class="line">[^1]:Markdown是一种纯文本标记语言</span><br><span class="line"></span><br><span class="line">[^2]:HyperText Markup Language 超文本标记语言</span><br><span class="line"></span><br><span class="line">- 在段落填写[TOC]以显示全文内容的目录结构</span><br><span class="line">[TOC]</span><br></pre></td></tr></table></figure>
-
-<center>  <!--开始居中对齐-->
-
-<p><img src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1969454436,2593720224&fm=26&gp=0.jpg" alt="GitHub set up"></p>
-</center> <!--结束居中对齐-->
-
-<blockquote>
-<ul>
-<li>超链接</li>
-</ul>
-</blockquote>
-<blockquote>
-<p>欢迎阅读 <a href="https://www.jianshu.com/u/16d77399d3a7" target="_blank" rel="noopener" title="择势勤">择势勤</a></p>
-</blockquote>
-<blockquote>
-<p>网站<a href="http://www.google.com" target="_blank" rel="noopener">Google</a>、<a href="http://www.leanote.com" target="_blank" rel="noopener">Leanote</a>。</p>
-</blockquote>
-<ul>
-<li>注脚<br>使用 Markdown<a href="Markdown是一种纯文本标记语言">^1</a>可以效率的书写文档, 直接转换成 HTML[^2]。</li>
-</ul>
-<p>[^2]:HyperText Markup Language 超文本标记语言</p>
-<ul>
-<li>在段落填写[TOC]以显示全文内容的目录结构<br>[TOC]</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">include &lt;stdio.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">printf(&quot;Hello world\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>学号</th>
-<th>姓名</th>
-<th>序号</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>小明明</td>
-<td>男</td>
-<td>5</td>
-</tr>
-<tr>
-<td>小红</td>
-<td>女</td>
-<td>79</td>
-</tr>
-<tr>
-<td>小陆</td>
-<td>男</td>
-<td>192</td>
-</tr>
-</tbody></table>
-<hr>
-<p>摘自 <a href="https://www.jianshu.com/p/ebe52d2d468f" target="_blank" rel="noopener">简书</a></p>
-
+<p>void delet_x(Sqlist &amp;L, int value) {<br>    int i=0, k=0, j=0;<br>    int length = L.length;<br>    j = 0;<br>    while (i&lt;L.length) {<br>        if (k != 0) {<br>            L.data[i-k] = L.data[i];<br>        }<br>        if (L.data[i] == value) {<br>            k++;<br>            length–;<br>        }<br>        i++;<br>    }<br>    for (i = length; i &lt; L.length; i++)<br>        L.data[i] = 0;<br>    L.length = length;<br>}<br>//2-2-4<br>bool delte_x_at(Sqlist &amp;L, int s, int t, int value) {<br>    if (s &gt;= t)return false;<br>    if (L.length &lt;= 0)return false;<br>    int i=0, j=0,k=0;<br>    for (i = s+1; i &lt; t; i++) {<br>        if (L.data[i] != value) {<br>            L.data[k+s+1] = L.data[i];<br>            k++;<br>        }<br>    }<br>    j = t - s - 1 - k;<br>    for (i = t; i &lt; L.length; i++)<br>        L.data[i - j] = L.data[i];<br>    for (i =0; i &lt;j; i++)<br>        L.data[L.length - 1 - i] = 0;<br>    L.length = L.length - (t - s - 1) + k;<br>    return true;<br>}<br>//2-2-8 将数组中两个顺序表的位置置换<br>int arr[10] = { 1,2,3,4,5,6,1,2,3,4 };<br>bool reverse(int arr[], int left, int right) {<br>    if (left &gt; right)return false;<br>    int mid = (left+right) / 2;<br>    for (int i = 0; i &lt;= mid - left; i++) {<br>        int tmp = arr[i+left];<br>        arr[i + left] = arr[right - i];<br>        arr[right - i] = tmp;<br>    }<br>}<br>bool sqlrev(int arr[],int m, int n) {<br>    reverse(arr, 0, m + n - 1);<br>    reverse(arr,0, n - 1);<br>    reverse(arr, n, m+n - 1);<br>    return true;<br>}</p>
+<p>//2-3-1设计一个递归算法，删除不带头结点的单链表L中所有的值为x的结点<br>bool Linklist_delele(Linklist&amp; L, int x) {<br>    if (!L)return false;<br>    if (L-&gt;data == x) {<br>        LNode *q = L;<br>        L = L-&gt;next;<br>        free(q);<br>        Linklist_delele(L, x);<br>    }<br>    Linklist_delele(L-&gt;next, x);<br>}</p>
+<p>//2-2-2在带头结点的单链表L中删除所有值为x的结点，并释放其空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">void Linklist_del(Linklist &amp;L, Elemtype x) &#123;</span><br><span class="line">	LNode *q, *p &#x3D; L-&gt;next,  *pre &#x3D; L;</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;&#x2F;&#x2F;p还要往前移一个，和L的位置重合</span><br><span class="line">			pre-&gt;next &#x3D; p;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			pre &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;删除也可以传入一级指针,无需指针的引用</span><br><span class="line">void Linklist_del2(Linklist L, Elemtype x) &#123;&#x2F;&#x2F;L此时为形参，函数内生成L头结点的副本，不过指向的内容仍然</span><br><span class="line">	Linklist q,  p &#x3D; L-&gt;next,  pre &#x3D; L;     &#x2F;&#x2F;是L。可以实现对L的删除。</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">			L-&gt;next &#x3D; p;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			pre &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;尾插法</span><br><span class="line">void Linklist_del3(Linklist &amp;L, Elemtype x) &#123;</span><br><span class="line">	Linklist q, p &#x3D; L-&gt;next, r &#x3D; L;</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data !&#x3D; x) &#123;</span><br><span class="line">		    r-&gt;next&#x3D;p;</span><br><span class="line">			r &#x3D; p;</span><br><span class="line">			p&#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;-------------------------------------------------------------</span><br></pre></td></tr></table></figure>
+<p>//2-2-3L为带头节点的单链表，编写算法实现从尾到头反向输出每个结点的值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void Linklist_reverse(Linklist L) &#123;</span><br><span class="line">	if(L-&gt;next)</span><br><span class="line">      Linklist_reverse(L-&gt;next);</span><br><span class="line">	printf(&quot;%d &quot;, L-&gt;data);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">	int n,tmp;</span><br><span class="line">	&#x2F;&#x2F;scanf(&quot;%d&quot;, &amp;n);</span><br><span class="line">	&#x2F;&#x2F;L.length &#x3D; n;</span><br><span class="line">	&#x2F;&#x2F;for (int i &#x3D; 0; i &lt; n; i++) &#123;</span><br><span class="line">		&#x2F;&#x2F;scanf(&quot;%d&quot;, &amp;tmp);</span><br><span class="line">		&#x2F;&#x2F;L.data[i] &#x3D; tmp;</span><br><span class="line">	&#x2F;&#x2F;&#125;</span><br><span class="line">	&#x2F;&#x2F;delet_x(L, 4);</span><br><span class="line">	&#x2F;&#x2F;delte_x_at(L, 0, 7, 4);</span><br><span class="line">	&#x2F;&#x2F;for (int i &#x3D; 0; i &lt; L.length; i++) &#123;</span><br><span class="line">		&#x2F;&#x2F;printf(&quot;%d &quot;, L.data[i]);</span><br><span class="line">	&#x2F;&#x2F;&#125;</span><br><span class="line">	&#x2F;&#x2F;sqlrev(arr, 6, 4);</span><br><span class="line">	Linklist L,L1,L2;</span><br><span class="line">    Linklist_init(L);</span><br><span class="line">	Linklist_init2(&amp;L1);</span><br><span class="line">	L2 &#x3D; Linklist_init3();</span><br><span class="line">	&#x2F;&#x2F;Linklist_reverse(L-&gt;next);</span><br><span class="line">	&#x2F;&#x2F;Linklist_delele(L, 1);</span><br><span class="line">	&#x2F;&#x2F;Linklist_del(L,0);</span><br><span class="line">	&#x2F;&#x2F;Linklist_del2(L, 2);</span><br><span class="line">	Linklist_del3(L, 2);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	return 0;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
     </article>
     <!-- license  -->
     
@@ -517,17 +420,12 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
-                <div class="nextSlogan">Next Post</div>
-                <a href= "/blog/2020/02/25/pat1076%20BFS/" title= "Pat1076 BFS">
-                    <div class="nextTitle">Pat1076 BFS</div>
-                </a>
-            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href= "/blog/2020/02/23/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/" title= "Samba服务器">
-                    <div class="prevTitle">Samba服务器</div>
+                <a href= "/blog/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/" title= "Pat1030 Dijkstra">
+                    <div class="prevTitle">Pat1030 Dijkstra</div>
                 </a>
             
         </li>
@@ -571,7 +469,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一级标题"><span class="toc-number">1.</span> <span class="toc-text">一级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#二级标题"><span class="toc-number">1.1.</span> <span class="toc-text">二级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#三级标题"><span class="toc-number">1.1.1.</span> <span class="toc-text">三级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#四级标题"><span class="toc-number">1.1.1.1.</span> <span class="toc-text">四级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#五级标题"><span class="toc-number">1.1.1.1.1.</span> <span class="toc-text">五级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#六级标题"><span class="toc-number">1.1.1.1.1.1.</span> <span class="toc-text">六级标题  </span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#建立链表"><span class="toc-number">1.</span> <span class="toc-text">建立链表</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
