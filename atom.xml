@@ -5,12 +5,12 @@
   
   <link href="/blog/atom.xml" rel="self"/>
   
-  <link href="https://github.com/HuanghualiWood/blog.git/"/>
+  <link href="https://github.com/HuanghualiWood/blog/"/>
   <updated>2020-06-09T16:00:00.000Z</updated>
-  <id>https://github.com/HuanghualiWood/blog.git/</id>
+  <id>https://github.com/HuanghualiWood/blog/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>minhao</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>线性表习题</title>
-    <link href="https://github.com/HuanghualiWood/blog.git/2020/06/10/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%A0%E9%A2%98/"/>
-    <id>https://github.com/HuanghualiWood/blog.git/2020/06/10/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%A0%E9%A2%98/</id>
+    <link href="https://github.com/HuanghualiWood/blog/2020/06/10/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%A0%E9%A2%98/"/>
+    <id>https://github.com/HuanghualiWood/blog/2020/06/10/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%A0%E9%A2%98/</id>
     <published>2020-06-09T16:00:00.000Z</published>
     <updated>2020-06-09T16:00:00.000Z</updated>
     
@@ -36,19 +36,19 @@
     </summary>
     
     
-      <category term="习题" scheme="https://github.com/HuanghualiWood/blog.git/categories/%E4%B9%A0%E9%A2%98/"/>
+      <category term="习题" scheme="https://github.com/HuanghualiWood/blog/categories/%E4%B9%A0%E9%A2%98/"/>
     
     
-      <category term="数据结构" scheme="https://github.com/HuanghualiWood/blog.git/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+      <category term="数据结构" scheme="https://github.com/HuanghualiWood/blog/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
     
-      <category term="线性表的操作" scheme="https://github.com/HuanghualiWood/blog.git/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
+      <category term="线性表的操作" scheme="https://github.com/HuanghualiWood/blog/tags/%E7%BA%BF%E6%80%A7%E8%A1%A8%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
     
   </entry>
   
   <entry>
     <title>PT2262解码原理</title>
-    <link href="https://github.com/HuanghualiWood/blog.git/2020/06/10/test/"/>
-    <id>https://github.com/HuanghualiWood/blog.git/2020/06/10/test/</id>
+    <link href="https://github.com/HuanghualiWood/blog/2020/06/10/test/"/>
+    <id>https://github.com/HuanghualiWood/blog/2020/06/10/test/</id>
     <published>2020-06-09T16:00:00.000Z</published>
     <updated>2020-06-09T16:00:00.000Z</updated>
     
@@ -75,17 +75,17 @@
     </summary>
     
     
-      <category term="单片机" scheme="https://github.com/HuanghualiWood/blog.git/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+      <category term="单片机" scheme="https://github.com/HuanghualiWood/blog/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
     
     
-      <category term="解码" scheme="https://github.com/HuanghualiWood/blog.git/tags/%E8%A7%A3%E7%A0%81/"/>
+      <category term="解码" scheme="https://github.com/HuanghualiWood/blog/tags/%E8%A7%A3%E7%A0%81/"/>
     
   </entry>
   
   <entry>
     <title>Pat1030 Dijkstra</title>
-    <link href="https://github.com/HuanghualiWood/blog.git/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/"/>
-    <id>https://github.com/HuanghualiWood/blog.git/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/</id>
+    <link href="https://github.com/HuanghualiWood/blog/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/"/>
+    <id>https://github.com/HuanghualiWood/blog/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/</id>
     <published>2020-02-24T16:00:00.000Z</published>
     <updated>2020-02-24T16:00:00.000Z</updated>
     
@@ -101,19 +101,19 @@
     </summary>
     
     
-      <category term="pat" scheme="https://github.com/HuanghualiWood/blog.git/categories/pat/"/>
+      <category term="pat" scheme="https://github.com/HuanghualiWood/blog/categories/pat/"/>
     
     
-      <category term="Dijkstra堆优化" scheme="https://github.com/HuanghualiWood/blog.git/tags/Dijkstra%E5%A0%86%E4%BC%98%E5%8C%96/"/>
+      <category term="Dijkstra堆优化" scheme="https://github.com/HuanghualiWood/blog/tags/Dijkstra%E5%A0%86%E4%BC%98%E5%8C%96/"/>
     
-      <category term="优先队列" scheme="https://github.com/HuanghualiWood/blog.git/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
+      <category term="优先队列" scheme="https://github.com/HuanghualiWood/blog/tags/%E4%BC%98%E5%85%88%E9%98%9F%E5%88%97/"/>
     
   </entry>
   
   <entry>
     <title>Pat1076 BFS</title>
-    <link href="https://github.com/HuanghualiWood/blog.git/2020/02/25/pat1076%20BFS/"/>
-    <id>https://github.com/HuanghualiWood/blog.git/2020/02/25/pat1076%20BFS/</id>
+    <link href="https://github.com/HuanghualiWood/blog/2020/02/25/pat1076%20BFS/"/>
+    <id>https://github.com/HuanghualiWood/blog/2020/02/25/pat1076%20BFS/</id>
     <published>2020-02-24T16:00:00.000Z</published>
     <updated>2020-02-24T16:00:00.000Z</updated>
     
@@ -129,19 +129,19 @@
     </summary>
     
     
-      <category term="pat" scheme="https://github.com/HuanghualiWood/blog.git/categories/pat/"/>
+      <category term="pat" scheme="https://github.com/HuanghualiWood/blog/categories/pat/"/>
     
     
-      <category term="BFS" scheme="https://github.com/HuanghualiWood/blog.git/tags/BFS/"/>
+      <category term="BFS" scheme="https://github.com/HuanghualiWood/blog/tags/BFS/"/>
     
-      <category term="BFS如何记录层数" scheme="https://github.com/HuanghualiWood/blog.git/tags/BFS%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95%E5%B1%82%E6%95%B0/"/>
+      <category term="BFS如何记录层数" scheme="https://github.com/HuanghualiWood/blog/tags/BFS%E5%A6%82%E4%BD%95%E8%AE%B0%E5%BD%95%E5%B1%82%E6%95%B0/"/>
     
   </entry>
   
   <entry>
     <title>Markdown语法</title>
-    <link href="https://github.com/HuanghualiWood/blog.git/2020/02/24/markdown%E8%AF%AD%E6%B3%95/"/>
-    <id>https://github.com/HuanghualiWood/blog.git/2020/02/24/markdown%E8%AF%AD%E6%B3%95/</id>
+    <link href="https://github.com/HuanghualiWood/blog/2020/02/24/markdown%E8%AF%AD%E6%B3%95/"/>
+    <id>https://github.com/HuanghualiWood/blog/2020/02/24/markdown%E8%AF%AD%E6%B3%95/</id>
     <published>2020-02-24T04:21:50.588Z</published>
     <updated>2020-02-24T04:21:50.588Z</updated>
     
@@ -157,17 +157,17 @@
     </summary>
     
     
-      <category term="basic" scheme="https://github.com/HuanghualiWood/blog.git/categories/basic/"/>
+      <category term="basic" scheme="https://github.com/HuanghualiWood/blog/categories/basic/"/>
     
     
-      <category term="markdown" scheme="https://github.com/HuanghualiWood/blog.git/tags/markdown/"/>
+      <category term="markdown" scheme="https://github.com/HuanghualiWood/blog/tags/markdown/"/>
     
   </entry>
   
   <entry>
     <title>Samba服务器</title>
-    <link href="https://github.com/HuanghualiWood/blog.git/2020/02/23/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>https://github.com/HuanghualiWood/blog.git/2020/02/23/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
+    <link href="https://github.com/HuanghualiWood/blog/2020/02/23/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://github.com/HuanghualiWood/blog/2020/02/23/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/</id>
     <published>2020-02-22T16:00:00.000Z</published>
     <updated>2020-02-22T16:00:00.000Z</updated>
     
@@ -185,17 +185,17 @@
     </summary>
     
     
-      <category term="网络" scheme="https://github.com/HuanghualiWood/blog.git/categories/%E7%BD%91%E7%BB%9C/"/>
+      <category term="网络" scheme="https://github.com/HuanghualiWood/blog/categories/%E7%BD%91%E7%BB%9C/"/>
     
     
-      <category term="萌新" scheme="https://github.com/HuanghualiWood/blog.git/tags/%E8%90%8C%E6%96%B0/"/>
+      <category term="萌新" scheme="https://github.com/HuanghualiWood/blog/tags/%E8%90%8C%E6%96%B0/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="https://github.com/HuanghualiWood/blog.git/2020/02/01/hello-world/"/>
-    <id>https://github.com/HuanghualiWood/blog.git/2020/02/01/hello-world/</id>
+    <link href="https://github.com/HuanghualiWood/blog/2020/02/01/hello-world/"/>
+    <id>https://github.com/HuanghualiWood/blog/2020/02/01/hello-world/</id>
     <published>2020-01-31T16:00:00.000Z</published>
     <updated>2020-01-31T16:00:00.000Z</updated>
     
@@ -212,7 +212,7 @@
     
     
     
-      <category term="萌新" scheme="https://github.com/HuanghualiWood/blog.git/tags/%E8%90%8C%E6%96%B0/"/>
+      <category term="萌新" scheme="https://github.com/HuanghualiWood/blog/tags/%E8%90%8C%E6%96%B0/"/>
     
   </entry>
   
