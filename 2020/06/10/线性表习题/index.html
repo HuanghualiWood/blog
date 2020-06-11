@@ -418,24 +418,9 @@ height:70vh;
 <h3 id="2头插法，精妙！"><a href="#2头插法，精妙！" class="headerlink" title="2头插法，精妙！"></a>2头插法，精妙！</h3><p>void Linklist_reverse2_2(Linklist&amp; L) {<br>    LNode * first = L, * p = L-&gt;next, * tmp = L;<br>    while (p != NULL) {<br>        tmp = p-&gt;next;<br>        first = L-&gt;next;<br>        L-&gt;next = p;<br>        p-&gt;next = first;<br>        first-&gt;next = tmp;<br>    }</p>
 <p>}<br>/<em>2-3-6有一个带头结点的单链表L，设计一个算法使其元素递增有序</em>/<br>//不应该使用选择排序，选择最小结点操作很麻烦<br>void Linklist_increaseorder(Linklist &amp;L) {<br>    LNode * p = L-&gt;next,*prep=L;<br>    LNode * q = NULL, * preq = L;<br>    LNode * min = p, * premin = p;<br>    while (p != NULL) {<br>        premin = min = p;<br>        preq = premin;<br>        q = p;<br>        printf(“p:%d “, p-&gt;data);<br>        while (q != NULL) {<br>            printf(“ q:%d  “, q-&gt;data);<br>            if (q-&gt;data &lt; min-&gt;data) {<br>                premin = preq;<br>                min = q;<br>                printf(“%d”, min-&gt;data);<br>            }<br>            preq = q;<br>            q = q-&gt;next;<br>        }<br>        if (min-&gt;next != NULL)<br>            premin-&gt;next = min-&gt;next;<br>        else premin-&gt;next = NULL;//少了这一句链表编程循环队列-_-,死循环！！！！<br>        if (min == p) {<br>            printf(“no min \n “);<br>            prep = p;<br>            p = p-&gt;next;<br>        }<br>        else<br>        {<br>            prep-&gt;next = min;<br>            prep = min;<br>            min-&gt;next = p;<br>        }<br>    }</p>
 <p>}<br>/<em>链表的插入排序</em>/<br>//比较恶心,优点难度，注重细节<br>void Linklist_increaseorder2(Linklist&amp; L) {<br>    LNode * r , * p = L-&gt;next,*pre=L;<br>    r = p-&gt;next;<br>    p-&gt;next = NULL; //!!!!这里没有想到 构造只含一个数据结点的有序表。少了这个会死循环<br>    p = r;<br>    while (p != NULL) {<br>        r = p-&gt;next;<br>        pre = L;<br>        while (pre-&gt;next!=NULL&amp;&amp;pre-&gt;next-&gt;data<p->data)<br>            pre = pre-&gt;next;<br>        p-&gt;next = pre-&gt;next;<br>        pre-&gt;next = p;<br>        p = r;<br>    }<br>}</p>
-<p>Linklist L1, L2, L3;<br>void printL(Linklist L) {<br>    Linklist p = L-&gt;next;<br>    while (p != NULL)<br>    {<br>        printf(“ %d”, p-&gt;data);<br>        p = p-&gt;next;<br>    }<br>}<br>int main() {<br>    int n,tmp;<br>    //scanf(“%d”, &amp;n);<br>    //L.length = n;<br>    //for (int i = 0; i &lt; n; i++) {<br>        //scanf(“%d”, &amp;tmp);<br>        //L.data[i] = tmp;<br>    //}<br>    //delet_x(L, 4);<br>    //delte_x_at(L, 0, 7, 4);<br>    //for (int i = 0; i &lt; L.length; i++) {<br>        //printf(“%d “, L.data[i]);<br>    //}<br>    //sqlrev(arr, 6, 4);</p>
-<pre><code>//Linklist_init(L1);
-//Linklist_init2(&amp;L1);
-L2 = Linklist_init3();
-//Linklist_reverse(L-&gt;next);
-//Linklist_delele(L, 1);
-//Linklist_del(L,0);
-//Linklist_del2(L, 2);
-//Linklist_del3(L, 2);
-//dellmin4(L);
-//Linklist_reverse2(L1);
-//Linklist_increaseorder(L2);
-Linklist_increaseorder2(L2);
-printL(L2);
-
-
-
-    return 0;</code></pre><p>}</p>
+<p>Linklist L1, L2, L3;<br>void printL(Linklist L) {<br>    Linklist p = L-&gt;next;<br>    while (p != NULL)<br>    {<br>        printf(“ %d”, p-&gt;data);<br>        p = p-&gt;next;<br>    }<br>}</p>
+<p>int main() {<br>    int n,tmp;<br>    //scanf(“%d”, &amp;n);<br>    //L.length = n;<br>    //for (int i = 0; i &lt; n; i++) {<br>        //scanf(“%d”, &amp;tmp);<br>        //L.data[i] = tmp;<br>    //}<br>    //delet_x(L, 4);<br>    //delte_x_at(L, 0, 7, 4);<br>    //for (int i = 0; i &lt; L.length; i++) {<br>        //printf(“%d “, L.data[i]);<br>    //}<br>    //sqlrev(arr, 6, 4);<br>    //Linklist_init(L1);<br>    //Linklist_init2(&amp;L1);<br>    L2 = Linklist_init3();<br>    //Linklist_reverse(L-&gt;next);<br>    //Linklist_delele(L, 1);<br>    //Linklist_del(L,0);<br>    //Linklist_del2(L, 2);<br>    //Linklist_del3(L, 2);<br>    //dellmin4(L);<br>    //Linklist_reverse2(L1);<br>    //Linklist_increaseorder(L2);<br>    Linklist_increaseorder2(L2);<br>    printL(L2);</p>
+<pre><code>return 0;</code></pre><p>}</p>
 
     </article>
     <!-- license  -->
