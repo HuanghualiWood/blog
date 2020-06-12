@@ -4,10 +4,8 @@
     white-space:normal;max-width:90%}.about-body
      .site-intro-meta,.post-body 
      .site-intro-meta{min-width:0;width:80%}.about-body 
-     .intro-title,.post-body 
-     .intro-title{font-size:2.6rem;line-height:2.8rem}.about-body 
-     .intro-subtitle,.post-body 
-     .intro-subtitle{font-size:1rem;white-space:normal;max-width:90%}.about-body .main,.post-body 
+     .intro-title,.post-body .intro-title{font-size:2.6rem;line-height:5rem}.about-body 
+     .intro-subtitle,.post-body .intro-subtitle{font-size:1rem;white-space:normal;max-width:90%}.about-body .main,.post-body 
      .main{width:86%}.blog-title{display:none}.home-link{right:1rem}.post-paginator .previous,.post-paginator 
      .next{float:none;margin:0 auto}.article-entry blockquote{margin:0.8rem 0}.sidebar{width:300px}.wrapper-sidebar-active{transform:translate3d(300px, 0, 0)}.header-sidebar-active{transform:translate3d(300px, 0, 0)}.tab-name{font-size:1.2rem}.sidebar-archive{-webkit-overflow-scrolling:touch}.archive-year,.total-archive{font-size:1.4rem}.sidebar-tags{-webkit-overflow-scrolling:touch}.footer{margin-top:0}.footer 
      .social 
