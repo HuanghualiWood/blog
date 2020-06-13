@@ -1,4 +1,800 @@
-<!DOCTYPE html><html lang="cn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no"><meta name="author" content="minhao"><meta name="renderer" content="webkit"><meta name="copyright" content="minhao"><meta name="keywords" content="hexo,hexo-theme,hexo-blog,huanghualiwood"><meta name="description" content=""><meta http-equiv="Cache-control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>线性表习题 · huanghualiwood</title><style type="text/css">@font-face{font-family:Oswald-Regular;src:url(/font/Oswald-Regular.ttf)}body{margin:0}.back-top,.container,.sidebar,.site-intro-meta,.toc-wrapper,footer,header{display:none}.site-intro{position:relative;z-index:-2;width:100%;height:50vh;overflow:hidden}.site-intro-placeholder{position:absolute;z-index:-2;top:0;left:0;width:calc(100% + 300px);height:100%;background:repeating-linear-gradient(-45deg,#444 0,#444 80px,#333 80px,#333 160px);background-position:center center;transform:translate3d(-226px,0,0);animation:gradient-move 2.5s ease-out 0s infinite}@keyframes gradient-move{0%{transform:translate3d(-226px,0,0)}100%{transform:translate3d(0,0,0)}}</style><link rel="preload" href="/css/style.css?v=20180824" as="style" onload='this.onload=null,this.rel="stylesheet"'><link rel="stylesheet" href="/css/mobile.css?v=20180824" media="(max-width:980px)"><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload='this.onload=null,this.rel="stylesheet"'><script>!function(n){"use strict";n.loadCSS||(n.loadCSS=function(){});var o=loadCSS.relpreload={};if(o.support=function(){var e;try{e=n.document.createElement("link").relList.supports("preload")}catch(t){e=!1}return function(){return e}}(),o.bindMediaToggle=function(t){var e=t.media||"all";function a(){t.media=e}t.addEventListener?t.addEventListener("load",a):t.attachEvent&&t.attachEvent("onload",a),setTimeout(function(){t.rel="stylesheet",t.media="only x"}),setTimeout(a,3e3)},o.poly=function(){if(!o.support())for(var t=n.document.getElementsByTagName("link"),e=0;e<t.length;e++){var a=t[e];"preload"!==a.rel||"style"!==a.getAttribute("as")||a.getAttribute("data-loadcss")||(a.setAttribute("data-loadcss",!0),o.bindMediaToggle(a))}},!o.support()){o.poly();var t=n.setInterval(o.poly,500);n.addEventListener?n.addEventListener("load",function(){o.poly(),n.clearInterval(t)}):n.attachEvent&&n.attachEvent("onload",function(){o.poly(),n.clearInterval(t)})}"undefined"!=typeof exports?exports.loadCSS=loadCSS:n.loadCSS=loadCSS}("undefined"!=typeof global?global:this)</script><link rel="icon" href="/assets/favicon.ico"><link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script"><link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script"><link rel="preload" href="/scripts/main.js" as="script"><link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin><link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer="defer"></script></head><body class="post-body"><header class="header"><div class="read-progress"></div><div class="header-sidebar-menu">&#xe775;</div><div class="banner"><div class="blog-title"> <a href="/">minhao的BLOG</a></div><div class="post-title"> <a href="#" class="post-name">线性表习题</a></div></div> <a class="home-link" href="/">minhao的BLOG</a></header><div class="wrapper"><div class="site-intro" style="height:70vh"><div class="site-intro-placeholder"></div><div class="site-intro-img" style="background-image:url(/intro/post-bg.jpg)"></div><div class="site-intro-meta"><h1 class="intro-title"> 线性表习题</h1><p class="intro-subtitle"></p><div class="post-intros"><div class="post-intro-tags"> <a class="post-tag" href="javascript:void(0);" data-tags="数据结构">数据结构</a> <a class="post-tag" href="javascript:void(0);" data-tags="线性表的操作">线性表的操作</a></div><div class="post-intro-read"> <span>字数统计: <span class="post-count word-count">2.1k</span>阅读时长: <span class="post-count reading-time">10 min</span></span></div><div class="post-intro-meta"> <span class="post-intro-calander iconfont-archer">&#xe676;</span> <span class="post-intro-time">2020/06/10</span> <span id="busuanzi_container_page_pv" class="busuanzi-pv"><span class="iconfont-archer">&#xe602;</span><span id="busuanzi_value_page_pv"></span></span> <span class="shareWrapper"><span class="iconfont-archer shareIcon">&#xe71d;</span> <span class="shareText">Share</span><ul class="shareList"><li class="iconfont-archer share-qr" data-type="qr">&#xe75b;<div class="share-qrcode"></div></li><li class="iconfont-archer" data-type="weibo">&#xe619;</li><li class="iconfont-archer" data-type="qzone">&#xe62e;</li><li class="iconfont-archer" data-type="twitter">&#xe634;</li><li class="iconfont-archer" data-type="facebook">&#xe67a;</li></ul></span></div></div></div></div><script>var browser={versions:function(){var e=window.navigator.userAgent;return{userAgent:e,trident:-1<e.indexOf("Trident"),presto:-1<e.indexOf("Presto"),webKit:-1<e.indexOf("AppleWebKit"),gecko:-1<e.indexOf("Gecko")&&-1==e.indexOf("KHTML"),mobile:!!e.match(/AppleWebKit.*Mobile.*/),ios:!!e.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),android:-1<e.indexOf("Android")||-1<e.indexOf("Linux"),iPhone:-1<e.indexOf("iPhone")||-1<e.indexOf("Mac"),iPad:-1<e.indexOf("iPad"),webApp:-1==e.indexOf("Safari"),weixin:-1==e.indexOf("MicroMessenger"),uc:-1<e.indexOf("UCBrowser")}}()};function fontLoaded(){if(console.log("font loaded"),document.getElementsByClassName("site-intro-meta")){document.getElementsByClassName("intro-title")[0].classList.add("intro-fade-in"),document.getElementsByClassName("intro-subtitle")[0].classList.add("intro-fade-in");var e=document.getElementsByClassName("post-intros")[0];e&&e.classList.add("post-fade-in")}}function asyncCb(){browser.versions.uc?(console.log("UCBrowser"),fontLoaded()):WebFont.load({custom:{families:["Oswald-Regular"]},loading:function(){},active:function(){fontLoaded()},inactive:function(){console.log("inactive: timeout"),fontLoaded()},timeout:5e3})}function asyncErr(){console.warn("script load from CDN failed, will load local script")}function async(e,n,t){var o=document,i="script",s=o.createElement(i),a=o.getElementsByTagName(i)[0];s.src=e,n&&s.addEventListener("load",function(e){n(null,e)},!1),t&&s.addEventListener("error",function(e){t(null,e)},!1),a.parentNode.insertBefore(s,a)}console.log("userAgent:"+browser.versions.userAgent);var asyncLoadWithFallBack=function(e,n,t){var o=function(){t(),e.shift(),e.length&&async(e[0],n,o)};async(e[0],n,o)};asyncLoadWithFallBack(["https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js","https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js","/lib/webfontloader.min.js"],asyncCb,asyncErr)</script> <img class="loading" src="/assets/loading.svg" style="display:block;margin:6rem auto 0 auto;width:6rem;height:6rem"><div class="container container-unloaded"><main class="main post-page"><article class="article-entry"><h1 id="线性表习题"><a href="#线性表习题" class="headerlink" title="线性表习题"></a>线性表习题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*2-2-3编写一个时间复杂度为O（n）,空间复杂度为O（1）的算法，删除顺序表中所有值为x的元素*&#x2F;</span><br><span class="line">&#x2F;*2-2-4从有序顺序表中删除其值在给定范围s与t之间，包含s和t的所有元素，如果t或s不合理，显示错误信息）*&#x2F;</span><br><span class="line">&#x2F;*2-2-8 将数组中两个顺序表的位置置换*&#x2F;</span><br><span class="line">&#x2F;*2-3-1设计一个递归算法，删除不带头结点的单链表L中所有的值为x的结点*&#x2F;</span><br><span class="line">&#x2F;*2-3-2在带头结点的单链表L中删除所有值为x的结点，并释放其空间*&#x2F;</span><br><span class="line">&#x2F;*2-3-3 L为带头节点的单链表，编写算法实现从尾到头反向输出每个结点的值*&#x2F;</span><br><span class="line">&#x2F;*2-3-4 试编写在带头结点的单链表L中删除一个最小值结点的高效算法（假设最小结点是唯一的）*&#x2F;</span><br><span class="line">&#x2F;*2-3-5试编写算法将带头结点的单链表就地逆置，辅助空间复杂度为O(1)*&#x2F;</span><br><span class="line">&#x2F;*2-3-6有一个带头结点的单链表L，设计一个算法使其元素递增有序*&#x2F;</span><br></pre></td></tr></table></figure><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#define Elemtype int</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;顺序存储结构</span><br><span class="line">typedef struct &#123;</span><br><span class="line">	Elemtype data[50] &#x3D; &#123; 4, 3, 3, 4, 2, 4, 5, 6, 6, 6 &#125;;</span><br><span class="line">	Elemtype length;</span><br><span class="line">&#125;Sqlist;</span><br><span class="line">Sqlist L;</span><br><span class="line">&#x2F;&#x2F;链式存储结构</span><br><span class="line">typedef struct LNode &#123;</span><br><span class="line">	Elemtype data;</span><br><span class="line">	struct LNode* next;</span><br><span class="line">&#125;LNode,*Linklist;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;*------------</span><br><span class="line">建立链表，注意双指针以及辅助指针的使用</span><br><span class="line">-------------*&#x2F;</span><br><span class="line">&#x2F;&#x2F;指针的引用</span><br><span class="line">void Linklist_init(Linklist &amp;L) &#123;</span><br><span class="line">	L &#x3D; (Linklist)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; L;&#x2F;&#x2F;必须要一个辅助指针*r</span><br><span class="line">	L-&gt;data &#x3D; -1;</span><br><span class="line">	L-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 10; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i ;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;二级指针，传入实参地址</span><br><span class="line">void Linklist_init2(LNode ** L) &#123;</span><br><span class="line">	*L &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; *L;</span><br><span class="line">	r-&gt;data &#x3D; -1;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 5;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;return返回</span><br><span class="line">Linklist Linklist_init3(void) &#123;</span><br><span class="line">	Linklist L &#x3D; (Linklist)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; L;</span><br><span class="line">	r-&gt;data &#x3D; -1;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 10; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 6;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	return L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>/<em>2-2-3编写一个时间复杂度为O（n）,空间复杂度为O（1）的算法，删除顺序表中所有值为x的元素</em>/</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">void delet_x(Sqlist &amp;L, int value) &#123;</span><br><span class="line">	int i&#x3D;0, k&#x3D;0, j&#x3D;0;</span><br><span class="line">	int length &#x3D; L.length;</span><br><span class="line">	j &#x3D; 0;</span><br><span class="line">	while (i&lt;L.length) &#123;</span><br><span class="line">		if (k !&#x3D; 0) &#123;</span><br><span class="line">			L.data[i-k] &#x3D; L.data[i];</span><br><span class="line">		&#125;</span><br><span class="line">		if (L.data[i] &#x3D;&#x3D; value) &#123;</span><br><span class="line">			k++;</span><br><span class="line">			length--;	</span><br><span class="line">		&#125;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	for (i &#x3D; length; i &lt; L.length; i++)</span><br><span class="line">		L.data[i] &#x3D; 0;</span><br><span class="line">	L.length &#x3D; length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>/<em>2-2-4从有序顺序表中删除其值在给定范围s与t之间，包含s和t的所有元素，如果t或s不合理，显示错误信息）</em>/<br>//理解错误，做成了，删除线性表范围在s和t之间的值为x的元素</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">bool delte_x_at(Sqlist &amp;L, int s, int t, int value) &#123;</span><br><span class="line">	if (s &gt;&#x3D; t)return false;</span><br><span class="line">	if (L.length &lt;&#x3D; 0)return false;</span><br><span class="line">	int i&#x3D;0, j&#x3D;0,k&#x3D;0;</span><br><span class="line">	for (i &#x3D; s+1; i &lt; t; i++) &#123;</span><br><span class="line">		if (L.data[i] !&#x3D; value) &#123;</span><br><span class="line">			L.data[k+s+1] &#x3D; L.data[i];</span><br><span class="line">			k++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	j &#x3D; t - s - 1 - k;</span><br><span class="line">	for (i &#x3D; t; i &lt; L.length; i++)</span><br><span class="line">		L.data[i - j] &#x3D; L.data[i];</span><br><span class="line">	for (i &#x3D;0; i &lt;j; i++)</span><br><span class="line">		L.data[L.length - 1 - i] &#x3D; 0;</span><br><span class="line">	L.length &#x3D; L.length - (t - s - 1) + k;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>/<em>2-2-8 将数组中两个顺序表的位置置换</em>/</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">### 逆置算法</span><br><span class="line">int arr[10] &#x3D; &#123; 1,2,3,4,5,6,1,2,3,4 &#125;;</span><br><span class="line">bool reverse(int arr[], int left, int right) &#123;</span><br><span class="line">	if (left &gt; right)return false;</span><br><span class="line">	int mid &#x3D; (left+right) &#x2F; 2;</span><br><span class="line">	for (int i &#x3D; 0; i &lt;&#x3D; mid - left; i++) &#123;</span><br><span class="line">		int tmp &#x3D; arr[i+left];</span><br><span class="line">		arr[i + left] &#x3D; arr[right - i];</span><br><span class="line">		arr[right - i] &#x3D; tmp;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">bool Sqlist_rev(int arr[],int m, int n) &#123;</span><br><span class="line">	reverse(arr, 0, m + n - 1);</span><br><span class="line">	reverse(arr,0, n - 1);</span><br><span class="line">	reverse(arr, n, m+n - 1);</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>/<em>2-3-1设计一个递归算法，删除不带头结点的单链表L中所有的值为x的结点</em>/</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bool Linklist_delele(Linklist&amp; L, int x) &#123;</span><br><span class="line">	if (!L)return false;</span><br><span class="line">	if (L-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">		LNode *q &#x3D; L;</span><br><span class="line">		L &#x3D; L-&gt;next;</span><br><span class="line">		free(q);</span><br><span class="line">		Linklist_delele(L, x);</span><br><span class="line">	&#125;</span><br><span class="line">	Linklist_delele(L-&gt;next, x);</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>/<em>2-3-2在带头结点的单链表L中删除所有值为x的结点，并释放其空间</em>/</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;------------------------------------------------------</span><br><span class="line">void Linklist_del(Linklist &amp;L, Elemtype x) &#123;</span><br><span class="line">	LNode *q, *p &#x3D; L-&gt;next,  *pre &#x3D; L;</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;&#x2F;&#x2F;p还要往前移一个，和L的位置重合</span><br><span class="line">			pre-&gt;next &#x3D; p;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			pre &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;删除也可以传入一级指针,无需指针的引用</span><br><span class="line">void Linklist_del2(Linklist L, Elemtype x) &#123;&#x2F;&#x2F;L此时为形参，函数内生成L头结点的副本，不过指向的内容仍然</span><br><span class="line">	Linklist q,  p &#x3D; L-&gt;next,  pre &#x3D; L;     &#x2F;&#x2F;是L。可以实现对L的删除。</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">			L-&gt;next &#x3D; p;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			pre &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">### 尾插法，删除特定值</span><br><span class="line">void Linklist_del3(Linklist &amp;L, Elemtype x) &#123;</span><br><span class="line">	Linklist q, p &#x3D; L-&gt;next, r &#x3D; L;</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data !&#x3D; x) &#123;</span><br><span class="line">		    r-&gt;next&#x3D;p;</span><br><span class="line">			r &#x3D; p;</span><br><span class="line">			p&#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>/<em>2-3-3L为带头节点的单链表，编写算法实现从尾到头反向输出每个结点的值</em>/</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void Linklist_reverse(Linklist L) &#123;</span><br><span class="line">	if(L-&gt;next)</span><br><span class="line">      Linklist_reverse(L-&gt;next);</span><br><span class="line">	printf(&quot;%d &quot;, L-&gt;data);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>/<em>2-3-4 试编写在带头结点的单链表L中删除一个最小值结点的高效算法（假设最小结点是唯一的）</em>/<br>void dellmin4(Linklist &amp;L) {<br> LNode* pre = L, * p = L-&gt;next;<br> LNode* tmp=p,<em>tmppre=pre ;<br> while (p != NULL) {<br> if (tmp-&gt;data &gt; p-&gt;data) {<br> tmp = p;<br> tmppre = pre;<br> }<br> pre = p;<br> p = p-&gt;next;<br> }<br> tmppre-&gt;next = tmp-&gt;next;<br> free(tmp);<br>}<br>/*2-3-5试编写算法将带头结点的单链表就地逆置，辅助空间复杂度为O(1)</em>/<br>//xxxxx<br>void Linklist_reverse2(Linklist &amp;L) {<br> LNode *pre = NULL, *p = L-&gt;next, * tmp = L;<br> while (p != NULL) {<br> tmp = p-&gt;next;<br> p-&gt;next = pre;<br> pre = p;<br> p = tmp;<br> }<br> L-&gt;next=pre;<br>}</p><h3 id="2头插法，精妙！"><a href="#2头插法，精妙！" class="headerlink" title="2头插法，精妙！"></a>2头插法，精妙！</h3><p>void Linklist_reverse2_2(Linklist&amp; L) {<br> LNode * first = L, * p = L-&gt;next, * tmp = L;<br> while (p != NULL) {<br> tmp = p-&gt;next;<br> first = L-&gt;next;<br> L-&gt;next = p;<br> p-&gt;next = first;<br> first-&gt;next = tmp;<br> }</p><p>}<br>/<em>2-3-6有一个带头结点的单链表L，设计一个算法使其元素递增有序</em>/<br>//不应该使用选择排序，选择最小结点操作很麻烦<br>void Linklist_increaseorder(Linklist &amp;L) {<br> LNode * p = L-&gt;next,*prep=L;<br> LNode * q = NULL, * preq = L;<br> LNode * min = p, * premin = p;<br> while (p != NULL) {<br> premin = min = p;<br> preq = premin;<br> q = p;<br> printf(“p:%d “, p-&gt;data);<br> while (q != NULL) {<br> printf(“ q:%d “, q-&gt;data);<br> if (q-&gt;data &lt; min-&gt;data) {<br> premin = preq;<br> min = q;<br> printf(“%d”, min-&gt;data);<br> }<br> preq = q;<br> q = q-&gt;next;<br> }<br> if (min-&gt;next != NULL)<br> premin-&gt;next = min-&gt;next;<br> else premin-&gt;next = NULL;//少了这一句链表编程循环队列-_-,死循环！！！！<br> if (min == p) {<br> printf(“no min \n “);<br> prep = p;<br> p = p-&gt;next;<br> }<br> else<br> {<br> prep-&gt;next = min;<br> prep = min;<br> min-&gt;next = p;<br> }<br> }</p><p>}<br>/<em>链表的插入排序</em>/<br>//比较恶心,优点难度，注重细节<br>void Linklist_increaseorder2(Linklist&amp; L) {<br> LNode * r , * p = L-&gt;next,*pre=L;<br> r = p-&gt;next;<br> p-&gt;next = NULL; //!!!!这里没有想到 构造只含一个数据结点的有序表。少了这个会死循环<br> p = r;<br> while (p != NULL) {<br> r = p-&gt;next;<br> pre = L;<br> while (pre-&gt;next!=NULL&amp;&amp;pre-&gt;next-&gt;data<p->data)<br> pre = pre-&gt;next;<br> p-&gt;next = pre-&gt;next;<br> pre-&gt;next = p;<br> p = r;<br> }<br>}</p-></p><p>Linklist L1, L2, L3;<br>void printL(Linklist L) {<br> Linklist p = L-&gt;next;<br> while (p != NULL)<br> {<br> printf(“ %d”, p-&gt;data);<br> p = p-&gt;next;<br> }<br>}</p><p>int main() {<br> int n,tmp;<br> //scanf(“%d”, &amp;n);<br> //L.length = n;<br> //for (int i = 0; i &lt; n; i++) {<br> //scanf(“%d”, &amp;tmp);<br> //L.data[i] = tmp;<br> //}<br> //delet_x(L, 4);<br> //delte_x_at(L, 0, 7, 4);<br> //for (int i = 0; i &lt; L.length; i++) {<br> //printf(“%d “, L.data[i]);<br> //}<br> //sqlrev(arr, 6, 4);<br> //Linklist_init(L1);<br> //Linklist_init2(&amp;L1);<br> L2 = Linklist_init3();<br> //Linklist_reverse(L-&gt;next);<br> //Linklist_delele(L, 1);<br> //Linklist_del(L,0);<br> //Linklist_del2(L, 2);<br> //Linklist_del3(L, 2);<br> //dellmin4(L);<br> //Linklist_reverse2(L1);<br> //Linklist_increaseorder(L2);<br> Linklist_increaseorder2(L2);<br> printL(L2);</p><pre><code>return 0;</code></pre><p>}</p></article><ul class="post-paginator"><li class="next"><div class="nextSlogan">Next Post</div><a href="/2020/06/10/test/" title="PT2262解码原理"><div class="nextTitle">PT2262解码原理</div></a></li><li class="previous"><div class="prevSlogan">Previous Post</div><a href="/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/" title="Pat1030 Dijkstra"><div class="prevTitle">Pat1030 Dijkstra</div></a></li></ul><script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script><script src="//unpkg.com/valine/dist/Valine.min.js"></script><div id="comment"></div><script>new Valine({el:"#comment",notify:!1,verify:!1,appId:"g19wRrCtJOQVUMnXrqLrDfuH-gzGzoHsz",appKey:"EjjgoSfgn69eAldOwhtLAlu7",placeholder:"",path:window.location.pathname,avatar:"mm",visitor:!0})</script></main></div><footer class="footer footer-unloaded"><span id="timeDate" ,></span><span id="times"></span><script>var now=new Date;function createtime(){var n=new Date("02/01/2020 00:00:00");now.setTime(now.getTime()+250),days=(now-n)/1e3/60/60/24,dnum=Math.floor(days),hours=(now-n)/1e3/60/60-24*dnum,hnum=Math.floor(hours),1==String(hnum).length&&(hnum="0"+hnum),minutes=(now-n)/1e3/60-1440*dnum-60*hnum,mnum=Math.floor(minutes),1==String(mnum).length&&(mnum="0"+mnum),seconds=(now-n)/1e3-86400*dnum-3600*hnum-60*mnum,snum=Math.round(seconds),1==String(snum).length&&(snum="0"+snum),document.getElementById("timeDate").innerHTML="本站已安全运行 "+dnum+" 天 ",document.getElementById("times").innerHTML=hnum+" 小时 "+mnum+" 分 "+snum+" 秒"}</script></footer></div><div class="toc-wrapper" style="top:70vh"><div class="toc-catalog"> <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线性表习题"><span class="toc-number">1.</span> <span class="toc-text">线性表习题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2头插法，精妙！"><span class="toc-number">1.0.1.</span> <span class="toc-text">2头插法，精妙！</span></a></li></ol></li></ol></div><div class="back-top iconfont-archer">&#xe639;</div><div class="sidebar sidebar-hide"><ul class="sidebar-tabs sidebar-tabs-active-0"><li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">目录</span></li><li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">标签</span></li><li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">分类</span></li></ul><div class="sidebar-content sidebar-content-show-archive"><div class="sidebar-panel-archives"><div class="total-and-search"><div class="total-archive"> Total : 13</div></div><div class="post-archive"><div class="archive-year"> 2020</div><ul class="year-list"><li class="archive-post-item"> <span class="archive-post-date">02/01</span><a class="archive-post-title" href="/2020/02/01/hello-world/">Hello World</a></li><li class="archive-post-item"> <span class="archive-post-date">02/10</span><a class="archive-post-title" href="/2020/02/10/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/">Samba服务器</a></li><li class="archive-post-item"> <span class="archive-post-date">02/24</span><a class="archive-post-title" href="/2020/02/24/markdown%E8%AF%AD%E6%B3%95/">Markdown语法</a></li><li class="archive-post-item"> <span class="archive-post-date">02/25</span><a class="archive-post-title" href="/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/">Pat1030 Dijkstra</a></li><li class="archive-post-item"> <span class="archive-post-date">02/25</span><a class="archive-post-title" href="/2020/02/25/pat1076%20BFS/">Pat1076 BFS</a></li><li class="archive-post-item"> <span class="archive-post-date">06/10</span><a class="archive-post-title" href="/2020/06/10/test/">PT2262解码原理</a></li><li class="archive-post-item"> <span class="archive-post-date">06/10</span><a class="archive-post-title" href="/2020/06/10/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%A0%E9%A2%98/">线性表习题</a></li><li class="archive-post-item"> <span class="archive-post-date">06/12</span><a class="archive-post-title" href="/2020/06/12/%E6%95%B0%E7%94%B5/">数电</a></li><li class="archive-post-item"> <span class="archive-post-date">06/13</span><a class="archive-post-title" href="/2020/06/13/1/">1</a></li><li class="archive-post-item"> <span class="archive-post-date">06/13</span><a class="archive-post-title" href="/2020/06/13/c++%E9%98%9F%E5%88%97%E5%A0%86%E6%A0%88stl/">C++队列堆栈stl</a></li><li class="archive-post-item"> <span class="archive-post-date">06/13</span><a class="archive-post-title" href="/2020/06/13/layout/">Layout</a></li><li class="archive-post-item"> <span class="archive-post-date">06/13</span><a class="archive-post-title" href="/2020/06/13/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86&%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/">图的遍历/最短路径</a></li><li class="archive-post-item"> <span class="archive-post-date">06/13</span><a class="archive-post-title" href="/2020/06/13/ps/">Ps</a></li></ul></div></div><div class="sidebar-panel-tags"><div class="sidebar-tags-name"> <span class="sidebar-tag-name" data-tags="萌新"><span class="iconfont-archer">&#xe606;</span>萌新</span> <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span> <span class="sidebar-tag-name" data-tags="Dijkstra堆优化"><span class="iconfont-archer">&#xe606;</span>Dijkstra堆优化</span> <span class="sidebar-tag-name" data-tags="优先队列"><span class="iconfont-archer">&#xe606;</span>优先队列</span> <span class="sidebar-tag-name" data-tags="BFS"><span class="iconfont-archer">&#xe606;</span>BFS</span> <span class="sidebar-tag-name" data-tags="BFS如何记录层数"><span class="iconfont-archer">&#xe606;</span>BFS如何记录层数</span> <span class="sidebar-tag-name" data-tags="解码"><span class="iconfont-archer">&#xe606;</span>解码</span> <span class="sidebar-tag-name" data-tags="数电"><span class="iconfont-archer">&#xe606;</span>数电</span> <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span> <span class="sidebar-tag-name" data-tags="线性表的操作"><span class="iconfont-archer">&#xe606;</span>线性表的操作</span> <span class="sidebar-tag-name" data-tags="“图”"><span class="iconfont-archer">&#xe606;</span>“图”</span> <span class="sidebar-tag-name" data-tags="ps note"><span class="iconfont-archer">&#xe606;</span>ps note</span></div><div class="iconfont-archer sidebar-tags-empty">&#xe678;</div><div class="tag-load-fail" style="display:none;color:#ccc;font-size:.6rem"> 缺失模块。<br> 1、请确保node版本大于6.2<br> 2、在博客根目录（注意不是archer根目录）执行以下命令：<br> <span style="color:#f75357;font-size:1rem;line-height:2rem">npm i hexo-generator-json-content --save</span><br> 3、在根目录_config.yml里添加配置：<pre style="color:#787878;font-size:.6rem">
+<!DOCTYPE html>
+<html lang="cn">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="minhao">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="minhao">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog,huanghualiwood">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>线性表习题 · huanghualiwood</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: -2;
+        width: 100%;
+        height: 50vh; 
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/" >minhao的BLOG</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">线性表习题</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/>minhao的BLOG</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:70vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            线性表习题
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "数据结构">数据结构</a>
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "线性表的操作">线性表的操作</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">2.1k</span>阅读时长: <span class="post-count reading-time">10 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2020/06/10</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="线性表习题"><a href="#线性表习题" class="headerlink" title="线性表习题"></a>线性表习题</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;*2-2-3编写一个时间复杂度为O（n）,空间复杂度为O（1）的算法，删除顺序表中所有值为x的元素*&#x2F;</span><br><span class="line">&#x2F;*2-2-4从有序顺序表中删除其值在给定范围s与t之间，包含s和t的所有元素，如果t或s不合理，显示错误信息）*&#x2F;</span><br><span class="line">&#x2F;*2-2-8 将数组中两个顺序表的位置置换*&#x2F;</span><br><span class="line">&#x2F;*2-3-1设计一个递归算法，删除不带头结点的单链表L中所有的值为x的结点*&#x2F;</span><br><span class="line">&#x2F;*2-3-2在带头结点的单链表L中删除所有值为x的结点，并释放其空间*&#x2F;</span><br><span class="line">&#x2F;*2-3-3 L为带头节点的单链表，编写算法实现从尾到头反向输出每个结点的值*&#x2F;</span><br><span class="line">&#x2F;*2-3-4 试编写在带头结点的单链表L中删除一个最小值结点的高效算法（假设最小结点是唯一的）*&#x2F;</span><br><span class="line">&#x2F;*2-3-5试编写算法将带头结点的单链表就地逆置，辅助空间复杂度为O(1)*&#x2F;</span><br><span class="line">&#x2F;*2-3-6有一个带头结点的单链表L，设计一个算法使其元素递增有序*&#x2F;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;iostream&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">#include&lt;cstdio&gt;</span><br><span class="line">#define Elemtype int</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;顺序存储结构</span><br><span class="line">typedef struct &#123;</span><br><span class="line">	Elemtype data[50] &#x3D; &#123; 4, 3, 3, 4, 2, 4, 5, 6, 6, 6 &#125;;</span><br><span class="line">	Elemtype length;</span><br><span class="line">&#125;Sqlist;</span><br><span class="line">Sqlist L;</span><br><span class="line">&#x2F;&#x2F;链式存储结构</span><br><span class="line">typedef struct LNode &#123;</span><br><span class="line">	Elemtype data;</span><br><span class="line">	struct LNode* next;</span><br><span class="line">&#125;LNode,*Linklist;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#x2F;*------------</span><br><span class="line">建立链表，注意双指针以及辅助指针的使用</span><br><span class="line">-------------*&#x2F;</span><br><span class="line">&#x2F;&#x2F;指针的引用</span><br><span class="line">void Linklist_init(Linklist &amp;L) &#123;</span><br><span class="line">	L &#x3D; (Linklist)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; L;&#x2F;&#x2F;必须要一个辅助指针*r</span><br><span class="line">	L-&gt;data &#x3D; -1;</span><br><span class="line">	L-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 10; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i ;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;二级指针，传入实参地址</span><br><span class="line">void Linklist_init2(LNode ** L) &#123;</span><br><span class="line">	*L &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; *L;</span><br><span class="line">	r-&gt;data &#x3D; -1;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 20; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 5;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;return返回</span><br><span class="line">Linklist Linklist_init3(void) &#123;</span><br><span class="line">	Linklist L &#x3D; (Linklist)malloc(sizeof(LNode));</span><br><span class="line">	LNode* tmp, * r &#x3D; L;</span><br><span class="line">	r-&gt;data &#x3D; -1;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	for (int i &#x3D; 0; i &lt; 10; i++) &#123;</span><br><span class="line">		tmp &#x3D; (LNode*)malloc(sizeof(LNode));</span><br><span class="line">		if (tmp !&#x3D; NULL) &#123;</span><br><span class="line">			tmp-&gt;data &#x3D; i % 6;</span><br><span class="line">			r-&gt;next &#x3D; tmp;</span><br><span class="line">			r &#x3D; tmp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">	return L;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>/<em>2-2-3编写一个时间复杂度为O（n）,空间复杂度为O（1）的算法，删除顺序表中所有值为x的元素</em>/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">void delet_x(Sqlist &amp;L, int value) &#123;</span><br><span class="line">	int i&#x3D;0, k&#x3D;0, j&#x3D;0;</span><br><span class="line">	int length &#x3D; L.length;</span><br><span class="line">	j &#x3D; 0;</span><br><span class="line">	while (i&lt;L.length) &#123;</span><br><span class="line">		if (k !&#x3D; 0) &#123;</span><br><span class="line">			L.data[i-k] &#x3D; L.data[i];</span><br><span class="line">		&#125;</span><br><span class="line">		if (L.data[i] &#x3D;&#x3D; value) &#123;</span><br><span class="line">			k++;</span><br><span class="line">			length--;	</span><br><span class="line">		&#125;</span><br><span class="line">		i++;</span><br><span class="line">	&#125;</span><br><span class="line">	for (i &#x3D; length; i &lt; L.length; i++)</span><br><span class="line">		L.data[i] &#x3D; 0;</span><br><span class="line">	L.length &#x3D; length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>/<em>2-2-4从有序顺序表中删除其值在给定范围s与t之间，包含s和t的所有元素，如果t或s不合理，显示错误信息）</em>/<br>//理解错误，做成了，删除线性表范围在s和t之间的值为x的元素</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">bool delte_x_at(Sqlist &amp;L, int s, int t, int value) &#123;</span><br><span class="line">	if (s &gt;&#x3D; t)return false;</span><br><span class="line">	if (L.length &lt;&#x3D; 0)return false;</span><br><span class="line">	int i&#x3D;0, j&#x3D;0,k&#x3D;0;</span><br><span class="line">	for (i &#x3D; s+1; i &lt; t; i++) &#123;</span><br><span class="line">		if (L.data[i] !&#x3D; value) &#123;</span><br><span class="line">			L.data[k+s+1] &#x3D; L.data[i];</span><br><span class="line">			k++;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	j &#x3D; t - s - 1 - k;</span><br><span class="line">	for (i &#x3D; t; i &lt; L.length; i++)</span><br><span class="line">		L.data[i - j] &#x3D; L.data[i];</span><br><span class="line">	for (i &#x3D;0; i &lt;j; i++)</span><br><span class="line">		L.data[L.length - 1 - i] &#x3D; 0;</span><br><span class="line">	L.length &#x3D; L.length - (t - s - 1) + k;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>/<em>2-2-8 将数组中两个顺序表的位置置换</em>/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">### 逆置算法</span><br><span class="line">int arr[10] &#x3D; &#123; 1,2,3,4,5,6,1,2,3,4 &#125;;</span><br><span class="line">bool reverse(int arr[], int left, int right) &#123;</span><br><span class="line">	if (left &gt; right)return false;</span><br><span class="line">	int mid &#x3D; (left+right) &#x2F; 2;</span><br><span class="line">	for (int i &#x3D; 0; i &lt;&#x3D; mid - left; i++) &#123;</span><br><span class="line">		int tmp &#x3D; arr[i+left];</span><br><span class="line">		arr[i + left] &#x3D; arr[right - i];</span><br><span class="line">		arr[right - i] &#x3D; tmp;</span><br><span class="line">	&#125;</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br><span class="line">bool Sqlist_rev(int arr[],int m, int n) &#123;</span><br><span class="line">	reverse(arr, 0, m + n - 1);</span><br><span class="line">	reverse(arr,0, n - 1);</span><br><span class="line">	reverse(arr, n, m+n - 1);</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>/<em>2-3-1设计一个递归算法，删除不带头结点的单链表L中所有的值为x的结点</em>/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">bool Linklist_delele(Linklist&amp; L, int x) &#123;</span><br><span class="line">	if (!L)return false;</span><br><span class="line">	if (L-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">		LNode *q &#x3D; L;</span><br><span class="line">		L &#x3D; L-&gt;next;</span><br><span class="line">		free(q);</span><br><span class="line">		Linklist_delele(L, x);</span><br><span class="line">	&#125;</span><br><span class="line">	Linklist_delele(L-&gt;next, x);</span><br><span class="line">	return true;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>/<em>2-3-2在带头结点的单链表L中删除所有值为x的结点，并释放其空间</em>/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;------------------------------------------------------</span><br><span class="line">void Linklist_del(Linklist &amp;L, Elemtype x) &#123;</span><br><span class="line">	LNode *q, *p &#x3D; L-&gt;next,  *pre &#x3D; L;</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;&#x2F;&#x2F;p还要往前移一个，和L的位置重合</span><br><span class="line">			pre-&gt;next &#x3D; p;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			pre &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#x2F;&#x2F;删除也可以传入一级指针,无需指针的引用</span><br><span class="line">void Linklist_del2(Linklist L, Elemtype x) &#123;&#x2F;&#x2F;L此时为形参，函数内生成L头结点的副本，不过指向的内容仍然</span><br><span class="line">	Linklist q,  p &#x3D; L-&gt;next,  pre &#x3D; L;     &#x2F;&#x2F;是L。可以实现对L的删除。</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data &#x3D;&#x3D; x) &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">			L-&gt;next &#x3D; p;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			pre &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">### 尾插法，删除特定值</span><br><span class="line">void Linklist_del3(Linklist &amp;L, Elemtype x) &#123;</span><br><span class="line">	Linklist q, p &#x3D; L-&gt;next, r &#x3D; L;</span><br><span class="line">	while (p) &#123;</span><br><span class="line">		if (p-&gt;data !&#x3D; x) &#123;</span><br><span class="line">		    r-&gt;next&#x3D;p;</span><br><span class="line">			r &#x3D; p;</span><br><span class="line">			p&#x3D; p-&gt;next;</span><br><span class="line">		&#125;</span><br><span class="line">		else &#123;</span><br><span class="line">			q &#x3D; p;</span><br><span class="line">			p &#x3D; p-&gt;next;</span><br><span class="line">			free(q);</span><br><span class="line">			printf(&quot;. &quot;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	r-&gt;next &#x3D; NULL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>/<em>2-3-3L为带头节点的单链表，编写算法实现从尾到头反向输出每个结点的值</em>/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">void Linklist_reverse(Linklist L) &#123;</span><br><span class="line">	if(L-&gt;next)</span><br><span class="line">      Linklist_reverse(L-&gt;next);</span><br><span class="line">	printf(&quot;%d &quot;, L-&gt;data);	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>/<em>2-3-4 试编写在带头结点的单链表L中删除一个最小值结点的高效算法（假设最小结点是唯一的）</em>/<br>void dellmin4(Linklist &amp;L) {<br>    LNode* pre = L, * p = L-&gt;next;<br>    LNode* tmp=p,<em>tmppre=pre ;<br>    while (p != NULL) {<br>        if (tmp-&gt;data &gt; p-&gt;data) {<br>            tmp = p;<br>            tmppre = pre;<br>        }<br>        pre = p;<br>        p = p-&gt;next;<br>    }<br>    tmppre-&gt;next = tmp-&gt;next;<br>    free(tmp);<br>}<br>/*2-3-5试编写算法将带头结点的单链表就地逆置，辅助空间复杂度为O(1)</em>/<br>//xxxxx<br>void Linklist_reverse2(Linklist &amp;L) {<br>    LNode *pre = NULL, *p = L-&gt;next, * tmp = L;<br>    while (p != NULL) {<br>        tmp = p-&gt;next;<br>        p-&gt;next = pre;<br>        pre = p;<br>        p = tmp;<br>    }<br>    L-&gt;next=pre;<br>}</p>
+<h3 id="2头插法，精妙！"><a href="#2头插法，精妙！" class="headerlink" title="2头插法，精妙！"></a>2头插法，精妙！</h3><p>void Linklist_reverse2_2(Linklist&amp; L) {<br>    LNode * first = L, * p = L-&gt;next, * tmp = L;<br>    while (p != NULL) {<br>        tmp = p-&gt;next;<br>        first = L-&gt;next;<br>        L-&gt;next = p;<br>        p-&gt;next = first;<br>        first-&gt;next = tmp;<br>    }</p>
+<p>}<br>/<em>2-3-6有一个带头结点的单链表L，设计一个算法使其元素递增有序</em>/<br>//不应该使用选择排序，选择最小结点操作很麻烦<br>void Linklist_increaseorder(Linklist &amp;L) {<br>    LNode * p = L-&gt;next,*prep=L;<br>    LNode * q = NULL, * preq = L;<br>    LNode * min = p, * premin = p;<br>    while (p != NULL) {<br>        premin = min = p;<br>        preq = premin;<br>        q = p;<br>        printf(“p:%d “, p-&gt;data);<br>        while (q != NULL) {<br>            printf(“ q:%d  “, q-&gt;data);<br>            if (q-&gt;data &lt; min-&gt;data) {<br>                premin = preq;<br>                min = q;<br>                printf(“%d”, min-&gt;data);<br>            }<br>            preq = q;<br>            q = q-&gt;next;<br>        }<br>        if (min-&gt;next != NULL)<br>            premin-&gt;next = min-&gt;next;<br>        else premin-&gt;next = NULL;//少了这一句链表编程循环队列-_-,死循环！！！！<br>        if (min == p) {<br>            printf(“no min \n “);<br>            prep = p;<br>            p = p-&gt;next;<br>        }<br>        else<br>        {<br>            prep-&gt;next = min;<br>            prep = min;<br>            min-&gt;next = p;<br>        }<br>    }</p>
+<p>}<br>/<em>链表的插入排序</em>/<br>//比较恶心,优点难度，注重细节<br>void Linklist_increaseorder2(Linklist&amp; L) {<br>    LNode * r , * p = L-&gt;next,*pre=L;<br>    r = p-&gt;next;<br>    p-&gt;next = NULL; //!!!!这里没有想到 构造只含一个数据结点的有序表。少了这个会死循环<br>    p = r;<br>    while (p != NULL) {<br>        r = p-&gt;next;<br>        pre = L;<br>        while (pre-&gt;next!=NULL&amp;&amp;pre-&gt;next-&gt;data<p->data)<br>            pre = pre-&gt;next;<br>        p-&gt;next = pre-&gt;next;<br>        pre-&gt;next = p;<br>        p = r;<br>    }<br>}</p>
+<p>Linklist L1, L2, L3;<br>void printL(Linklist L) {<br>    Linklist p = L-&gt;next;<br>    while (p != NULL)<br>    {<br>        printf(“ %d”, p-&gt;data);<br>        p = p-&gt;next;<br>    }<br>}</p>
+<p>int main() {<br>    int n,tmp;<br>    //scanf(“%d”, &amp;n);<br>    //L.length = n;<br>    //for (int i = 0; i &lt; n; i++) {<br>        //scanf(“%d”, &amp;tmp);<br>        //L.data[i] = tmp;<br>    //}<br>    //delet_x(L, 4);<br>    //delte_x_at(L, 0, 7, 4);<br>    //for (int i = 0; i &lt; L.length; i++) {<br>        //printf(“%d “, L.data[i]);<br>    //}<br>    //sqlrev(arr, 6, 4);<br>    //Linklist_init(L1);<br>    //Linklist_init2(&amp;L1);<br>    L2 = Linklist_init3();<br>    //Linklist_reverse(L-&gt;next);<br>    //Linklist_delele(L, 1);<br>    //Linklist_del(L,0);<br>    //Linklist_del2(L, 2);<br>    //Linklist_del3(L, 2);<br>    //dellmin4(L);<br>    //Linklist_reverse2(L1);<br>    //Linklist_increaseorder(L2);<br>    Linklist_increaseorder2(L2);<br>    printL(L2);</p>
+<pre><code>return 0;</code></pre><p>}</p>
+
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/2020/06/10/test/" title= "PT2262解码原理">
+                    <div class="nextTitle">PT2262解码原理</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/" title= "Pat1030 Dijkstra">
+                    <div class="prevTitle">Pat1030 Dijkstra</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "g19wRrCtJOQVUMnXrqLrDfuH-gzGzoHsz",
+        appKey: "EjjgoSfgn69eAldOwhtLAlu7",
+        placeholder: "",
+        path:window.location.pathname, 
+        avatar:'mm' ,
+        visitor: true,
+    });
+    </script>
+
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+<span id="timeDate" ,></span><span id="times"></span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("02/01/2020 00:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if (String(hnum).length == 1) { hnum = "0" + hnum; } minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if (String(mnum).length == 1) { mnum = "0" + mnum; }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if (String(snum).length == 1) { snum = "0" + snum; }
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    //setInterval("createtime()", 250);
+</script>
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:70vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#线性表习题"><span class="toc-number">1.</span> <span class="toc-text">线性表习题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2头插法，精妙！"><span class="toc-number">1.0.1.</span> <span class="toc-text">2头插法，精妙！</span></a></li></ol></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">目录</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">标签</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">分类</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 13
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/2020/02/01/hello-world/" >Hello World</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/10</span><a class="archive-post-title" href= "/2020/02/10/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/" >Samba服务器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/2020/02/24/markdown%E8%AF%AD%E6%B3%95/" >Markdown语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/25</span><a class="archive-post-title" href= "/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/" >Pat1030 Dijkstra</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/25</span><a class="archive-post-title" href= "/2020/02/25/pat1076%20BFS/" >Pat1076 BFS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2020/06/10/test/" >PT2262解码原理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/2020/06/10/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%A0%E9%A2%98/" >线性表习题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/2020/06/12/%E6%95%B0%E7%94%B5/" >数电</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2020/06/13/c++%E9%98%9F%E5%88%97%E5%A0%86%E6%A0%88stl/" >C++队列堆栈stl</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2020/06/13/1/" >1</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2020/06/13/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86&%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" >图的遍历/最短路径</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2020/06/13/ps/" >Ps</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/2020/06/13/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" >Hello World</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="萌新"><span class="iconfont-archer">&#xe606;</span>萌新</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dijkstra堆优化"><span class="iconfont-archer">&#xe606;</span>Dijkstra堆优化</span>
+    
+        <span class="sidebar-tag-name" data-tags="优先队列"><span class="iconfont-archer">&#xe606;</span>优先队列</span>
+    
+        <span class="sidebar-tag-name" data-tags="BFS"><span class="iconfont-archer">&#xe606;</span>BFS</span>
+    
+        <span class="sidebar-tag-name" data-tags="BFS如何记录层数"><span class="iconfont-archer">&#xe606;</span>BFS如何记录层数</span>
+    
+        <span class="sidebar-tag-name" data-tags="ps note"><span class="iconfont-archer">&#xe606;</span>ps note</span>
+    
+        <span class="sidebar-tag-name" data-tags="解码"><span class="iconfont-archer">&#xe606;</span>解码</span>
+    
+        <span class="sidebar-tag-name" data-tags="数电"><span class="iconfont-archer">&#xe606;</span>数电</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="线性表的操作"><span class="iconfont-archer">&#xe606;</span>线性表的操作</span>
+    
+        <span class="sidebar-tag-name" data-tags="c base"><span class="iconfont-archer">&#xe606;</span>c base</span>
+    
+        <span class="sidebar-tag-name" data-tags="图"><span class="iconfont-archer">&#xe606;</span>图</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
 jsonContent:
   meta: false
   pages: false
@@ -16,4 +812,59 @@ jsonContent:
     permalink: false
     excerpt: false
     categories: true
-    tags: true</pre></div><div class="sidebar-tags-list"></div></div><div class="sidebar-panel-categories"><div class="sidebar-categories-name"> <span class="sidebar-category-name" data-categories="网络"><span class="iconfont-archer">&#xe60a;</span>网络</span> <span class="sidebar-category-name" data-categories="basic"><span class="iconfont-archer">&#xe60a;</span>basic</span> <span class="sidebar-category-name" data-categories="pat"><span class="iconfont-archer">&#xe60a;</span>pat</span> <span class="sidebar-category-name" data-categories="单片机"><span class="iconfont-archer">&#xe60a;</span>单片机</span> <span class="sidebar-category-name" data-categories="习题"><span class="iconfont-archer">&#xe60a;</span>习题</span></div><div class="iconfont-archer sidebar-categories-empty">&#xe678;</div><div class="sidebar-categories-list"></div></div></div></div><script>var siteMeta={root:"/",author:"minhao"}</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script><script type="text/javascript">void 0===window.$&&(console.warn("jquery load from jsdelivr failed, will load local script"),document.write('<script src="/,lib/jquery.min.js,"><\/script>'))</script><script src="/scripts/main.js"></script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="/scripts/share.js" async></script></body></html>
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="basic"><span class="iconfont-archer">&#xe60a;</span>basic</span>
+    
+        <span class="sidebar-category-name" data-categories="网络"><span class="iconfont-archer">&#xe60a;</span>网络</span>
+    
+        <span class="sidebar-category-name" data-categories="pat"><span class="iconfont-archer">&#xe60a;</span>pat</span>
+    
+        <span class="sidebar-category-name" data-categories="单片机"><span class="iconfont-archer">&#xe60a;</span>单片机</span>
+    
+        <span class="sidebar-category-name" data-categories="习题"><span class="iconfont-archer">&#xe60a;</span>习题</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/",
+        author: "minhao"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/,lib/jquery.min.js,">\x3C/script>')
+        }
+    </script>
+    <script src="/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
+     
+    </body>
+</html>
+
+
