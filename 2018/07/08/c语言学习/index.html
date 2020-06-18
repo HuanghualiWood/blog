@@ -1,0 +1,2644 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+
+
+<!-- keywords -->
+
+
+
+
+<head>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" >
+    <meta name="author" content="minhao">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="minhao">
+    
+    <meta name="keywords" content="hexo,hexo-theme,hexo-blog,huanghualiwood">
+    
+    <meta name="description" content="">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>C Base · huanghualiwood</title>
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/blog/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: -2;
+        width: 100%;
+        height: 50vh; 
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+
+</style>
+
+    <link rel="preload" href= "/blog/css/style.css?v=20180824" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="stylesheet" href= "/blog/css/mobile.css?v=20180824" media="(max-width: 980px)">
+    
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+    
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+(function( w ){
+	"use strict";
+	// rel=preload support test
+	if( !w.loadCSS ){
+		w.loadCSS = function(){};
+	}
+	// define on the loadCSS obj
+	var rp = loadCSS.relpreload = {};
+	// rel=preload feature support test
+	// runs once and returns a function for compat purposes
+	rp.support = (function(){
+		var ret;
+		try {
+			ret = w.document.createElement( "link" ).relList.supports( "preload" );
+		} catch (e) {
+			ret = false;
+		}
+		return function(){
+			return ret;
+		};
+	})();
+
+	// if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+	// then change that media back to its intended value on load
+	rp.bindMediaToggle = function( link ){
+		// remember existing media attr for ultimate state, or default to 'all'
+		var finalMedia = link.media || "all";
+
+		function enableStylesheet(){
+			link.media = finalMedia;
+		}
+
+		// bind load handlers to enable media
+		if( link.addEventListener ){
+			link.addEventListener( "load", enableStylesheet );
+		} else if( link.attachEvent ){
+			link.attachEvent( "onload", enableStylesheet );
+		}
+
+		// Set rel and non-applicable media type to start an async request
+		// note: timeout allows this to happen async to let rendering continue in IE
+		setTimeout(function(){
+			link.rel = "stylesheet";
+			link.media = "only x";
+		});
+		// also enable media after 3 seconds,
+		// which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+		setTimeout( enableStylesheet, 3000 );
+	};
+
+	// loop through link elements in DOM
+	rp.poly = function(){
+		// double check this to prevent external calls from running
+		if( rp.support() ){
+			return;
+		}
+		var links = w.document.getElementsByTagName( "link" );
+		for( var i = 0; i < links.length; i++ ){
+			var link = links[ i ];
+			// qualify links to those with rel=preload and as=style attrs
+			if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+				// prevent rerunning on link
+				link.setAttribute( "data-loadcss", true );
+				// bind listeners to toggle media back
+				rp.bindMediaToggle( link );
+			}
+		}
+	};
+
+	// if unsupported, run the polyfill
+	if( !rp.support() ){
+		// run once at least
+		rp.poly();
+
+		// rerun poly on an interval until onload
+		var run = w.setInterval( rp.poly, 500 );
+		if( w.addEventListener ){
+			w.addEventListener( "load", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		} else if( w.attachEvent ){
+			w.attachEvent( "onload", function(){
+				rp.poly();
+				w.clearInterval( run );
+			} );
+		}
+	}
+
+
+	// commonjs
+	if( typeof exports !== "undefined" ){
+		exports.loadCSS = loadCSS;
+	}
+	else {
+		w.loadCSS = loadCSS;
+	}
+}( typeof global !== "undefined" ? global : this ) );
+</script>
+
+    <link rel="icon" href= "/blog/assets/favicon.ico" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js" as="script" />
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" as="script" />
+    <link rel="preload" href="/blog/scripts/main.js" as="script" />
+    <link rel="preload" as="font" href="/blog/font/Oswald-Regular.ttf" crossorigin>
+    <link rel="preload" as="font" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" crossorigin>
+    
+    <!-- fancybox -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script>
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+</head>
+
+    
+        <body class="post-body">
+    
+    
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><header class="header">
+
+    <div class="read-progress"></div>
+    <div class="header-sidebar-menu">&#xe775;</div>
+    <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/blog/" >minhao的BLOG</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">C Base</a>
+            </div>
+    </div>
+    
+    <a class="home-link" href=/blog/>minhao的BLOG</a>
+</header>
+    <div class="wrapper">
+        <div class="site-intro" style="
+
+
+
+
+
+
+
+height:70vh;
+">
+    
+    <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/blog/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+            C Base
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+            
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "c base">c base</a>
+    
+</div>
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">4.7k</span>Reading time: <span class="post-count reading-time">19 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2018/07/08</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+        <script>
+ 
+  // get user agent
+  var browser = {
+    versions: function () {
+      var u = window.navigator.userAgent;
+      return {
+        userAgent: u,
+        trident: u.indexOf('Trident') > -1, //IE内核
+        presto: u.indexOf('Presto') > -1, //opera内核
+        webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+        iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+        iPad: u.indexOf('iPad') > -1, //是否为iPad
+        webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+        weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+        uc: u.indexOf('UCBrowser') > -1 //是否为android下的UC浏览器
+      };
+    }()
+  }
+  console.log("userAgent:" + browser.versions.userAgent);
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded');
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document.getElementsByClassName('intro-title')[0].classList.add('intro-fade-in');
+      document.getElementsByClassName('intro-subtitle')[0].classList.add('intro-fade-in');
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in');
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb(){
+    if (browser.versions.uc) {
+      console.log("UCBrowser");
+      fontLoaded();
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular']
+        },
+        loading: function () {  //所有字体开始加载
+          // console.log('loading');
+        },
+        active: function () {  //所有字体已渲染
+          fontLoaded();
+        },
+        inactive: function () { //字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout');
+          fontLoaded();
+        },
+        timeout: 5000 // Set the timeout to two seconds
+      });
+    }
+  }
+
+  function asyncErr(){
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document, t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0];
+    o.src = u;
+    if (cb) { o.addEventListener('load', function (e) { cb(null, e); }, false); }
+    if (err) { o.addEventListener('error', function (e) { err(null, e); }, false); }
+    s.parentNode.insertBefore(o, s);
+  }
+
+  var asyncLoadWithFallBack = function(arr, success, reject) {
+      var currReject = function(){
+        reject()
+        arr.shift()
+        if(arr.length)
+          async(arr[0], success, currReject)
+        }
+
+      async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack([
+    "https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js", 
+    "https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js",
+    "/blog/lib/webfontloader.min.js"
+  ], asyncCb, asyncErr)
+</script>        
+        <img class="loading" src="/blog/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+        <div class="container container-unloaded">
+            <main class="main post-page">
+    <article class="article-entry">
+        <p> 7/9/2018 4:12:24 PM </p>
+<p>[TOC]</p>
+<hr>
+<h1 id="二-数据和C"><a href="#二-数据和C" class="headerlink" title="二.数据和C"></a>二.数据和C</h1><h2 id="1-e（数学科学记数法"><a href="#1-e（数学科学记数法" class="headerlink" title="1.e（数学科学记数法"></a>1.e（数学科学记数法</h2><p></p><p align="left">用指数表示法显示数字，以 E+n 替换部分数字，其中 E（代表指数）表示将前面的数字乘以 10 的 n 次幂。例如，用 2 位小数的“科学记数”格式表示 12345678901，结果为 1.23E+10，即 1.23 乘以 10 的 10 次幂。您可以指定要使用的小数位数。</p>
+<blockquote>
+<blockquote>
+<p><br></p>
+</blockquote>
+</blockquote>
+<h2 id="2-浮点数"><a href="#2-浮点数" class="headerlink" title="2.浮点数"></a>2.浮点数</h2><p><a href="https://blog.csdn.net/rjs123/article/details/7976499" target="_blank" rel="noopener">（浮点数网站详解）</a>:</p>
+<blockquote>
+<p>浮点数:是指小数点在数据中的位置可以左右移动的数据。它通常被表示成：</p>
+</blockquote>
+<pre><code>    N = M* RE
+</code></pre><p>这里的M(Mantissa)被称为浮点数的尾数，R(Radix)被称为阶码的基数，E(Exponent)被称为阶的阶码。 1.2345 × 102，其中 1.2345 为尾数，10为基数，2 为指数</p>
+<table><td bgcolor="#FF83FA">尾数实际上是有
+>>尾数有时也称为有效数字（Significand）</td></table> 
+
+<table><td bgcolor="#FFFA"><b>
+为什单精度实际的指数表达范围在-127~127之间?
+
+其中单精度数为 8 位，双精度数为 11 位。以单精度数为例，8 位的指数为可以表达 0 到 255 之间的 255 个指数值。但是，指数可以为正数，也可以为负数。为了处理负指数的情况，实际的指数值按要求需要加上一个偏差（Bias）值作为保存在指数域中的值，单精度数的偏差值为 127，而双精度数的偏差值为 1023。比如，单精度的实际指数值 0 在指数域中将保存为 127；而保存在指数域中的 64 则表示实际的指数值 -63。偏差的引入使得对于单精度数，实际可以表达的指数值的范围就变成-127 到128 之间（包含两端）。我们不久还将看到，实际的指数值-127（保存为全 0）以及 +128（保存为全 1）保留用作特殊值的处理。这样，实际可以表达的有效指数范围就在 -127 和 127 之间。在本文中，最小指数和最大指数分别用 emin 和 emax 来表达</b></td>
+</table><br>
+
+
+计算机中一般规定R为2、8或16、是一个确定的常数，不需要在浮点数中明确表示出来。因此，要表示浮点数，一是要给出尾数M的值，通常用定点小数形式表示，它决定了浮点数的表示精度，即可以给出的有效数字的位数。二是要给出阶码，通常用整数形式表示，它指出的是小数点在数据中的位置，决定了浮点数的表示范围。浮点数也要有符号位。
+- floating-point 差不多可以和数学中的实数概念相对应
+
+ 浮点数和整数的区别：
+
+![浮点数](https://s4.51cto.com/oss/201711/09/1afceb11e5df90996dddd0060587c3cd.jpg)
+
+|浮点数|符号位|阶码|尾数|总位数|
+|-|-|-|-|-|
+|短浮点数   |1|8|23|32|
+|长浮点数   |1|11|52|64|
+|临时浮点数 |1|15|64|80|
+
+对短浮点数和长浮点数，当其尾数不为0值时，其最高一位必定为1，在将这样的浮点数写入内存或磁盘时，不必给出该位，可左移一位去掉它，这种处理技术称为隐藏位技术，目的是用同样多位的尾数能多保存一位二进制位。在将浮点数取回运算器执行运算时，再恢复该隐藏位的值。对临时浮点数，不使用隐藏位技术。<br>
+
+ 浮点数的运算法则[百度](https://baike.baidu.com/item/%E7%A7%BB%E7%A0%81/10165919?fr=aladdin)
+
+ ## [补充补码，反码,移码](https://www.cnblogs.com/sunfan1988/p/3850242.html)【详细】
+
+<br>源码、反码、补码、移码在计算机中是怎么运算的？
+数值有正负之分,计算机就用一个数的最高位存放符号(0为正,1为负).这就是机器数的原码了.假设机器能处理的位数为8.即字长为1byte,原码能表示数值的范围为 127~（-127）
+另外，我们需要知道，在计算机中都是以补码的储存负数的（正数的补码等于他本身，所以也可以理解为计算机储存的是补码），那么我们从源码->>>反码的过程其实是为了计算补码的一个计算的过程。
+
+运算过程：原码->反码->补码->移码
+
+原码 :二进制（开头第一个表示符号0正1负）
+
+反码 ：在原码的基础上，符号位不动，其他位取反 ---注意，任何正数的源码=反码=补码，而负数都是通过补码表示的。 
+补码 ：在反码的基础上，运算+1  ---注意，任何正数的源码=反码=补码，<>而负数都是通过补码表示的。 <br>
+用补码表示阶码的时候，当阶码无限小，产生了下溢的时候，阶码变成了0，那么这个浮点数的值变为了1。
+引入移码的目的：用补码表示阶码的时候，当阶码无限小，产生了下溢的时候，阶码变成了0，那么这个浮点数的值变为了1。而实际上这个数是无限接近于零的。那么我们就需要取出其中的 "-0" 值作为机器零。
+
+公式：两数补码的和==两数和的补码。
+
+移码 ：在补码的基础上，符号位取反
+
+<table><td bgcolor="#FF83FA">负数的存储：c语言中，负数以整数的补码存储</td></table>
+101011（二进制）--> 原码 00101011 --> 反码 01010100 --> 补码 01010101--> 移码 11010101
+
+二进制运算
+<table><td bgcolor="#FF83FA">逢二进一，结果写0 </td></table><br>
+例题1用补码计算2-9
+-
+
+# 三.数据类型 
+
+![c语言数据类型](https://blog.csdn.net/wfreehorse/article/details/60589326.jpg)
+
+![类型](http://c.biancheng.net/cpp/uploads/allimg/120205/1-120205162A4H8.jpg)
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdlib.h&gt;</span><br><span class="line">#include &lt;inttypes.h&gt;</span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">   &#x2F;*int x &#x3D;2;</span><br><span class="line">    printf(&quot;dec&#x3D;%d;octal&#x3D;%o;hex&#x3D;%x\n&quot;,x,x,x);&#x2F;&#x2F;显示八进制十六进制</span><br><span class="line">    printf(&quot;dec&#x3D;%d;octal&#x3D;%#o;hex&#x3D;%#x\n&quot;,x,x,x);&#x2F;&#x2F;%o %x</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;*****整数溢出*******</span><br><span class="line">    int i&#x3D;2147483647;</span><br><span class="line">    unsigned int j&#x3D;4294967295;</span><br><span class="line">    printf(&quot;%d;%d;%d\n&quot;,i,i+1,i+2);</span><br><span class="line">    printf(&quot;%u;%u;%u\n\n\n&quot;,j,j+1,j+2);&#x2F;&#x2F;无符号整型达到最大值时，将溢出到起始点；而int型的起始点是-2147483647</span><br><span class="line"></span><br><span class="line">    &#x2F;*******打印short long,longlong,和unsigned类型数*********</span><br><span class="line">    &#x2F;&#x2F;使用修饰符h可以显示一个较长的整数被截成short类型的样子</span><br><span class="line">    &#x2F;&#x2F;在传递参数数时，c会自动将short类型的值转换为int类型。int类型被认为是计算机处理起来最方便有效的的整数类型</span><br><span class="line">    unsigned int un &#x3D;3000000000;</span><br><span class="line">    short end&#x3D;200;</span><br><span class="line">    long big&#x3D;65537;</span><br><span class="line">    long long verybig&#x3D;12345678908642;</span><br><span class="line">    printf(&quot;un&#x3D;%u and not un&#x3D;%d\n&quot;,un,un);</span><br><span class="line">    printf(&quot;end&#x3D;%hd and not %d\n&quot;,end,end);</span><br><span class="line">    printf(&quot;big&#x3D;%ld and not %hd\n&quot;,big,big);</span><br><span class="line">    printf(&quot;verybig&#x3D;%lld and not %ld\n&quot;,verybig,verybig);</span><br><span class="line"></span><br><span class="line">    &#x2F;****非打印字符***</span><br><span class="line">    &#x2F;&#x2F;一些动作描述是打印不出来的例如退格，换行，走纸让终端铃响。一，使用ASCⅡ码二，使用转义序列（escape sequence）</span><br><span class="line">    char beep&#x3D;&#39;\007&#39;;</span><br><span class="line">    printf(&quot;hello\a\n&quot;);&#x2F;&#x2F;发出警报声</span><br><span class="line"></span><br><span class="line">    &#x2F;***可移植的指数类型inttypes.h***</span><br><span class="line">    &#x2F;&#x2F;C99标准提供了一些串宏来打印这些可移植类型例如inttype.h头文件将定义串PRId16表示打印16位有符号值</span><br><span class="line">    int16_t me16;</span><br><span class="line">    me16&#x3D;4593;</span><br><span class="line">    printf(&quot;me16&#x3D;%hd\n&quot;,me16);</span><br><span class="line">    printf(&quot;me16&#x3D;%&quot;PRId16&quot;\n&quot;,me16);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;***float double 和longdouble型***&#x2F;</span><br><span class="line">    &#x2F;&#x2F;浮点常量：使用f或F后缀使编译器把浮点常量当作float型比如2.3f和9.11E9F</span><br><span class="line">    &#x2F;&#x2F;*用%e打印指数计数法的数字</span><br><span class="line">    float double型都用%f，%e，%a说明符打印*</span><br><span class="line">    float aboat &#x3D;32000.0;</span><br><span class="line">    double abet &#x3D;2.14e9;</span><br><span class="line">    long double dip &#x3D;5.32e-5;</span><br><span class="line">    printf(&quot;%f %e\n&quot;,aboat,aboat);</span><br><span class="line">    printf(&quot;%f %e\n&quot;,abet,abet);</span><br><span class="line">    printf(&quot;%f %e\n&quot;,dip,dip);&#x2F;&#x2F;???</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;*浮点值的上溢和下溢</span><br><span class="line"></span><br><span class="line">     float toobig&#x3D;3.4e38*100.0f;</span><br><span class="line">     printf(&quot;%e&quot;,toobig);</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;练习2,输入一个ascⅡ码，然后输出相应的字符</span><br><span class="line">    int a;</span><br><span class="line">    char ch;</span><br><span class="line">    printf(&quot;输入一个整数\n&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;a);</span><br><span class="line">    ch&#x3D;a;</span><br><span class="line">    printf(&quot;%c\n&quot;,ch);</span><br><span class="line">    &#x2F;&#x2F;练习3，输入一个字母，输出其ascⅡ码</span><br><span class="line">    getchar();</span><br><span class="line"></span><br><span class="line">    int b;</span><br><span class="line">    char fi;</span><br><span class="line">    printf(&quot;输入一个小写字母&quot;);</span><br><span class="line">    scanf(&quot;%c&quot;,&amp;fi);</span><br><span class="line">    b&#x3D;fi-32;</span><br><span class="line">    printf(&quot;ascⅡ为%d&quot;,b);</span><br><span class="line">    getchar();</span><br><span class="line">    *&#x2F;</span><br><span class="line">    &#x2F;&#x2F;练习3读入一个浮点数，分别以小数形式和指数形式输出</span><br><span class="line">    float c;</span><br><span class="line">    scanf(&quot;%f\n&quot;,&amp;c);</span><br><span class="line">    printf(&quot;%e\n%0.1f\n&quot;,c,c);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+# 四.字符串和格式化输入/输出
+
+- strlen()
+-  const
+- print() 和 scanf()
+- 使用c预处理器#define指令和ANSIC的const修饰符创建符号常量
+<p align="left">
+使用%s的scanf()只会把第一个字符串读入<br><b>
+C使用读取输入函数 （例如gets（））来处理一般的字符串
+
+常量和C预处理器<br>
+格式：#define 其次常量一般大写
+
+>4.3.1 **const修饰符** <br>
+>C90新增了一种创建符号常量的第二种方法。使用const把一个变量声明转换成常量
+
+const int MONTHS=12;
+
+>4.3.2**系统定义的明显常量** 头文件limits.h和float.h
+
+1.sizeof()运算符:以字节为单位给出数据的大小<br>
+2.strlen（）函数：以字符为单位给出字符串的长度
+string.h提供函数原型
+
+printf函数
+
+## printf格式说明符p71
+说明符 | 功能 
+- | :-: | 
+%d|有符号十进制整形
+%f|单精度浮点数，小数点后保留6位
+%lf|双浮点精度
+%c|输出一个字符
+%s|按实际输出字符串
+%e|按指数格式输出
+%g|按输出较小原则，自动按%f或%e原则输出浮点数
+%o|八进制数
+%x|十进制数
+%p|输出指针的地址
+
+printf()说明修饰符
+修饰符 | 功能
+- |:-:|
+-|左对齐  :%-20s:
++|显示正负号 :%+6.2f
+空格|有符号的值若为正，则显示是带前导空格（不现实正号），若为扶，则显示符号
+\#|显示数据格式
+0|用前导零而不是空格填充字段宽度，如果出现-标志或者指定了精度，则忽略该标志:%010d %08.3f
+.digits|精度 ：%5.2f（字段宽度为五个字符，五位有效数字，保留2位小数）
+（易混）ll|unsigned long long int %8llu
+t|和整数转换说明符一起使用，表示一个ptrdiff_t值（与两个指针之间的差相对应的类型）%td  %12ti
+z|和整数说明符一起使用，表示一个size_t值（sizeof返回的类型）%zd %12zx
+
+
+>printf()分割字符串（字符串较长时）的三种方法<br>
+>1.多个printf（）语句
+
+>2.使用反斜杠\和回车键组合来结束第一行
+
+>3.采用字符串连接的方法
+
+## scanf()函数
+转换说明符和转换修饰符与printf（）类似p79
+<p align="left">**scanf()的返回值**（后面讲到）
+
+如果它没有读取任何项目（当它期望一个数字而你却键入了一个非数字字符串时就会发生这种情况），scanf()会返回值0.当它检测到“文件结尾”（end of file），它返回EOF（EOF是stdio.h中定义的特殊值）
+
+【重点】
+## <table><td bgcolor="#FF83FA">4.4.6printf()和scanf()的*的修饰符</td></table>
+
+</p><p>printf()<em>用法：使用</em>代替数字，使用可变参数确定字段宽度的值<br>scanf()*的作用：使函数跳过相应的输入项目</p>
+<blockquote>
+<p>如果程序需要读取一个文件中某个特定的列（该文件的数据以统一的列排列），那么该功能将非常有用</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;第四章练习</span><br><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;string.h&gt;</span><br><span class="line">#include&lt;float.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;*</span><br><span class="line">    &#x2F;&#x2F;2.4输入名字，在比名字宽三个字符发字段内打印它</span><br><span class="line">    char ming[40],xing[40];</span><br><span class="line">    printf(&quot;输入名字&quot;);</span><br><span class="line">    scanf(&quot;%s&quot;,&amp;ming);</span><br><span class="line">    int a&#x3D;strlen(ming);</span><br><span class="line">    printf(&quot;\&quot;%s\&quot;\n&quot;,ming);</span><br><span class="line">    printf(&quot;\&quot;%20s\&quot;\n&quot;,ming);</span><br><span class="line">    printf(&quot;\&quot;%*s\&quot;\n&quot;,a+3,ming);&#x2F;&#x2F;程序清单4.16使用可变宽度的输出字段</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;3.</span><br><span class="line">    float a&#x3D;21.3;</span><br><span class="line">    printf(&quot;The input %0.1f is%0.1e\n&quot;,a,a);</span><br><span class="line">    &#x2F;&#x2F;5 输入名字，在第一行打印输入的姓名，在下一行打印每个名字中字母的个数，把字母个数与相应名字的结尾对齐</span><br><span class="line"></span><br><span class="line">    char xing[40],name[40];</span><br><span class="line">    printf(&quot;分别输入姓氏名字\n&quot;);</span><br><span class="line">    scanf(&quot;%s&quot;,&amp;xing);</span><br><span class="line">    getchar();</span><br><span class="line">    scanf(&quot;%s&quot;,&amp;name);</span><br><span class="line">    printf(&quot;%s\t&quot;,xing);</span><br><span class="line">    printf(&quot;%s\n&quot;,name);</span><br><span class="line">    printf(&quot;%*d\t%*d\n&quot;,strlen(xing),strlen(xing),strlen(name),strlen(name));</span><br><span class="line">    *&#x2F;</span><br><span class="line">    &#x2F;&#x2F;6.</span><br><span class="line">    double num1&#x3D;1.0&#x2F;3.0;</span><br><span class="line">    float num2&#x3D;1.0&#x2F;3.0;</span><br><span class="line">    printf(&quot;%.4f,%.12f,%.16f\n&quot;,num1,num1,num1);</span><br><span class="line">    printf(&quot;%.4f,%.12f,%.16f\n&quot;,num2,num2,num2);</span><br><span class="line">    printf(&quot;%d %d\n&quot;,FLT_DIG,DBL_DIG);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="五-运算符，表达式和语句"><a href="#五-运算符，表达式和语句" class="headerlink" title="五.运算符，表达式和语句"></a>五.运算符，表达式和语句</h1><blockquote>
+<ul>
+<li>如何编写带有参数的函数</li>
+<li>typedef</li>
+<li>复合语句，自动类型和类型指派</li>
+</ul>
+</blockquote>
+<p>1.基本运算符：=+-*/<br><br>2.其它运算符：</p>
+<blockquote>
+<ul>
+<li>sizeof运算符和size_t类型</li>
+<li><br>取模运算符%：modulus operater用于整数运算。该运算计算出用它右边的整数去除它左边的整数得到的余数。如果第一个操作数为负数，那么得到的模也为负数</li>
+<li><br> 增量运算符和减量运算符:++ —<br><br>前缀q=++a：a先自增1然后赋值给q<br>后缀q=a++:a先赋值给q然后再自增1  //先使用n然后将它的值增加</li>
+</ul>
+</blockquote>
+<p>优先级() ++ —</p>
+<p>5.4副作用和顺序点</p>
+<blockquote>
+<p>副作用：是对数据对象或文件的修改 例如states=50的副作用是将变量的的值设置为50.跟赋值运算符一样，增量减量运算符也有副作用，它们主要由于副作用而被应用<br>顺序点：是程序执行中的一点，在该点处，所有副作用都在进入下一步前被计算</p>
+<p>表达式是运算符和操作数的组合<br>语句分为简单语句和复合语句或代码块block</p>
+</blockquote>
+<p>5.5类型转换</p>
+<blockquote>
+<p>程序清单5.14</p>
+<p>指派运算符：作用避免自动类型转换，避免降级</p>
+<p>int mice;</p>
+<p>mice=1.6+1.7;</p>
+<p>mice=(int)1.6+(int)1.7</p>
+</blockquote>
+<table><td bgcolor="#FF83FA">5.6带有参数的函数</td></table>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">void pound(int n); &#x2F;&#x2F;ANSI风格的原型</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">    int times&#x3D;5;</span><br><span class="line">    char ch&#x3D;&#39;!&#39;;</span><br><span class="line">    float f&#x3D;6.0;</span><br><span class="line">    pound(times);</span><br><span class="line">    pound(ch);</span><br><span class="line">    pound((int)f);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br><span class="line">void pound(int n)</span><br><span class="line">&#123;</span><br><span class="line">    while(n--&gt;0)</span><br><span class="line">    printf(&quot;#&quot;);</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+## 形参和实参
+- 形参：全称为“形式参数”是在定义函数名和函数体的时候使用的参数，目的是用来接收调用该函数时传递的参数。
+- 实参：可以是常量、变量、表达式、函数等， 无论实参是何种类型的量，在进行函数调用时，它们都必须具有确定的值， 以便把这些值传送给形参。 因此应预先用赋值，输入等办法使实参获得确定值。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">const float f&#x3D;1.8 , b&#x3D;32.0;</span><br><span class="line">void pfh(int n);</span><br><span class="line">void temp(float a);</span><br><span class="line">pfh(int n)</span><br><span class="line">  &#123;</span><br><span class="line">   int a;</span><br><span class="line">   a&#x3D;n*n;</span><br><span class="line">   printf(&quot;%d\n&quot;,a);</span><br><span class="line">   &#125;</span><br><span class="line">    temp(a)</span><br><span class="line">   &#123;</span><br><span class="line">   float t&#x3D;f*a+b;</span><br><span class="line">   float k&#x3D;t+273.16;</span><br><span class="line">   printf(&quot;Celsius&#x3D;%.2f\n&quot;,t);</span><br><span class="line">   printf(&quot;kelvin&#x3D;%.2f\n&quot;,k);</span><br><span class="line">   &#125;</span><br><span class="line">  int main(void)</span><br><span class="line">    &#123;</span><br><span class="line">    &#x2F;*int num&#x3D;1;</span><br><span class="line">    while(num&lt;10)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%4d %6d\n&quot;,num,num*num);</span><br><span class="line">        num&#x3D;num+1;</span><br><span class="line">    &#125;</span><br><span class="line">    &#x2F;&#x2F;sizeof.c</span><br><span class="line">    int n&#x3D;1111;</span><br><span class="line">    size_t intsize;</span><br><span class="line">    intsize&#x3D;sizeof(n);</span><br><span class="line">    printf(&quot;n&#x3D;%d,n has %lubytes;all ints have%lu bytes.\n&quot;,n,sizeof n,intsize);</span><br><span class="line">    &#x2F;&#x2F;取模运算符%</span><br><span class="line">    &#x2F;&#x2F;把秒转换为分</span><br><span class="line">    int min,sec,left;</span><br><span class="line">    printf(&quot;输入秒钟&quot;);</span><br><span class="line">    scanf(&quot;%d&quot;,&amp;sec);</span><br><span class="line">    min&#x3D;sec&#x2F;60;</span><br><span class="line">    left&#x3D;sec%60;</span><br><span class="line">    printf(&quot;%d  seconds is %dminutes,%dseconds&quot;,sec,min,left);</span><br><span class="line">    &#x2F;&#x2F;数据类型自动转换</span><br><span class="line">   char ch;</span><br><span class="line">   int i;</span><br><span class="line">   float f1;</span><br><span class="line">   f1&#x3D;i&#x3D;ch&#x3D;&#39;C&#39;;</span><br><span class="line">   printf(&quot;ch &#x3D;%c,i&#x3D;%d,f1&#x3D;%f\n&quot;,ch,i,f1);</span><br><span class="line">   ch&#x3D;ch+1;</span><br><span class="line">   i&#x3D;f1+2*ch;</span><br><span class="line">   f1&#x3D;2.0*ch+i;</span><br><span class="line">   printf(&quot;ch &#x3D;%c,i&#x3D;%d,f1&#x3D;%f\n&quot;,ch,i,f1);</span><br><span class="line">   ch&#x3D;70.17;</span><br><span class="line">   printf(&quot;ch&#x3D;%c&quot;,ch);</span><br><span class="line"> *&#x2F;</span><br><span class="line">   &#x2F;&#x2F;练习5计算平方和</span><br><span class="line">   int n;</span><br><span class="line">   printf(&quot;输入一个整数\n&quot;);</span><br><span class="line">   scanf(&quot;%d&quot;,&amp;n);</span><br><span class="line">   pfh(n);</span><br><span class="line">  &#x2F;&#x2F;练习8 温度转换</span><br><span class="line">   float t;</span><br><span class="line">   printf(&quot;输入温度\n&quot;);</span><br><span class="line">   scanf(&quot;%.2f&quot;,&amp;t);</span><br><span class="line">   temp(t);</span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+# 六.C控制语句：循环
+>====
+>****
+>- for
+>- while
+>- do while
+>- 运算符+= /= %=
+>- 循环中常用的数组
+>- 编写具有返回值的函数
+>****
+>fabs()函数：math.h头文件中 可以方便的进行浮点判断，返回一个浮点值的绝对值
+>程序员最常用while(goats)  ==while(!=goats)
+><br>6.3.4新的_Bool类型<stdbool.h> 
+>运算符优先级<br>
+>![3](https://gss2.bdstatic.com/-fo3dSag_xI4khGkpoWK1HF6hhy/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=59a3e1017d3e6709aa0d4dad5aaef458/63d9f2d3572c11df57c9a205612762d0f703c2f8.jpg)  
+><br>for循环p131
+>>****
+>>- 用字符代替数字来进行计数
+>><br>- 不仅可以限制循环次数还可以限制立方的大小   
+>for（num=1;num*num*num<216;num++）><br>可以让一个或多个表达式为空
+><br>第一个表达式不必初始化一个变量，它也可以是某种类型的printf（）语句
+>第一个表达式只在执行其它循环部分之前被求值；或被执行一次
+><br>更多赋值运算符
+>>***
+ · | 说明
+-|:-:|
++= | a+=2   ==   a=a+2
+-=|a-=2      ==  a=a-2
+*=|
+\=|
+%=|
+
+><br>逗号运算符：扩展了for循环的灵活性，可以在一个for循环中使用多个初始化或更新表达式
+><pre>
+>#include<stdio.h>
+>int main(void)
+>{
+>const int FIRST_OZ=37;
+>const int NEXT_OZ=23;
+>int ounces,cost;
+>printf("ounces cost\n");
+>for(ounces=1,cost=FIRST_OZ;ounces<=16;ounces++,cost+=NEXT_OZ);>printf("%5d $%4.2f\n",ounces,cost/100.0);
+>return 0;
+>}<></=16;ounces++,cost+=NEXT_OZ);></stdio.h></pre>
+>do while:循环必须被执行一次
+><br>6.1嵌套循环     通常用来按行按列来显示数据
+><br>嵌套变化
+>
+>***
+
+# 七.章分支和跳转
+>===
+>7.2.1 getchar()和putchar():
+>>><br>在<stdio.h>文件有定义     专门为面向字符I/O设计的c函数
+>
+><br><ctype.h>系列字符函数
+>
+>
+函数名  |  为如下参数时，返回值为真
+-|:-:|
+- isalnum()  |  字母数字
+- isalpha | 字母
+- isblank | 一个标准的空白字符
+- iscntrl | 控制符
+- isdigit|阿拉伯数字
+- isgraph|除空格之外的所有可打印字符
+- islower|小写字母
+- isprint|可打印字符
+- ispunct|标点符号
+- isspace|空白字符：空格，换行，走纸，回车
+- isupper|大写字母
+- isxdigit|十六进制数字字符
+
+>>
+- | 字符映射函数
+-|:-:|
+-tolower|如果参数是大写字母，返回相应的小写字母否则，返回原始参数
+-toupper|如果参数是小写字母，返回相应的大写字母
+>****
+><br>isalpha（）函数的参数是个字母，则它返回一个非零值
+> 映射函数并不改变原始的参数,它们只会返回改变后的值
+><br>tolower(ch)
+><br>ch=tolower(ch)//把ch转换为小写
+><pre>
+>7.1 if 语句
+>判断一个数是不是素数.
+>/* divisors.c -- 使用嵌套if显示一个数的约数*/
+>#include<stdio.h>
+>#include<stdbool.h>
+>int main(void) {
+    unsigned long num;    // 要检查的数
+    unsigned long div; // 可能的约数
+    bool isPrime;    // 素数的标志
+    printf("Please enter an integer for analysis: ");
+    printf("Enter q to quit/\n");
+    while (scanf("%lu",&num)==1)
+    {
+        for (div = 2, isPrime = true; (div*div) <= num; div++) { if (num%div="=" 0) ((div*div) !="num)" printf("%lu is divisble by %lu and %lu.\n", num, div, num div); else isprime="false;//" 不是一个素数 } (isprime) prime.\n", num); printf("please enter another integer for analysis:"); printf("enter q to quit.\n"); printf("bye.\n"); getchar(); return(0); 逻辑运算符&& || ！ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;ctype.h&gt;    &#x2F;&#x2F; 为isspace()提供函数原型</span><br><span class="line">#include&lt;stdbool.h&gt; &#x2F;&#x2F; 为bool\true和false提供定义</span><br><span class="line">#define STOP &#39;|&#39;</span><br><span class="line">int main(void) &#123;</span><br><span class="line">    char c; &#x2F;&#x2F; 读入字符</span><br><span class="line">    char prev;    &#x2F;&#x2F; 前一个读入字符</span><br><span class="line">    long n_chars &#x3D; 0L; &#x2F;&#x2F; 字符数</span><br><span class="line">    int n_lines &#x3D; 0; &#x2F;&#x2F; 行数</span><br><span class="line">    int n_words &#x3D; 0;  &#x2F;&#x2F; 单词数</span><br><span class="line">    int p_lines &#x3D; 0; &#x2F;&#x2F; 不完整的行数</span><br><span class="line">    bool inword &#x3D; false; &#x2F;&#x2F; 如果C在一个单词中，则inword 等于true</span><br><span class="line">    printf(&quot;Enter text to be analyzed(| to terminate):\n&quot;);</span><br><span class="line">    prev &#x3D; &#39;\n&#39;; &#x2F;&#x2F; 用于识别完整的行</span><br><span class="line">    &#x2F;&#x2F; while ((c &#x3D; getchar()!&#x3D; STOP))  &#x2F;&#x2F; 不正确，只读到一个word,并且编译没有错误.</span><br><span class="line">    while ((c &#x3D; getchar())!&#x3D; STOP)  </span><br><span class="line">    &#123;</span><br><span class="line">        n_chars++; &#x2F;&#x2F; 统计字符</span><br><span class="line">        if (c &#x3D;&#x3D; &#39;\n&#39;)</span><br><span class="line">            n_lines++; &#x2F;&#x2F;统计行数</span><br><span class="line">        if (!isspace(c) &amp;&amp; !inword)</span><br><span class="line">        &#123;</span><br><span class="line">            inword &#x3D; true; &#x2F;&#x2F; 开始一个新单词</span><br><span class="line">            n_words++; &#x2F;&#x2F; 统计单词</span><br><span class="line">        &#125;</span><br><span class="line">        if (isspace(c) &amp;&amp; inword)</span><br><span class="line">            inword &#x3D; false; &#x2F;&#x2F; 到达单词尾部</span><br><span class="line">        prev &#x3D; c; &#x2F;&#x2F; 保存字符值</span><br><span class="line">    &#125;</span><br><span class="line">    if (prev !&#x3D; &#39;\n&#39;)</span><br><span class="line">        p_lines &#x3D; 1;</span><br><span class="line">    printf(&quot;characters &#x3D; %ld, words &#x3D; %d, lines &#x3D; %d， &quot;,</span><br><span class="line">        n_chars, n_words, n_lines);</span><br><span class="line">    printf(&quot;partial lines &#x3D; %d\n&quot;, p_lines);</span><br><span class="line">        getchar();</span><br><span class="line">    getchar();</span><br><span class="line">    return(0);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table>
+
+## 条件运算符
+>x=(y<0)? -y;y; 如果y小于0，那么x="-y，否则x=y循环辅助手段：continue" 和break <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br></pre></td><td class="code"><pre><span class="line">#include&lt;stdlib.h&gt;</span><br><span class="line">#include&lt;stdio.h&gt;</span><br><span class="line">#include&lt;ctype.h&gt;</span><br><span class="line">#include&lt;stdbool.h&gt;</span><br><span class="line">int main(void)</span><br><span class="line">&#123;</span><br><span class="line">&#x2F;*const int FIRST_OZ&#x3D;37;</span><br><span class="line">const int NEXT_OZ&#x3D;23;</span><br><span class="line">int ounces,cost;</span><br><span class="line">printf(&quot;ounces cost\n&quot;);</span><br><span class="line"> for(ounces&#x3D;1,cost&#x3D;FIRST_OZ;ounces&lt;&#x3D;16;ounces++,cost+&#x3D;NEXT_OZ);</span><br><span class="line">  printf(&quot;%5d $%4.2f\n&quot;,ounces,cost&#x2F;100.0);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">const int ROWS &#x3D;6;</span><br><span class="line">const int  CHARS &#x3D; 6;</span><br><span class="line">int row;</span><br><span class="line">char ch;</span><br><span class="line">for(row&#x3D;0;row&lt;ROWS;row++)</span><br><span class="line">&#123;</span><br><span class="line">for(ch&#x3D;(&#39;A&#39;+row);ch&lt;(&#39;A&#39;+CHARS);ch++)</span><br><span class="line">printf(&quot;%c&quot;,ch);</span><br><span class="line">printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;练习1</span><br><span class="line">char al[27];</span><br><span class="line">int i&#x3D;0;</span><br><span class="line">for(al[0]&#x3D;&#39;a&#39;;i&lt;&#39;z&#39;-&#39;a&#39;+1;i++)</span><br><span class="line">&#123;</span><br><span class="line">    &#x2F;&#x2F;if(i&gt;25)break;</span><br><span class="line">    al[i]&#x3D;&#39;a&#39;+i;</span><br><span class="line"></span><br><span class="line">    printf(&quot;%c&quot;,al[i]);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">printf(&quot;\na&#x3D;%d z&#x3D;%d\n&quot;,al[0],&#39;z&#39;);</span><br><span class="line"> int  j;</span><br><span class="line"> &#x2F;&#x2F;$</span><br><span class="line"> &#x2F;&#x2F;$$</span><br><span class="line"> &#x2F;&#x2F;$$$</span><br><span class="line"> &#x2F;&#x2F;$$$$</span><br><span class="line"> &#x2F;&#x2F;$$$$$</span><br><span class="line">&#x2F;&#x2F;练习2使用嵌套循环显示图案</span><br><span class="line">for( i&#x3D;0;i&lt;5;i++)</span><br><span class="line">&#123;</span><br><span class="line"> for( j&#x3D;i+1;j&gt;0;j--)</span><br><span class="line"> &#123;</span><br><span class="line">     printf(&quot;$&quot;);</span><br><span class="line"> &#125;</span><br><span class="line"> printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;练习三</span><br><span class="line">&#x2F;&#x2F;F</span><br><span class="line">&#x2F;&#x2F;FE</span><br><span class="line">&#x2F;&#x2F;FED</span><br><span class="line">&#x2F;&#x2F;FEDC</span><br><span class="line"> int row&#x3D;6;</span><br><span class="line"> int  chars&#x3D;6;</span><br><span class="line"> int a&#x3D;&#39;F&#39;;</span><br><span class="line">for(row&#x3D;0;row&lt;7;row++)</span><br><span class="line">&#123;</span><br><span class="line">    for(chars&#x3D;0;chars&lt;row;chars++)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;%c&quot;,a-chars);</span><br><span class="line">    &#125;</span><br><span class="line">    printf(&quot;\n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> &#x2F;&#x2F;4 金字塔图案</span><br><span class="line"> &#x2F;&#x2F;    A</span><br><span class="line"> &#x2F;&#x2F;   ABA</span><br><span class="line"> &#x2F;&#x2F;  ABCBA</span><br><span class="line"> &#x2F;&#x2F; ABCDCBA</span><br><span class="line"> char zimu;</span><br><span class="line"> const int num&#x3D;10;</span><br><span class="line"> int x,y,z,t;</span><br><span class="line"> printf(&quot;\n输入一个字符\n&quot;);</span><br><span class="line"> scanf(&quot;%c&quot;,&amp;zimu);</span><br><span class="line"> int o&#x3D;(int)zimu;&#x2F;&#x2F;！！！n很关键</span><br><span class="line"> for(x&#x3D;0;x&lt;num;x++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(y&#x3D;0;y&lt;num-x;y++)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot; &quot;);</span><br><span class="line">        &#125;</span><br><span class="line">        for(z&#x3D;0;z&lt;x;z++)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;%c&quot;,o+z);</span><br><span class="line">        &#125;</span><br><span class="line">        for(t&#x3D;x-1;t&gt;0;t--)</span><br><span class="line">        &#123;</span><br><span class="line">            printf(&quot;%c&quot;,o+t);</span><br><span class="line">        &#125;</span><br><span class="line">          printf(&quot;\n&quot;);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;方法二</span><br><span class="line">    for(x&#x3D;0;x&lt;num;x++)</span><br><span class="line">    &#123;</span><br><span class="line">        for(y&#x3D;num-x;y&gt;0;y--)printf(&quot; &quot;);</span><br><span class="line">        for(z&#x3D;0;z&lt;x;z++)printf(&quot;%c&quot;,o+z);</span><br><span class="line">        for(t&#x3D;x-1;t&gt;0;t--)printf(&quot;%c&quot;,o+t);</span><br><span class="line">        printf(&quot;\n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">      &#x2F;&#x2F;第七章</span><br><span class="line"></span><br><span class="line">      &#x2F;&#x2F;7.12 练习1</span><br><span class="line"></span><br><span class="line">      unsigned char ch;</span><br><span class="line">      int n_lines&#x3D;0,n_char&#x3D;0,n_blankspace&#x3D;0;</span><br><span class="line">      while((ch&#x3D;getchar())!&#x3D;&#39;#&#39;)</span><br><span class="line">      &#123;</span><br><span class="line">        if(ch&#x3D;&#x3D;&#39;\n&#39;) n_lines++;</span><br><span class="line">        else if(!isgraph(ch)) n_blankspace++;</span><br><span class="line">      else if(isgraph(ch))  n_char++;</span><br><span class="line">      &#125;</span><br><span class="line">      printf(&quot;lines : %d blankspace :%d  char :%d&quot;,n_lines,n_blankspace,n_char);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">     &#x2F;&#x2F;7.2打印每个输入字符以及它的十进制ASCⅡ码</span><br><span class="line">     unsigned char ch;</span><br><span class="line">     char shuzu[100];</span><br><span class="line">     int words&#x3D;0,i&#x3D;0;</span><br><span class="line">     while((ch&#x3D;getchar())!&#x3D;&#39;#&#39;)</span><br><span class="line">           &#123;</span><br><span class="line">            if(ch&#x3D;&#x3D;&#39;\n&#39;)continue;</span><br><span class="line">            if(!(ch&lt;&#39;a&#39;||ch&gt;&#39;z&#39;))</span><br><span class="line">            shuzu[i]&#x3D;ch;</span><br><span class="line">            words++;</span><br><span class="line">            i++;</span><br><span class="line">            if(i&gt;100)break;</span><br><span class="line">           &#125;</span><br><span class="line">           for(i&#x3D;0;i&lt;words;i++)</span><br><span class="line">           &#123;</span><br><span class="line">            if(i%8&#x3D;&#x3D;0)printf(&quot;\n&quot;);</span><br><span class="line">            printf(&quot;%3d &quot;,shuzu[i]);</span><br><span class="line">           &#125;</span><br><span class="line">           *&#x2F;</span><br><span class="line">      &#x2F;&#x2F;7.3 读取整数，知道输入0.输入终止后，</span><br><span class="line">      &#x2F;&#x2F;分别报告输入偶数奇数的总个数，偶数的平均值</span><br><span class="line">      bool flag&#x3D;false;&#x2F;&#x2F;判断c的位置，真为在数字中</span><br><span class="line">      int ch&#x3D;0;</span><br><span class="line">      int number&#x3D;0,nums&#x3D;0,n_even&#x3D;0,n_odd&#x3D;0,n_even_num&#x3D;0;</span><br><span class="line">      &#x2F;&#x2F;方法一</span><br><span class="line">      scanf(&quot;%d&quot;,&amp;ch);&#x2F;&#x2F;很重要！</span><br><span class="line">      while(ch!&#x3D;0)</span><br><span class="line">      &#123;</span><br><span class="line">          scanf(&quot;%d&quot;,&amp;ch);</span><br><span class="line">          if(!flag)</span><br><span class="line">          &#123;</span><br><span class="line">              flag&#x3D;false;</span><br><span class="line">              nums++;</span><br><span class="line">              if(ch%2&#x3D;&#x3D;0)</span><br><span class="line">              &#123;</span><br><span class="line">              n_even+&#x3D;ch;</span><br><span class="line">              n_even_num++;</span><br><span class="line">              &#125;</span><br><span class="line">              else</span><br><span class="line">              &#123;</span><br><span class="line">               n_odd+&#x3D;ch;</span><br><span class="line">              &#125;</span><br><span class="line">           &#125;</span><br><span class="line">           else if(isspace(ch)&amp;&amp;flag)</span><br><span class="line">            &#123;</span><br><span class="line">             flag&#x3D;true;</span><br><span class="line">            &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      &#x2F;&#x2F;方法二</span><br><span class="line">     &#x2F;* while(ch!&#x3D;0)</span><br><span class="line">      &#123;</span><br><span class="line">          scanf(&quot;%d&quot;,&amp;ch);</span><br><span class="line">          while(isspace(ch))continue;</span><br><span class="line">           nums++;</span><br><span class="line">              if(ch%2&#x3D;&#x3D;0)</span><br><span class="line">              &#123;</span><br><span class="line">                  n_even+&#x3D;ch;</span><br><span class="line">                  n_even_num++;</span><br><span class="line">              &#125;</span><br><span class="line">              else</span><br><span class="line">              &#123;</span><br><span class="line">                  n_odd+&#x3D;ch;</span><br><span class="line">              &#125;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      printf(&quot;总个数： %d \n偶数个数： %d 奇数个数： %d\n&quot;,nums,n_even_num,nums-n_even_num);</span><br><span class="line">      if(nums!&#x3D;0) printf(&quot;偶数均值: %d  奇数均值： %d&quot;,n_even&#x2F;n_even_num,n_odd&#x2F;(nums-n_even_num));</span><br><span class="line">      *&#x2F;</span><br><span class="line">      &#x2F;&#x2F;7.6计算字符串中ei出现的次数</span><br><span class="line">      char former&#x3D;0,present&#x3D;0;</span><br><span class="line">      int count&#x3D;0;</span><br><span class="line">      while((present&#x3D;getchar())!&#x3D;&#39;#&#39;)</span><br><span class="line">      &#123;</span><br><span class="line">          if(former&#x3D;&#x3D;&#39;e&#39;&amp;&amp;present&#x3D;&#x3D;&#39;i&#39;)count++; &#x2F;&#x2F;一个传一个</span><br><span class="line">          former&#x3D;present;</span><br><span class="line">      &#125;</span><br><span class="line">      printf(&quot;The chars have %d ei&quot;,count);</span><br><span class="line"></span><br><span class="line">      return 0;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table>
+# 八.字符输入输出
+<font size="3" color="red">[补]为什么给字符串赋值要用strcpy? <br>
+
+字符串拷贝用strcpy,字符用=就可以了,因为=拷贝字符串时候只会拷贝首地址(第一个字符),而strcpy是把字符串里每个字符一个一个拷贝过去
+</font></0)?></=></stdbool.h></stdio.h></pre>
+
+完全缓冲和行缓冲:
+><br>数据流:
+><br>文件结尾:1.使用Crtl+Z字符标志 2.返回值EOF  
+><br>重定向:
+><br>输入重定向： & echo_eof <words><br>输出重定向：  echo_eof >mywords
+><br>组合重定向： - 重定向运算符只将一个可执行的程序与一个数据文件连接起来不能文件连文件和程序连程序
+><br>混合输入数字和字符
+>getchar()和scanf()的区别
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br></pre></td><td class="code"><pre><span class="line">     #include&lt;stdio.h&gt;</span><br><span class="line">     #include&lt;ctype.h&gt;</span><br><span class="line">     #include&lt;stdbool.h&gt;</span><br><span class="line">     int main(void)</span><br><span class="line">     &#123;</span><br><span class="line">    &#x2F;&#x2F;8.1统计输入到文件结尾为止的字符数</span><br><span class="line">    &#x2F;*</span><br><span class="line">    int ch;</span><br><span class="line">	int count&#x3D;0;</span><br><span class="line">	while((ch&#x3D;getchar())!&#x3D;EOF)</span><br><span class="line">	&#123;</span><br><span class="line">		count++;</span><br><span class="line">	&#125;</span><br><span class="line">	printf(&quot;您输入的%d个字符。\n&quot;,count);</span><br><span class="line"></span><br><span class="line">	&#x2F;&#x2F;8.2 把输入作为字符流读取，直到遇到EOF&#x2F;令该程序打印每个输入字符及其ascⅡ编码的十进制值</span><br><span class="line">	 int ch;</span><br><span class="line">    int count&#x3D;0;</span><br><span class="line">    while((ch&#x3D;getchar())!&#x3D;EOF)</span><br><span class="line">    &#123;</span><br><span class="line">    	if(count%10&#x3D;&#x3D;0)</span><br><span class="line">    	&#123;</span><br><span class="line">    		putchar(&#39;\n&#39;);</span><br><span class="line">		&#125;</span><br><span class="line">        if(ch&lt;&#39; &#39;)</span><br><span class="line">        &#123;</span><br><span class="line">            if(ch!&#x3D;&#39;\n&#39;&amp;&amp;ch!&#x3D;&#39;\t&#39;)</span><br><span class="line">            &#123;</span><br><span class="line">                putchar(&#39;^&#39;);</span><br><span class="line">                putchar(ch+64);</span><br><span class="line">				count+&#x3D;2;</span><br><span class="line">            &#125;</span><br><span class="line">            if(ch&#x3D;&#x3D;&#39;\t&#39;) &#x2F;&#x2F;\t跳格</span><br><span class="line">            &#123;</span><br><span class="line">                putchar(ch);</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">            if(ch&#x3D;&#x3D;&#39;\n&#39;)</span><br><span class="line">            &#123;</span><br><span class="line">            	putchar(ch);</span><br><span class="line">            	count&#x3D;0;</span><br><span class="line">			&#125;</span><br><span class="line">        &#125;</span><br><span class="line">        else</span><br><span class="line">        &#123;</span><br><span class="line">            putchar(ch);</span><br><span class="line">            printf(&quot;%d &quot;,ch);</span><br><span class="line">			count++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    &#x2F;&#x2F;8.3  报告输入的大写字母的个数和小写字母的个数</span><br><span class="line">    char ch;</span><br><span class="line">    int b_num&#x3D;0,s_num&#x3D;0;</span><br><span class="line">    while((ch&#x3D;getchar())!&#x3D;EOF)</span><br><span class="line">    &#123;</span><br><span class="line">        if(isupper(ch))</span><br><span class="line">        &#123;</span><br><span class="line">            b_num++;</span><br><span class="line">        &#125;</span><br><span class="line">        else if(islower(ch))</span><br><span class="line">        &#123;</span><br><span class="line">            s_num++;</span><br><span class="line">        &#125;</span><br><span class="line">        else  continue;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    printf(&quot;大写字母：%d  小写字母：%d&quot;,b_num,s_num);</span><br><span class="line">     *&#x2F;</span><br><span class="line">     &#x2F;&#x2F;8.4报告每个单词的平均字母数</span><br><span class="line">     char ch;</span><br><span class="line">     bool state&#x3D;true;</span><br><span class="line">     int words&#x3D;0,num&#x3D;0;</span><br><span class="line">     while((ch&#x3D;getchar())!&#x3D;EOF)</span><br><span class="line">     &#123;</span><br><span class="line">         if(isalpha(ch))</span><br><span class="line">         &#123;</span><br><span class="line">         if(isalpha(ch))</span><br><span class="line">         &#123;</span><br><span class="line">             num++;</span><br><span class="line">             state&#x3D;false;</span><br><span class="line">         &#125;</span><br><span class="line">         else if(!state&amp;&amp;ch&#x3D;&#x3D;&#39; &#39;)</span><br><span class="line">         &#123;</span><br><span class="line">             words++;</span><br><span class="line">             state&#x3D;true;</span><br><span class="line">         &#125;</span><br><span class="line">         &#125;</span><br><span class="line">         &#x2F;&#x2F;else if(ch&#x3D;&#x3D;&#39;\n&#39;||ispunct(ch))continue;</span><br><span class="line">     &#125;</span><br><span class="line">     printf(&quot;Average alpha  %0.2f \n&quot;,(float)num&#x2F;(words+1));</span><br><span class="line">    return 0;</span><br><span class="line">    &#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<font color="black">
+
+# 九.函数
+
+>void starbar(void);  
+
+第一个给void声明函数类型，意思是该函数没有返回值
+第二个void声明该函数不接受任何参数
+
+>9.3递归p225
+
+>><br>C允许一个函数调用其本身，这种调用过程被称作递归。
+>><br>递归一般可以代替循环语句使用，有些情况下使用循环语句比较好，而有些时候使用递归更有效。递归方法虽然是程序结构优美，但其执行效率却没有循环语句高
+>><br>尾递归：把递归调用语句放在函数结尾
+>><br>9.3.4递归和反向计算
+
+>>使用递归处理反序的问题比使用循环简单
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">void to_binary(unsigned long n)</span><br><span class="line">&#123;</span><br><span class="line">    int r;</span><br><span class="line">    r&#x3D;n%2;</span><br><span class="line">    if(n&gt;&#x3D;2)</span><br><span class="line">        to_binary(n&#x2F;2);</span><br><span class="line">    putchar(&#39;0&#39;+r);</span><br><span class="line">    return;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+9.6改变调用函数中的变量  :排序交换变量
+<pre>
+ temp=a;//错误的交换变量
+ a=b;
+ b=temp
+</pre>
+---
+
+# 十.指针
+- void interchange(int * , int*)
+- 地址运算符： & 当后跟一个变量名，给出地址
+- 间接运算符： *   当后跟一个指针名或地址时，给出存储在被指向地址中的数值,优先级和++一样，结合时是<font color="#FF83FA">从左向右结合的</font>
+- 变量：名称，地址，数值         一个变量一般有两张属性：变量名和数值。程序被编译和加载后，同一个变量在计算机中的两个属性是地址和数值。变量的地址可以被看作是计算机中变量的名称
+- 数值传递：参数用于把调用函数中的数值传给被调函数。   当需要在某函数中直接操作其调用函数的变量时，可以使用指针作为参数。同时，指数参数也可以用来把多个数值返回到调用函数中（return只能返回一个）；
+- \*p理解：*p是指向的地址中的值，而p本身是指向类型的指针，p的值是一个地址
+
+>break函数是指提前结束循环、接着执行循环下面的语句，不能用于循环语句和switch语句之外的任何其他语句中。
+
+# 十.数组和指针
+- [C语言中指针\*p[N]   ,( \*P)[N])    及\**p的区别](https://www.cnblogs.com/kuangsyx/p/7496454.html)
+
+><font color="red">创建数组的几种方法 </font>
+
+1.预估最大数据个数，按此数值定义数组空间，完成数据输入
+> #define MAX_NUM 1000
+
+>int a[MAX_NUM];  
+这种方法定义数组，方便，安全。缺陷是数组空间大小受系统限制，数据太多了，就不能这样定义了。
+
+>运行时，确定输入数据个数，采用指针动态定义数组，或C99提供的动态数组的方法实现
+
+int *p;
+
+int n;  printf ("input n: "); scanf("%d", &n); //输入数据个数
+
+- （1）p=(int *)malloc(n*sizeof(int) ); //动态分配空间    不用了记得要释放free(p)
+
+或  
+- <font color="red"> （2）int pa[n] ;  //C99支持的动态数组，按n值动态定义数组</font>
+>
+
+还可以采用指针动态扩充数组方法：先分配一定的大小，当数组不够>用时，再重新分配空间。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#define INIT_LEN 100        预分配空间</span><br><span class="line"></span><br><span class="line">#define INCE_LEN 10         每次扩充空间</span><br><span class="line"></span><br><span class="line">int *p&#x3D;（int *) malloc(INIT_LEN *sizeof(int) );</span><br><span class="line"></span><br><span class="line">int length&#x3D;INIT_LEN ;</span><br><span class="line"></span><br><span class="line">不足时， length+&#x3D;INCE_LEN ;  p&#x3D;(int *)realloc( p, length) ; &#x2F;&#x2F;扩充空间</span><br></pre></td></tr></table></figure>
+
+
+-  数组与指针的差别p286：
+>1.两者都可以使用数组符号
+>2.都可以使用指针加法
+>3.<table><td bgcolor="#qwe1">只有指针可以使用增量运算</td></table>
+
+<ul>
+<li>字符串数组(下一章笔记整理到这)：<blockquote>
+<p>char *mytal[LIM]={“  “,”  “,”  “}<br>char mytal2[LIM][LINLIM]; </p>
+<font color="red">指针数组建立的是一个不规则的数组，每一行的长度由初始化字符串决定</font>
+
+<p>这两个数组的类型也不同，mytal是一个指向char的指针的数组，而mytal2是一个char数组的数组</p>
+</blockquote>
+</li>
+</ul>
+<pre>
+#include <stdio.h>
+int main(int argc, char* argv[])
+    {
+    int i, j;
+    int (*p1)[3], *p2[3], **p3;
+    int b[3][3];
+
+    for(i=0; i<3; i++ ) for(j="0;" j< 3; j++) b[i][j]="2*i" + j; p1="b;" for(i="0;" i< i++) p2[i]="b[i];" p3="malloc(3" * sizeof(*p3)); *(p3+i)="b[i];" printf("the matrix is :\n"); { printf("%d\t", b[i][j]); printf("\n"); } printf("%d\t%d\t%d\n", *(*(p1+1)+1), *(p2[1]+1), *(*(p3+1)+1)); < pre>
+
+
+<ul>
+<li><em>p[3]表示一个指针数组，可以理解为定义了三个指针</em>p1[0], <em>p1<br>[1], </em>p[2],在该例子中分别将b[0]的地址赋值给p[0],b[1]的地址赋值给p[2],…,因此<em>(p2[1]+1)表示的是</em>(b[1]+1)的值，也就是b[1][1].</li>
+</ul>
+<ul>
+<li><p><em>*p表示一个指向指针的指针，也可以理解为p存储的是一个地址的地址。比如在该例子中，{b[0], b[1], b[2]}可以认为是一个数组，里面的元素为一个地址，p存储的是该数组的初始地址，也就是说</em>p指向的是该数组的第一个元素（<em>(p+1)表示这个数组的第二个元素），但注意到这第一个元素还是一个地址，其相当数组b[0]的首地址，因此</em>(<em>(p3+1)+1)相当于</em>(b[1]+1),也就是b[1][1]</p>
+</li>
+<li><p>(<em>p)[3]改变了自然的运算符的优先级，相当于(int)((</em>p)[3])。一有指针就头疼，我们把指针先替换掉，就是int a[n]，是一个n维数组，数组首地址（也就是数组名）是a。那么，int (<em>p)[n]也是一个n维数组，但是这个数组的首地址是</em>p，也就是说，p指向的内容，是一个数组的首地址。那么，p就是指向一个数组的指针，这个数组中的元素都是int。实际上，p3相当于一个二重指针,这个和**p其实差不多。</p>
+</li>
+<li><p>int  *p[N]表示指针数组，也就是说定义了N个不同指向int型的指针。</p>
+</li>
+<li><p>int (*p)[N]表示定义一个指针，指向一个int[N]型的指针。</p>
+</li>
+<li><p>int **p 表示定义一个指向指针的指针。</p>
+</li>
+</ul>
+<p>注意[]的优先级要高于*。<br>常用排序算法总结<br>冒泡排序</p>
+<p>变长数组<br>长数组（VAL）:<br>在多维数组中，数组的行可以在函数调用时传递，但是数组的列一般在函数内部定义。<br>如下所示：<br>&gt;</p>
+<pre><code> #define COLS 4
+int sum2dim ( int rows, int cols, int a[rows][cols] )
+ {
+    int r;
+int c
+int tol=0;
+    for (r=0; c&lt;rows; r++)
+       for (c=0; c&lt;cols; c++)
+        tol+=ar[r][c];
+       return tol;
+
+    }
+</code></pre><p>&gt;</p>
+<pre><code>//10.12
+void bigarr(int rows,int cols)
+{
+int i,j,bigarr[rows][cols];
+int (*pz)[cols]=bigarr;
+printf(&quot;输入三个数集，每个数集包含五个int值\n&quot;);
+for(i=0;i&lt;rows;i++)
+{
+    for(j=0;j&lt;cols;j++)
+    scanf(&quot;%d&quot;,&amp;bigarr[i][j]);
+}
+for(i=0;i&lt;rows;i++)
+{
+    for(j=0;j&lt;cols;j++)
+    printf(&quot;%4d &quot;,bigarr[i][j]);
+    printf(&quot;\n&quot;);
+}
+int acount[4];
+int sum=0,a;
+
+for(i=0;i&lt;rows;i++)
+{
+for(j=0;j&lt;cols;j++)
+{
+  a=pz[i][j];          //就是这里出问题啦！//这里卡了很久，第一个指针总是知道其它的值去
+ //a+=bigarr[i][j];   //不能加等，这样首行地址的值加了类似偏移量的东西//用数组也不行
+  acount[i]+=a; //！！！！！最后讨论出数组只能简单赋值被赋值
+  sum+=a;
+}
+printf(&quot;%d行均值：%d \n&quot;,i+1,sum);
+}
+for(i=0;i&lt;3;i++)printf(&quot;acount%d: %d &quot;,i,acount[i]);
+printf(&quot;\n\n均值：第一行%2d 第二行%2d 第三行%2d\n&quot;,\
+       acount[0]/rows,acount[1]/rows,acount[2]/rows);
+printf(&quot;%总和：3%d %d %d %d %d %d&quot;,sum,pz[0][0],pz[0][1],\
+       pz[0][2],pz[0][3],pz[0][4]);
+b_max(rows,cols,bigarr);
+
+}
+
+void b_max(int rows,int cols,const int arr[rows][cols])
+{
+int i,j,rows_index=0,cols_index=0,(*max)[cols];
+max=arr;
+for(i=0;i&lt;rows;i++)
+{
+    for(j=0;j&lt;cols;j++)
+    {
+        if(arr[i][j]&gt;**max)
+            max=&amp;arr[i][j];
+     }
+}
+for(i=0;i&lt;rows;i++)
+{
+ for(j=0;j&lt;cols;j++)
+ {
+  if(arr[i][j]==**max)
+  {
+    rows_index=i+1;
+    cols_index=j+1;
+  }
+ }
+}
+ printf(&quot;\n最大值：%d  索引：%d %d\n&quot;,**max,rows_index,cols_index);
+}
+
+//10.9
+void addarr(const int arr1[],const int arr2[],int size)
+{
+int i,addarr[size],*pa,*pb;
+pa=arr1;
+pb=arr2;
+for(i=0;i&lt;size;i++)
+{
+ addarr[i]=*pa+*pb;
+ pa++;pb++;
+}
+for(i=0;i&lt;size;i++)printf(&quot;%2d &quot;,addarr[i]);
+}
+//10.8
+int valarr(int rows,int cols,int arr[rows][cols])
+{
+int i,j;
+for(i=0;i&lt;rows;i++)
+{
+ for(j=0;j&lt;cols;j++)
+ {
+ printf(&quot;%2d &quot;,arr[i][j]);
+ }
+}
+printf(&quot;\n&quot;);
+}
+//10.7
+void copy_arr2(const int arr[],int size)
+{
+int a_num[3];
+int *p1,*p2;
+p1=arr;
+p2=a_num;
+ int i,x=0;
+  for(i=0;i&lt;size;i++)
+  {
+   if(i==2||i==3||i==4)
+   {
+   *p2=*p1;
+    p2++;
+   }
+   p1++;
+ }
+ for(i=0;i&lt;3;i++)printf(&quot;%d  &quot;,a_num[i]);
+
+}
+
+//10.4 10.5
+void max(const int arr[],int size)
+{
+int i,max_index=0,min_index=0,*max,*min;
+max=arr;min=arr;
+for(i=0;i&lt;size;i++)
+{
+    if(arr[i]&gt;*max) max=&amp;arr[i];
+    if(arr[i]&lt;*min) min=&amp;arr[i];
+}
+for(i=0;i&lt;size;i++)
+{
+ if(*(arr+i)==*max)max_index=i+1;
+ if(*(arr+i)==*min)min_index=i+1;
+}
+printf(&quot;最大值：%d  索引：%d\n&quot;,*max,max_index);
+printf(&quot;最小值：%d  索引：%d\n&quot;,*min,min_index);
+printf(&quot;差值： % d\n&quot;,max_index-min_index);
+
+}
+ void copy_arr(double ar0[],double ar1[])
+{
+int i;
+for(i=0;i&lt;5;i++)
+{
+ar1[i]=ar0[i];
+}
+
+}
+
+void copy_ptr1(const double *p0,double *p2)
+{
+int i=0;
+for(i=0;i&lt;5;i++)
+{
+ *p2=*p0;
+p2++;
+p0++;
+}
+}
+ //这个不可以----我想明白啦！！！！
+//之前错误的数字，是指针没有与两个数组进行联系
+void copy_ptr2(double ar[],double ar3[])
+{
+double *p;
+int i;
+p=ar3;
+for(i=0;i&lt;5;i++)
+{
+ *p++=ar[i];
+}
+
+}
+//10.3递归显示数组
+void ideal(int num[],int n)
+{
+if(n&gt;0)
+{
+  --n;
+  ideal(num,n);
+
+}
+printf(&quot; %d &quot;,num[n]);
+}
+//**冒泡排序算法
+void bubblesort(int arr[],int n)
+{
+int i,j;
+for ( i = 0; i&lt;n - 1; i++)
+    for ( j = 0; j &lt; n - i - 1; j++)
+    {
+        //如果前面的数比后面大，进行交换
+        if (arr[j] &gt; arr[j + 1])
+            {
+            int temp = arr[j];
+            arr[j] = arr[j + 1];
+            arr[j + 1] = temp;
+        }
+    }
+
+  }
+</code></pre><h1 id="十一-字符串和字符函数"><a href="#十一-字符串和字符函数" class="headerlink" title="十一.字符串和字符函数"></a>十一.字符串和字符函数</h1><p><a href="https://www.cnblogs.com/lidabo/p/5225868.html" target="_blank" rel="noopener">c语言字符串操作大全</a></p>
+<ul>
+<li>函数gets(),puts(),strcat(),strncat(),strcmp(),strncmp(),strcpy(),strcpy(),sprintf(),strchr()</li>
+<li>命令函参数</li>
+</ul>
+<p>gets()函数的读取规则：</p>
+<blockquote>
+<blockquote>
+<p>1.只要gets遇到换行符，即便它是输入的第一个字符，gets也会停止读入并返回。如果输入的第一个字符就是换行符，则字符串将被置为空串。<br>2.由于gets函数读入再丢弃换行符，换行符将不会存储在字符串中。<br>gets的读取规则与getline是一样的。<br>gets函数的返回值：<br>1.正常读入（未遇到文件结尾）(注意，读入空串也是正常读入),则返回字符串，即返回字符串首地址，char*类型<br>2.遇到文件结尾，返回NULL<br>while (getchar()!=’\n’) ;</p>
+</blockquote>
+<ul>
+<li>字符串是以空字符结尾的char数组</li>
+<li>字符串常量：char greeting[59]=”hello”<blockquote>
+<p>属于静态存储（static storage）类，静态存储是指如果一个函数中使用字符串常量，即使多次调用这个函数，该字符串在整个程序的运行过程中只存储一份。</p>
+</blockquote>
+</li>
+</ul>
+<font size="5" color="blue">函数名: strstr()        </font></blockquote></3;></stdio.h></pre></font>
+
+<p>函数原型：</p>
+<p> char <em>strstr(char </em>str1, const char *str2);</p>
+<p>语法：<br>* strstr(str1,str2)<br>str1: 被查找目标　string expression to search.</p>
+<p>str2: 要查找对象　The string expression to find.</p>
+<p>返回值：若str2是str1的子串，则返回str2在str1的首次出现的地址；如果str2不是str1的子串，则返回NULL。</p>
+
+<h1 id="十二-存储类，链接和内存管理"><a href="#十二-存储类，链接和内存管理" class="headerlink" title="十二.存储类，链接和内存管理"></a>十二.存储类，链接和内存管理</h1><p><a href="https://www.cnblogs.com/avril/archive/2010/03/22/1691477.html" target="_blank" rel="noopener">int main(int argc,char* argv[]详解</a></p>
+<blockquote>
+<p>argc是命令行总的参数个数<br> argv[]是argc个参数，其中第0个参数是程序的全名，以后的参数<br>命令行后面跟的用户输入的参数</p>
+<p>在C语言中，有5种不同的存储类型，即存储类。在介绍存储类之前，需要首先简单介绍几个术语。如下：</p>
+<ul>
+<li><p>作用域：描述程序中可以访问一个标识符的一个或多个区域。一个C变量的作用域可以是代码块作用域、函数原型作用域、或者文件作用域。代码块作用域是在代码块中定义的变量，该变量的作用范围从代码块中变量的定义开始到代码块结束；函数原型作用域从变量定义开始到原型声明的末尾，这就意味着编译器在处理一个函数原型的参数时，只是关心该参数的类型，所以声明一个函数int sum(int x,int y)和int sum(int,int)是一样的；而一个在所用函数之外定义的变量具有文件作用域，具有文件作用域的变量从他定义开始到包含该定义文件的结尾处都是可见的，也被称作全局变量。代码说话:</p>
+<p>  1 #include<stdio.h><br>  2<br>  3 int x = 0;//x具有文件作用域,在这程序中结尾之前都是可见的<br>  4 int sum(int m,int n);//m,n具有函数原型作用域,只在申明处可见<br>  5<br>  6 int main(int argc, char* argv[])<br>  7 {<br>  8 int y = 1;//y具有代码块作用域,只在该代码块中可见<br>  9 }</stdio.h></p>
+</li>
+<li><p>存储时期：一个C变量有以下两种存储时期十一：静态存储时期和自动存储时期。所谓静态存储时期，就是一个变量在程序执行期间一直存在，上文所说的具有文件作用域的变量就属于静态存储；对于自动存储时期，则对应上述所说的具有代码块作用域的变量，当程序进入定义这些变量的代码块时，将自动为这些变量分配内存，退出这个代码块时，这些变量所占的内存将会自动被释放。</p>
+</li>
+<li><p>链接：链接分为外部链接，内部链接，以及空链接。具有代码块作用域或者函数原型的变量有空链接。具有文件作用域的变量可能有内部链接或者外部链接。区别内部链接和外部链接是由static决定。内部链接由static关键字修饰，表明该变量可以在一个文件的任何地方使用，外部链接没有static修饰，表明该链接可以在一个多文件程序的任何地方使用。</p>
+</li>
+</ul>
+</blockquote>
+<pre><code>1 int x = 10;  //文件作用域,外部链接
+2 static int y = 11; //文件作用域,内部链接
+3 
+4 int main(){
+5   ...
+6 }
+</code></pre><blockquote>
+<p>　　下面是5中存储类的对比表格：  </p>
+<p><img src="https://images0.cnblogs.com/blog2015/592290/201505/162023172821182.png" alt="1"><br>&lt;/font&gt;</p>
+</blockquote>
+<p>补动态数组，文件输入输出&gt;malloc（）</p>
+<blockquote>
+<p>函数:malloc()函数可以在程序运行时分配更多的内存。</p>
+<p>它接受一个参数：所需内存字节数</p>
+<pre><code>ptr = (int *)malloc(20 * sizeof(int));
+//类型指派(int *)在C中是可选的,但是在C++中是必须的
+</code></pre><p>c语言关键字</p>
+</blockquote>
+<pre><code>（1） 数据类型关键字（12个）： 
+(1) char ：声明字符型变量或函数 
+(2) double ：声明双精度变量或函数 
+(3) enum ：声明枚举类型 
+(4) float：声明浮点型变量或函数 
+(5) int： 声明整型变量或函数 
+(6) long ：声明长整型变量或函数 
+(7) short ：声明短整型变量或函数 
+(8) signed：声明有符号类型变量或函数 
+(9) struct：声明结构体变量或函数 
+(10) union：声明联合数据类型 
+(11) unsigned：声明无符号类型变量或函数 
+(12) void ：声明函数无返回值或无参数，声明无类型指针（基本上就这三个作用） 
+
+（2）控制语句关键字（12个）： 
+a循环语句 
+(1) for：一种循环语句(可意会不可言传） 
+(2) do ：循环语句的循环体 
+(3) while ：循环语句的循环条件 
+(4) break：跳出当前循环 
+(5) continue：结束当前循环，开始下一轮循环 
+b条件语句 
+(1)if: 条件语句 
+(2)else ：条件语句否定分支（与 if 连用） 
+(3)goto：无条件跳转语句 
+c开关语句 
+(1)switch :用于开关语句 
+(2)case：开关语句分支 
+(3)default：开关语句中的“其他”分支 
+
+return ：子程序返回语句（可以带参数，也看不带参数） 
+
+3 存储类型关键字（4个） 
+(1)auto ：声明自动变量 一般不使用 
+(2)extern：声明变量是在其他文件中声明（也可以看做是引用变量） 
+(3)register：声明寄存器变量 
+ //Register修饰符暗示编译程序相应的变量将将被频繁使用，如果可能的话，
+ //应将其保存在CPU的寄存器中，以指加快其存取速度
+ //因为register变量可能不存放在内存中，所以不能用取址符运算符“ &amp; ”来获取取
+ //址符运算符“ &amp;” register变量的地址。如果你试图这样做，编译程序就会报告这是一个错误。
+
+(4)static ：声明静态变量 
+
+4 其它关键字（4个）： 
+(1)const ：声明只读变量 
+(2)sizeof：计算数据类型长度 
+(3)typedef：用以给数据类型取别名（当然还有其他作用 
+(4)volatile：说明变量在程序执行中可被隐含地改变
+</code></pre><p>&gt;</p>
+<h1 id="十三-文件输入输出"><a href="#十三-文件输入输出" class="headerlink" title="十三.文件输入输出"></a>十三.文件输入输出</h1><ul>
+<li>文件是什么：一个文件通常就是磁盘上的一段命名的存储区。c将文件看成连续的字节序列，其中每一个字节都可以单独地读取。</li>
+</ul>
+<p>文件视图和二进制视图</p>
+<ul>
+<li><p>二进制视图中，文件中的每个字节都可以为程序所访问</p>
+</li>
+<li><p>文本试图中，读取文件时，将把行尾的本地环境表示法映射为C视图。如果c处理一个MA-DOS文本文件，在读取文件时它会将\r\n转换为\n，在写入文件时它会将\n转换成\r\n</p>
+</li>
+<li><p>exit()和return():exit()函数关闭所有打开的文件并终止程序如果main()在一个递归程序中，exit()仍然会终止程序，但return将控制权移交给递归的前一级</p>
+<h2 id="fopen-函数"><a href="#fopen-函数" class="headerlink" title="fopen()函数"></a>fopen()函数</h2><p>在<stdio.h>定义</stdio.h></p>
+<blockquote>
+<blockquote>
+<p>fopen(文件名的地址,“模式字符串”)</p>
+</blockquote>
+<p>模式字符串(文本模式)     |  </p>
+<ul>
+<li>|:-:|<br>“r   “    | 打开一个文本文件,可以读取文件(不可写入文件)<br>“w”       |打开一个文本文件,可以写入文件,如文件存在,先将文件长度截为0,如文件不存在,就创建文件(不可读取文件)<br>“a”    |打开一个文本文件,可以写入文件,写入的文件追加在原始文件尾部,如果文件不存在,就创建(不可读取文件)<br>“r+”    |打开一个文本文件,可以更新,即可读取和写入文件(可读写)<br>“w+”    |打开一个文本文件,可以更新,即可读取和写入文件,先将文件长度截为0,如果文件不存在,就创建文件(可读写)<br>“a+”    |打开一个文本文件,可以更新,即可读取和写入文件,可读取全部文件,但是只能追加到文件尾部,如果文件不存在,就创建文件。(可读写)<br>二进制模式(b)    |模式后面跟b,为二进制模式,如:rb,ab,wb,rb+,ab+,wb+<br>|注意：w/w+/wb模式会先将其文件清空在写入文件.</li>
+<li>getc()函数和putc()函数<blockquote>
+<p>和getchar和putchar类似，不同之处，在于需要告诉getc和putc函数它们要使用的文件<br>ch=getc(fp);<br>putc(ch,fpout);</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>13.2.4文件结尾</p>
+<blockquote>
+<p>设计范例<br>&gt;</p>
+<blockquote>
+<p><code>int ch; 
+FILE *fp; fp=fopen&quot;wacky.txt&quot;,&quot;r&quot;);</code></p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<p><code>while((ch=getc(fp))!=EOF) //getc()会返回一个值</code></p>
+<p><code>{</code></p>
+<p><code>putchar(ch);</code></p>
+<p><code>}</code></p>
+</blockquote>
+</blockquote>
+<ul>
+<li>fclose()函数<blockquote>
+<blockquote>
+<p><code>if(fclose(fp)!=&#39;\0&#39;)</code><br><code>printf(&quot;Eorr in closing file %s\n&quot;,argv[1]);</code></p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<blockquote>
+<ul>
+<li>rewind()函数接受一个文件指针回到文件开始处</li>
+</ul>
+</blockquote>
+<ul>
+<li><p>fprintf()和fscanf():函数作用：格式化输出到一个流/文件中； </p>
+<blockquote>
+<p>第一个参数用来指定合适的文件</p>
+<p><code>fprintf(stdout,&quot;    &quot;)</code></p>
+<p><code>fscanf(fp,&quot;%s&quot;,words)</code></p>
+<p>fscanf（）函数详解:功 能: 从一个流中执行格式化输入,fscanf遇到空格和换行时结束，注意空格时也结束。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p> fgets()：接受三个参数，依次是地址，输入字符串最大长度，文件指针<br>&gt;</p>
+<blockquote>
+<blockquote>
+<p>fgets(buf,max,fp)</p>
+<p>fgets()遇到EOF的时候返回<font color="red">NULL</font>值，否则返回传给它的地址值</p>
+<p><table><td bgcolor="#qwe1">13.10.5处理每行的方法使用到fgets()</td></table><br>fgets()会丢到换行符\n</p>
+<blockquote>
+<p>fgets()将换行符读入到字符串,而puts()函数会在输出中追加一个换行符 </p>
+</blockquote>
+</blockquote>
+<ul>
+<li><a href="https://blog.csdn.net/zjy1364503349/article/details/53858103" target="_blank" rel="noopener">fgets()网址</a><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">char *fgets(char *s, int n,  FILE *stream)  </span><br><span class="line">  &#123;  </span><br><span class="line">    register int c;  </span><br><span class="line">    register char *cs;  </span><br><span class="line">    cs&#x3D;s;  </span><br><span class="line">    while(--n&gt;0 &amp;&amp;(c &#x3D; getc(stream))!&#x3D;EOF)  </span><br><span class="line">    if ((*cs++&#x3D;  c) &#x3D;&#x3D;&#39;\n&#39;)  </span><br><span class="line">          break;  </span><br><span class="line">    *cs &#x3D;&#39;\0&#39;;  </span><br><span class="line">    return (c &#x3D;&#x3D; EOF &amp;&amp; cs &#x3D;&#x3D; s) ?NULL :s ;  </span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+在用fgets(..)读入数据时，先定义一个字符数组或字符指针，如果定义了字符指针 ，那么一定要初始化。<br>example:</li>
+</ul>
+<p>char s[100]; //可以。</p>
+<p>char *s;  //不可以，因为只是声明了一个指针。但并没有为它分配内存缓冲区。</p>
+</blockquote>
+<p>所以，如果要用指针，则  char <em>s=(char </em>)malloc(100<em>sizeof(char)); 为其分配内存空间,c++中用char </em>s=new char [100];      如果为分配内存空间，编译时不会检查出问题，但运行时会出现未知错误。。</p>
+<p>fgets(…)读入文本行时的两种情况。</p>
+<p>-1.如果n大于一行的字符串长度，那么当读到字符串末尾的换行符时，fgets(..)会返回。并且在s的最后插入字符串结束标志’\0’。 而s缓冲区剩余的位置不会再填充。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">example：</span><br><span class="line"></span><br><span class="line">   123abc</span><br><span class="line"></span><br><span class="line">   fgets(s,10,fp);</span><br></pre></td></tr></table></figure><br>              此时，读入七个字符，123abc\n,实际上还有最后的’\0’,所以，strlen(s)=7; 如果要去除末尾的\n，s[strlen(s)-1]=’\0’;便可。</p>
+<pre><code>      2.如果n小于等于一行的字符串的长度，那么读入n-1个字符，此时并没有读入\n因为并没有到行尾 ，同样在最后会插入&#39;\0&#39;.
+
+      example:
+
+        123abc
+
+        char  s[5];
+
+        fgets(s,5,fp);
+
+        这时读入4个字符，123a,并没有换行符，所以strlen(s)=4.
+
+   fgets(...)读入整个文件内容
+
+      通常用while()循环来使fges()读入文本全部内容，并按行读入。
+</code></pre><p>​          </p>
+<pre><code>[cpp] view plain copy
+
+ 在CODE上查看代码片派生到我的代码片
+char s[1024];  
+       while((fgets(s,1024,fp))!=NULL)  
+        {  
+              printf(s);  
+        }  
+
+     当然如果n小于每行的字符个数，也可以读，只不过读的次数要多。
+
+      假设一行为 ： 123456789
+</code></pre><p>​          </p>
+<pre><code>[cpp] view plain copy
+
+ 在CODE上查看代码片派生到我的代码片
+char s[2];  
+      int  num=0;  
+      while((fgets(s,2,fp))!=NULL)  
+        {  
+             printf(s);  
+             n++;  
+        }  
+      每次读入一个字符， 最后也会读完一行，num=10，读了十次，所以，fgets若没遇到换行符，会接着从前一次的位置继续读入n-1个字符,只要是文本流没关闭。
+     读入空行的情况：
+        第一行   abcdef123
+        第二行                       
+        第三行  helloworld
+        其中第二行为空，fget(..)会把第二行也读入，因为并未到文件结尾。
+        有时我们并不需要空行，可以这样做。
+
+[cpp] view plain copy
+
+ 在CODE上查看代码片派生到我的代码片
+while((fgets(s,n,fp))!=NULL)  
+         {  
+              if(strlen(s)!=1)    //注意这儿是1不是0，因为尽管是空行，它也会读入换行符，strlen(s)=1;  
+                  printf(s);  
+         }  
+
+     fgets(...)从标准设备读数据。
+
+        用fgets(...)还也读入标准输入设备(一般为键盘)的信息
+
+        原型  ：  fgets(s,n,stdin);
+
+        假设在控制台下，我们可以用fgets(...)替代gets(),读入键盘输入的信息，fgets()是安全的，因为不会像gets()有溢出的可能。。
+
+        比如 ：输入 abc
+
+        fgets(s,n,stdin)也会读入n-1个字符。但是只是从stdin流读入
+</code></pre><ul>
+<li>fputs()函数：接受两个参数依次是一个字符串地址和一个文件指针。它把指针所指所指的字符串写入指定的文件</li>
+</ul>
+<ul>
+<li><font color="red">随机存取：fseek()和ftell()</font>
+</li>
+<li><p><a href="https://blog.csdn.net/wl_soft50/article/details/7787521" target="_blank" rel="noopener">函数fseek() 用法</a></p>
+</li>
+</ul>
+<blockquote>
+<p>功 能: 重定位流上的文件指针</p>
+</blockquote>
+<p>用 法: int fseek(FILE *stream, long offset, int fromwhere);<br>&gt;<br>描 述: 函数设置文件指针stream的位置。如果执行成功，stream将指向以fromwhere为基准，偏移offset个字     节的位置。如果执行失败(比如offset超过文件自身大小)，则不改变stream指向的位置。</p>
+<p>返回值: 成功，返回0，否则返回其他值。<br>  fseek position the file position pointer for the file referenced by stream to the byte location calculated by offset.<br>  程序例:</p>
+<pre>
+#include <stdio.h>
+  long filesize(FILE *stream);
+  int main(void)
+  {
+    FILE *stream;
+    stream = fopen("MYFILE.TXT", "w+");
+    fprintf(stream, "This is a test");
+    printf("Filesize of MYFILE.TXT is %ld bytes\n", filesize(stream));
+    fclose(stream);
+    return 0;
+  }
+  long filesize(FILE *stream)   //************
+  {
+    long curpos, length;
+    curpos = ftell(stream);
+    fseek(stream, 0L, SEEK_END);
+    length = ftell(stream);
+    fseek(stream, curpos, SEEK_SET);
+    return length;
+  }
+
+</stdio.h></pre>
+
+<p>fseek()的三个参数：指向文件指针，偏移量，模式</p>
+<blockquote>
+<p>偏移量表示从起点开始要移动的距离，这个参数必须是long类型的值，正为前移，负为后移，零为不动</p>
+<p>模式用来标识起点.</p>
+</blockquote>
+<p>SEEK_SET 文件开始 </p>
+<p>SEEK_CUR 当前位置</p>
+<p>SEEK_END 文件结尾</p>
+<blockquote>
+<pre>
+fseek(fp, 0l,SEEK_SET);  //找到文件的开始处
+fseek(fp,10l,SEEK_SET);//找到文件的第10个字节
+fseek(fp,2l,SEEK_CUR);//从文件的当前位置向前移动2给字节
+fseek(fp,0l,SEEK_END);//到达文件结尾处
+fseek(fp,-10l,SEEK_END);//从文件结尾处退回10个字节
+</pre>
+
+</blockquote>
+<ul>
+<li>ftell()</li>
+</ul>
+<p>为long类型,返回文件的当前位置ftell()通过返回距文件开始处的字节数目来确定文件的位置</p>
+<blockquote>
+<p>last=ftell(fp);把从文件开始到文件结尾的字节数目赋给last</p>
+<p><pre><br>    //程序清单13.4</pre></p>
+<pre><code>#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+#define CNTL_Z &#39;\032&#39;
+#define SLEN 50
+int main(coid)
+{
+char file[SLEN];
+char ch;
+FILE*fp;
+long count,last;
+puts(&quot;Enter the name of the file to be processed:&quot;);
+gets(file);
+if((fp=fopen(file,&quot;rb&quot;))==NULL)
+{
+    printf(&quot;reverse cant open %s\n&quot;,file);
+    exit(1);
+}
+fseek(fp,0l,SEEK_END);  //定位到文件结尾处
+last=ftell(fp);                           //返回总字节数
+for(count=1l; count&lt;=last; count++)
+{
+    fseek(fp,-count,SEEK_END);   //回退
+    ch=getc(fp);
+    if(ch!=CNTL_Z&amp;&amp;ch!=&#39;\r&#39;)
+        putchar(ch);
+    if(ch==&#39;\r&#39;)
+        putchar(&#39;\n&#39;);
+    else
+        putchar(ch);
+}
+putchar(&#39;\n&#39;);
+fclose(fp);
+return 0;
+}
+</code></pre><p>&lt;/pre&gt;</p>
+<ul>
+<li>fgetpos()和fsetpos()函数<br>fseek()和ftell()的一个潜在的问题是他们限制文件的大小只能在long类型的表示范围之类.ANSI C引入了两个来处理较大文件的新的定位函数.</li>
+</ul>
+<p>int fgetpos( FILE <em>stream, fpos_t </em>position );</p>
+</blockquote>
+<p>fgetpos()函数保存给出的文件流(stream)的位置指针到给出的位置变量(position)中. position变量是fpos_t类型的(它在stdio.h中定义)并且是可以控制在FILE中每个可能的位置对象. fgetpos()执行成功时返回0,失败时返回一个非零值.</p>
+<ul>
+<li>13.7其它标准i/o函数<blockquote>
+<ul>
+<li>int ungetc(int c,FILE* fp):将c指定的字符放回输入流中</li>
+<li>int fflush(*fp) :可以将缓冲区中任何未写的数据发送到一个fp指定的输出文件中去,这个过程称为刷新缓冲区</li>
+<li>int setvbuf():</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>int setvbuf(FILE<em>restrict fp,char </em>restrict buf,int mode, size_t size)<br>setvbuf()函数建立了一个供标准i/o函数使用的替换缓冲区</p>
+</blockquote>
+<table><td bgcolor="#qwe123">13.7.4二进制I/O:fread()和fwrite()函数</td></table>
+
+<p><a href="https://blog.csdn.net/yang2011079080010/article/details/52528261" target="_blank" rel="noopener">fopen(),fwrite(),fread()学习网址</a></p>
+<p>所有的数据都是以二进制的方式进行存储的.如果文件中的全部数据都已字符编码的形式被解读,我们才称为文件包含文本数据</p>
+<pre>    
+     //将一块256字节大小的数据块从缓冲   区写入到文件
+    fwrite(buffer,256,1,fp);  
+       //保存一个包含10个double值的数组.
+    //将earnings数组中的数据写入文件,数据分成10块,每块都是double大小
+    double earnings[10];
+    fwrite(earnings,sizeof(double),10,fp);
+</pre>
+fwrite()函数返回成功写入的项目数,正常情况下与nmemb相等,不过如果写入错误,返回值就会小于nmemb
+
+>- size_t fread()  -- 类似
+
+原型: size_t fread(const void *restrict ptr(指针类型不是固定的),size_t  size,size_t nmemb,FILE *restrict fp);
+
+- 13.7.7int feof(FILE *fp)和 int ferror(FILE *fp)函数
+
+当标准输入函数返回EOF是,两种情况:1到达文件结尾2发生了读取错误
+>feof()和ferror()来区分两种可能性
+
+>feof():检测到文件结尾.feof()返回一个非零值,否则返回零值
+
+>ferror():发生读写错误,ferror()返回一个非零值,否则返回零值
+<pre>
+FILE * fopen(const char * path,const char * mode);
+    -- path: 文件路径，如："F:\Visual Stdio 2012\test.txt"
+    -- mode: 文件打开方式，例如：
+             "r" 以只读方式打开文件，该文件必须存在。
+             "w" 打开只写文件，若文件存在则文件长度清为0，即该文件内容会消失。若文件不存在则建立该文件。
+            "w+" 打开可读写文件，若文件存在则文件长度清为零，即该文件内容会消失。若文件不存在则建立该文件。
+             "a" 以附加的方式打开只写文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾，即文件原先的内容会被保留。（EOF符保留）
+             "a+" 以附加方式打开可读写的文件。若文件不存在，则会建立该文件，如果文件存在，写入的数据会被加到文件尾后，即文件原先的内容会被保留。（原来的EOF符不保留）
+            "wb" 只写打开或新建一个二进制文件，只允许写数据。
+            "wb+" 读写打开或建立一个二进制文件，允许读和写。
+             "ab" 追加打开一个二进制文件，并在文件末尾写数据。
+             "ab+"读写打开一个二进制文件，允许读，或在文件末追加数据。   
+    --返回值: 文件顺利打开后，指向该流的文件指针就会被返回。如果文件打开失败则返回NULL，并把错误代码存在errno中。        
+</pre>
+
+<ul>
+<li>size_t fwrite()函数<blockquote>
+<p>原型: size_t fwrite(const void <em>restrict ptr(指针类型不是固定的),size_t  size,size_t nmemb,FILE </em>restrict fp);</p>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>size_t是sizeof运算符返回的类型,通常是unsigned int类型</p>
+<p>ptr是要写入的数据块的地址,</p>
+<p>size表示写入数据块的大小,nmem表示数据块的数目<br>注意：返回值随着调用格式的不同而不同：</p>
+<p><font color="red">  (1) 调用格式：fwrite(buf,sizeof(buf),1,fp);  成功写入返回值为1(即count)</font></p>
+<p>  (2)调用格式：fwrite(buf,1,sizeof(buf),fp);<br> 成功写入则返回实际写入的数据个数(单位为Byte)<br> &lt;/font&gt;</p>
+<p><pre>
+size_t fwrite(const void* buffer, size_t size, size_t count, FILE* stream);
+    -- buffer:指向数据块的指针
+    -- size:每个数据的大小，单位为Byte(例如：sizeof(int)就是4)
+    -- count:数据个数
+    -- stream:文件指针
+</pre><br> 写完数据后要调用fclose()关闭流，不关闭流的情况下，每次读或写数据后，文件指针都会指向下一个待写或者读数据位置的指针。</p>
+</blockquote>
+<pre>
+/* fread example: read a complete file 读取一个完整的文件 */
+    #include <stdio.h>
+    #include <stdlib.h>
+int main()
+{
+    FILE* pFile;   //文件指针
+    long lSize;   // 用于文件长度
+    char* buffer; // 文件缓冲区指针
+    size_t result;  // 返回值是读取的内容数量
+
+    pFile = fopen("myfile.bin" , "rb");
+    if (pFile == NULL) {fputs("File error", stderr); exit(1);}    // 如果文件错误，退出1
+
+    // obtain file size:  获得文件大小
+    fseek(pFile , 0 , SEEK_END); // 指针移到文件末位
+    lSize = ftell(pFile);  // 获得文件长度
+    rewind(pFile);  // 函数rewind()把文件指针移到由stream(流)指定的开始处, 同时清除和流相关的错误和EOF标记
+
+    // allocate memory to contain the whole file: 为整个文件分配内存缓冲区
+    buffer = (char*) malloc(sizeof(char) * lSize); // 分配缓冲区，按前面的 lSize
+    if (buffer == NULL) {fputs("Memory error", stderr); exit(2);}  // 内存分配错误，退出2
+
+    // copy the file into the buffer:  该文件复制到缓冲区
+    result = fread(buffer, 1, lSize, pFile); // 返回值是读取的内容数量
+    if (result != lSize) {fputs("Reading error", stderr); exit(3);} // 返回值如果不和文件大小，读错误
+
+    /* the whole file is now loaded in the memory buffer. */ //现在整个文件载入内存缓冲区
+
+    // 读到内存，看自己怎么使用了...............
+    // ...........
+
+
+
+    // terminate // 文件终止
+    fclose(pFile);
+    free(buffer);
+    return 0;
+}
+</stdlib.h></stdio.h></pre>
+
+<font color="black">
+
+# 十四.结构和其它数据形式
+
+- struct ,union,typedef
+- 运算符 . ->
+- 如何创建结构模板和结构变量
+- 如果访问结构成员，编写处理结构的函数
+- 联合及指向函数的指针
+
+>14.2建立结构声明
+
+`struct bool{`
+
+`char title[MAXTITL];`
+
+`char author[MAXTITL];`
+
+`float value;`
+
+`};`
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">14.3定义结构变量</span><br><span class="line"></span><br><span class="line">struct book library;</span><br><span class="line">​&#96;&#96;&#96;是下面声明的简化：</span><br><span class="line">stuct book&#123;</span><br><span class="line">char title[MAX];</span><br><span class="line">char author[MAX];</span><br><span class="line">float value;</span><br><span class="line">&#125;library;&#x2F;&#x2F;在定义后面跟变量名</span><br></pre></td></tr></table></figure>
+14.3.2访问结构成员
+>使用.运算符
+
+>gets(library.title);
+
+>14.3.3结构的指定初始化项目
+
+>C99支持
+
+>14.5嵌套结构
+>
+>(fellow.handle).first:从左到右，先找到fellow的成员handle,进而找到handle的成员first
+
+14.6指向结构的指针
+>使用指针访问成员
+>
+><pre>
+>him==&barney
+>barney.income==(*him).income==him->income
+></pre>
+
+14.7.4其它结构特性
+>
+>现在的C允许把一个结构赋值给另一个结构，和数组不同的地方
+
+>双向通信
+14.7.6在结构中使用字符数组还是字符指针
+
+>字符串常量存储在编译器存储字符串常量的任何地方。这个结构中存放的知识两个地址而已。系统中它总共占用8个字节。stuct pnames结构不为字符串分配任何存储空间。它只适用于在另外的地方已经为字符串分配了空间（例如字符串常量或数组中的字符串）
+><pre>
+>struct pnames{
+>char *first;
+>char *last;
+>};
+>struct names veep={"Talia","Summers"};
+>stuct pname treas={"Brad","Fallingjaw"};
+>stuct names accountant;
+>puts(“”);
+>scanf("%s",accountant.last);/*潜在的问题，空指针*/
+></pre>
+14.7.7结构，指针和malloc()
+>
+>类似于创建的数组的第三种方法
+>
+>使用malloc（）分配内存，用指针来存放地址
+
+><pre>
+>void getinfo(stuct namect *pst)
+>{
+>chat temp[81];
+>prinf("Enter your first name\n");
+>gets(temp);
+>//分配用来存放名字的内存
+>pst->fname=(char *)malloc(strlen(temp)+1);
+>strcpy(pst->fname,temp);
+>printf("Enter your last name\n");
+>gets(temp);
+>>pst->lname=(char *)malloc(strlen(temp)+1);
+>strcpy(pst->lname,temp);
+>}
+></pre>
+
+## [结构，联合，枚举](https://blog.csdn.net/lemonrabbit1987/article/details/47803377)
+
+<pre>
+结构体是C语言中一种非常重要的数据结构。与数组不同，结构体类型的变量的成员变量
+（数组称元素）可以具有不同的类型，并通过成员变量的名称获取指定成员。联合和结构
+体相似，但联合类型的变量的所有成员都共享同一存储空间，每次只能存储一个成员。枚
+举类型是一组命名了的整数值。结构体、联合、枚举和数组都是用于创建多种多样的、与基
+本数据类型同样的用户自定义的数据类型。
+
+结构体
+
+结构体类型的声明
+
+结构体类型的声明格式如下：
+
+struct
+{
+    类型 成员变量1;
+    类型 成员变量2；
+    ...
+} 变量1, 变量2;
+
+变量1和变量2都是该结构体类型的变量，结构体类型的变量的成员变量按声明的顺序在
+内存中依序存储。结构体为其所有成员设置了单独的命名空间，因此可以在结构体外存在
+与结构体内成员同名的变量。
+
+结构体类型变量的成员可以是数组类型的变量，数组变量的元素也可以是结构体类型的。
+
+结构体类型的变量的初始化
+
+结构体类型的变量的初始化是依次列出结构体类型的变量各成员的值，用,隔开，并用大括号
+扩起来，形式如下
+
+struct
+{
+    类型 成员变量1;
+    类型 成员变量2；
+    ...
+} 变量1 = {成员变量1的初始值, 成员变量2的初始化值，...},
+  变量2 = {成员变量1的初始值, 成员变量2的初始化值，...};
+
+注意：初始化式中的初始化值必须按结构成员的声明顺序给出，且初始化式中的表达
+式必须是常量表达式。
+
+结构体类型的变量的操作
+
+结构体类型的变量通过成员名称访问其内部的成员，其访问格式为：
+
+结构体类型变量.成员变量
+1
+2
+.是C语言的一个运算符，优先级和++和--相同，几乎高于所有其他的运算符。
+
+结构体类型变量的成员是一个左值，可以看作一个变量使用。类型一致的结构体类型变量之间可以使用赋值运算符相互赋值。
+
+使用结构体类型作为函数的参数和返回值时，实际上使用的都是结构体类型的变量的副本。
+这样结构比较大的时候，会产生大量的开销，所以一般都使用结构体类型的变量的指针。
+
+结构体类型
+
+按照声明结构体类型时定义变量的方式要求变量必须在一个地方完全声明，否则当在新的地方用
+同样的方式定义变量时，不仅造成代码的结构臃肿，更重要的是C语言会将这些变量看成是不同的
+类型。为了解决这个问题，C语言利用结构标记来标识特定结构体类型的名字，这样就可以在别的
+地方使用结构标记来声明属于同样结构体类型的变量了。结构标记的声明格式如下：
+
+struct 结构标记
+{
+    类型 成员变量1;
+    类型 成员变量2；
+    ...
+} 变量1, 变量2;
+struct 结构标记 变量3;
+struct 结构标记 变量4;
+
+注意：使用结构标记时，不能省略标记前面的struct单词。
+
+除了使用结构标记，还可以使用typedef来为定义结构体类型的别名，其使用形式为：
+
+typedef struct
+{
+    类型 成员变量1;
+    类型 成员变量2；
+    ...
+} 结构体类型;
+结构体类型 变量1;
+结构体类型 变量2;
+
+注意：当命名结构体类型时，通常两者都可以使用，但用于链表时必须强制声明结构标记。
+</pre>
+
+- 联合：
+
+联合这个类型的设计就是为了节省内存，联合内的元素共用一段存储空间，空间大小由最大的数
+据元素决定。联合空间只有一个最新赋值的成员值有效。一句话总结：空间共享，后来为主。
+<pre>
+联合和结构体一样，联合类型的变量可以由具有不同类型的一个或多个成员变量构成。但编
+译器只为联合类型的变量分配最大的成员变量需要的内存空间。联合类型的变量的所有成员变量共
+用这段内存空间，因此给一个成员赋予新值就会修改其他成员的值。
+
+联合类型的声明方式和结构体类型的声明方式一样：
+
+union
+{
+  类型 成员变量1;
+  类型 成员变量2;
+} 联合变量;
+
+访问联合类型变量的成员的方法和访问结构体类型变量的成员的方法相同，且联合类型的变量的
+成员也是左值可以像变量一样使用。同时可以类似于结构体类型为其声明联合标记和类型定义。
+联合类型的变量也可以使用赋值运算符执行赋值操作，也可作为参数和返回值在函数中使用。
+联合类型的变量初始化时，只有第一个成员可以获得初始值，其初始化的一般形式为：
+
+union
+{
+  类型 成员变量1;
+  类型 成员变量2;
+} 变量 = {成员变量1的值};
+
+注意：初始化式两边的大括号是不可以省略的。
+
+联合主要包括以下常见的应用，一是通过在结构体类型中使用联合节省空间，二是使用
+联合类型的变量作为数组元素构建含有不同类型的混合的数据结构。
+
+为了解决无法知道联合类型的变量当前存放的是哪个成员的问题，可以把联合类型的变
+量作为结构体类型变量的成员，且结构体类型提供另一个成员变量作为标记来提示当前
+存储在联合类型变量中的是哪个成员。而这个标记成员使用枚举类型是非常合适的。
+</pre>
+
+- 枚举
+枚举类型也是一种用户自定义类型，它允许用户定义有限个常量(注意是常量！)，每个常量由用户自己的标识符来标示，这种类型更贴近处理实际问题，每个常量标识符都有确定的意义，增强代码的可读性。
+
+
+## [typedef](https://blog.csdn.net/superhoy/article/details/53504472)
+
+<pre>第一、四个用途
+用途一:
+
+定义一种类型的别名，而不只是简单的宏替换。可以用作同时声明指针型的多个对象。比如：
+char* pa, pb; // 这多数不符合我们的意图，它只声明了一个指向字符变量的指针， 
+// 和一个字符变量；
+以下则可行：
+typedef char* PCHAR; // 一般用大写
+PCHAR pa, pb; // 可行，同时声明了两个指向字符变量的指针
+虽然：
+char *pa, *pb;
+也可行，但相对来说没有用typedef的形式直观，尤其在需要大量指针的地方，typedef的方式
+更省事。
+
+用途二：
+
+用在旧的C的代码中（具体多旧没有查），帮助struct。以前的代码中，声明struct新对象时，
+必>须要带上struct，即形式为： struct 结构名 对象名，如：
+
+[cpp] view plain copy
+struct tagPOINT1  
+{  
+    int x;  
+    int y;  
+};  
+struct tagPOINT1 p1;   
+而在C++中，则可以直接写：结构名 对象名，即：
+
+tagPOINT1 p1;
+
+估计某人觉得经常多写一个struct太麻烦了，于是就发明了：
+
+[cpp] view plain copy
+typedef struct tagPOINT  
+{  
+    int x;  
+    int y;  
+}POINT;  
+POINT p1; // 这样就比原来的方式少写了一个struct，比较省事，尤其在大量使用的时候  
+或许，在C++中，typedef的这种用途二不是很大，但是理解了它，对掌握以前的旧代码
+还是有帮助的，毕竟我们在项目中有可能会遇到较早些年代遗留下来的代码。
+
+用途三：
+
+用typedef来定义与平台无关的类型。
+比如定义一个叫 REAL 的浮点类型，在目标平台一上，让它表示最高精度的类型为：
+typedef long double REAL; 
+在不支持 long double 的平台二上，改为：
+typedef double REAL; 
+在连 double 都不支持的平台三上，改为：
+typedef float REAL; 
+也就是说，当跨平台时，只要改下 typedef 本身就行，不用对其他源码做任何修改。
+标准库就广泛使用了这个技巧，比如size_t。
+另外，因为typedef是定义了一种类型的新别名，不是简单的字符串替换，所以它比宏来
+得稳健（虽然用宏有时也可以完成以上的用途）。
+
+用途四：
+
+为复杂的声明定义一个新的简单的别名。方法是：在原来的声明里逐步用别名替换一部分
+复杂声明，如此循环，把带变量名的部分留到最后替换，得到的就是原声明的最简化版。举例：
+
+1. 原声明：int *(*a[5])(int, char*);
+变量名为a，直接用一个新别名pFun替换a就可以了：
+typedef int *(*pFun)(int, char*); 
+原声明的最简化版：
+pFun a[5];
+
+2. 原声明：void (*b[10]) (void (*)());
+变量名为b，先替换右边部分括号里的，pFunParam为别名一：
+typedef void (*pFunParam)();
+再替换左边的变量b，pFunx为别名二：
+typedef void (*pFunx)(pFunParam);
+原声明的最简化版：
+pFunx b[10];
+
+3. 原声明：doube(*)() (*e)[9]; 
+变量名为e，先替换左边部分，pFuny为别名一：
+typedef double(*pFuny)();
+再替换右边的变量e，pFunParamy为别名二
+typedef pFuny (*pFunParamy)[9];
+原声明的最简化版：
+pFunParamy e;
+
+理解复杂声明可用的“右左法则”：
+从变量名看起，先往右，再往左，碰到一个圆括号就调转阅读的方向；括号内分析完就跳
+出括号，还是按先右后左的顺序，如此循环，直到整个声明分析完。举例：
+int (*func)(int *p);
+首 先找到变量名func，外面有一对圆括号，而且左边是一个*号，这说明func是一个指针；
+然后跳出这个圆括号，先看右边，又遇到圆括号，这说明 (*func)是一个函数，所以func是
+一个指向这类函数的指针，即函数指针，这类函数具有int*类型的形参，返回值类型是int。
+int (*func[5])(int *);
+func 右边是一个[]运算符，说明func是具有5个元素的数组；func的左边有一个*，说明
+func的元素是指针（注意这里的*不是修饰func，而是修饰 func[5]的，原因是[]运算符
+优先级比*高，func先跟[]结合）。跳出这个括号，看右边，又遇到圆括号，说明func数组
+的元素是函数类型的指 针，它指向的函数具有int*类型的形参，返回值类型为int。
+
+也可以记住2个模式：
+type (*)(....)函数指针 
+type (*)[]数组指针
+</pre>
+
+<pre>
+第二、两大陷阱
+
+陷阱一：
+
+记住，typedef是定义了一种类型的新别名，不同于宏，它不是简单的字符串替换。比如：
+先定义：
+typedef char* PSTR;
+然后：
+int mystrcmp(const PSTR, const PSTR);
+
+const PSTR实际上相当于const char*吗？不是的，它实际上相当于char* const。
+原因在于const给予了整个指针本身以常量性，也就是形成了常量指针char* const。
+简单来说，记住当const和typedef一起出现时，typedef不会是简单的字符串替换就行。
+
+陷阱二：
+
+typedef在语法上是一个存储类的关键字（如auto、extern、mutable、static、register等一样），虽然它并不真正影响对象的存储特性，如：
+typedef static int INT2; //不可行
+编译将失败，会提示“指定了一个以上的存储类”。
+
+
+第三、typedef 与 #define的区别
+
+案例一：
+
+通常讲，typedef要比#define要好，特别是在有指针的场合。请看例子：
+
+[cpp] view plain copy
+typedef char *pStr1;  
+#define pStr2 char *;  
+pStr1 s1, s2;  
+pStr2 s3, s4;  
+
+在上述的变量定义中，s1、s2、s3都被定义为char *，而s4则定义成了char，不是我们
+所预期的指针变量，根本原因就在于#define只是简单的字符串替换而typedef则是为
+一个类型起新名字。
+
+案例二：
+
+下面的代码中编译器会报一个错误，你知道是哪个语句错了吗？
+
+[cpp] view plain copy
+typedef char * pStr;  
+char string[4] = "abc";  
+const char *p1 = string;  
+const pStr p2 = string;  
+p1++;  
+p2++;  
+是p2++出错了。这个问题再一次提醒我们：typedef和#define不同，它不是简单的
+文本替换。上述代码中const pStr p2并不等于const char * p2。const pStr p2和
+const long x本质上没有区别，都是对变量进行只读限制，只不过此处变量p2的数据类型
+ 是我们自己定义的而不是系统固有类型而已。因此，const pStr p2的含义是：限定数据类
+型为char *的变量p2为只读，因此p2++错误。
+
+</pre>
+
+<pre>
+第四部分资料：使用 typedef 抑制劣质代码
+
+
+
+
+摘要： Typedef 声明有助于创建平台无关类型，甚至能隐藏复杂和难以理解的语法。
+不管怎样，使用 typedef 能为代码带来意想不到的好处，通过本文你可以学习用 typedef
+ 避免缺欠，从而使代码更健壮。
+typedef 声明，简称 typedef，为现有类型创建一个新的名字。比如人们常常使用 typedef 
+来编写更美观和可读的代码。所谓美观，意指 typedef 能隐藏笨拙的语法构造以及平台相关
+的数据类型，从而增强可移植性和以及未来的可维护性。本文下面将竭尽全力来揭示 typedef 
+强大功能以及如何避免一些常见的陷阱。
+
+Q：如何创建平台无关的数据类型，隐藏笨拙且难以理解的语法?
+
+A： 使用 typedefs 为现有类型创建同义字。
+
+定义易于记忆的类型名 
+　　typedef 使用最多的地方是创建易于记忆的类型名，用它来归档程序员的意图。类型出现
+在所声明的变量名字中，位于 ''typedef'' 关键字右边。例如：
+
+typedef int size;
+此声明定义了一个 int 的同义字，名字为 size。注意 typedef 并不创建新的类型。它仅仅为现
+有类型添加一个同义字。你可以在任何需要 int 的上下文中使用 size：
+
+void measure(size * psz); size array[4];size len = file.getlength();std::vector <size> vs; 
+typedef 还可以掩饰符合类型，如指针和数组。例如，你不用象下面这样重复定义有 81 个字符
+元素的数组：
+
+char line[81];char text[81];
+定义一个 typedef，每当要用到相同类型和大小的数组时，可以这样：
+
+typedef char Line[81]; Line text, secondline;getline(text);
+同样，可以象下面这样隐藏指针语法：
+
+typedef char * pstr;int mystrcmp(pstr, pstr);
+这里将带我们到达第一个 typedef 陷阱。标准函数 strcmp()有两个‘const char *’类型的参数。
+因此，它可能会误导人们象下面这样声明 mystrcmp()：
+
+int mystrcmp(const pstr, const pstr); 
+这是错误的，按照顺序，‘const pstr’被解释为‘char * const’（一个指向 char 的常量指针），
+而不是‘const char *’（指向常量 char 的指针）。这个问题很容易解决：
+
+typedef const char * cpstr; int mystrcmp(cpstr, cpstr); // 现在是正确的
+记住： 不管什么时候，只要为指针声明 typedef，那么都要在最终的 typedef 名称中加一个 
+const，以使得该指针本身是常量，而不是对象。
+
+代码简化 
+　　上面讨论的 typedef 行为有点像 #define 宏，用其实际类型替代同义字。不同点是
+ typedef 在编译时被解释，因此让编译器来应付超越预处理器能力的文本替换。例如：
+
+typedef int (*PF) (const char *, const char *);
+这个声明引入了 PF 类型作为函数指针的同义字，该函数有两个 const char * 类型的参数以及
+一个 int 类型的返回值。如果要使用下列形式的函数声明，那么上述这个 typedef 是不可或缺
+的：
+
+PF Register(PF pf);
+Register() 的参数是一个 PF 类型的回调函数，返回某个函数的地址，其署名与先前注册的名字
+相同。做一次深呼吸。下面我展示一下如果不用 typedef，我们是如何实现这个声明的：
+
+int (*Register (int (*pf)(const char *, const char *))) (const char *, const char *); 
+很少有程序员理解它是什么意思，更不用说这种费解的代码所带来的出错风险了。显然，这里
+使用 typedef 不是一种特权，而是一种必需。持怀疑态度的人可能会问：“OK，有人还会写这样
+的代码吗？”，快速浏览一下揭示 signal()函数的头文件 <csinal>，一个有同样接口的函数。
+
+typedef 和存储类关键字（storage class specifier） 
+　　这种说法是不 是有点令人惊讶，typedef 就像 auto，extern，mutable，static，和 
+register 一样，是一个存储类关键字。这并是说 typedef 会真正影响对象的存储特性；它只
+是说在语句构成上，typedef 声明看起来象 static，extern 等类型的变量声明。下面将带到第二个陷阱：
+
+typedef register int FAST_COUNTER; // 错误
+编译通不过。问题出在你不能在声明中有多个存储类关键字。因为符号 typedef 已经占据了
+存储类关键字的位置，在 typedef 声明中不能用 register（或任何其它存储类关键字）。
+
+促进跨平台开发 
+　　typedef 有另外一个重要的用途，那就是定义机器无关的类型，例如，你可以定义一个
+叫 REAL 的浮点类型，在目标机器上它可以i获得最高的精度：
+
+typedef long double REAL; 
+在不支持 long double 的机器上，该 typedef 看起来会是下面这样：
+
+typedef double REAL; 
+并且，在连 double 都不支持的机器上，该 typedef 看起来会是这样： 、
+
+typedef float REAL; 
+你不用对源代码做任何修改，便可以在每一种平台上编译这个使用 REAL 类型的应用程序。
+唯一要改的是 typedef 本身。在大多数情况下，甚至这个微小的变动完全都可以通过奇妙的
+条件编译来自动实现。不是吗? 标准库广泛地使用 typedef 来创建这样的平台无关类型：size_t
+，ptrdiff 和 fpos_t 就是其中的例子。此外，象 std::string 和 std::ofstream 这样的 typedef 
+还隐藏了长长的，难以理解的模板特化语法，例如：basic_string<char, char_traits<char>，allocator<char>> 和 basic_ofstream<char, char_traits<char>>
+ </char,></char></char,></csinal></size></pre>
+
+- typedef & 结构的问题 
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">（1）、typedef的最简单使用 </span><br><span class="line">　　typedef long byte_4; </span><br><span class="line">　　给已知数据类型long起个新名字，叫byte_4。 </span><br><span class="line">（2）、 typedef与结构结合使用 </span><br><span class="line">　　typedef struct tagMyStruct </span><br><span class="line">　　&#123; </span><br><span class="line">　　int iNum; </span><br><span class="line">　　long lLength; </span><br><span class="line">　　&#125; MyStruct; </span><br><span class="line">　　这语句实际上完成两个操作： </span><br><span class="line">1) 定义一个新的结构类型 </span><br><span class="line">　　struct tagMyStruct </span><br><span class="line">　　&#123; </span><br><span class="line">　　int iNum; </span><br><span class="line">　　long lLength; </span><br><span class="line">　　&#125;; </span><br><span class="line">　　分析：tagMyStruct称为“tag”，即“标签”，实际上是一个临时名字，struct 关键字和</span><br><span class="line">tagMyStruct一起，构成了这个结构类型，不论是否有typedef，这个结构都存在。 </span><br><span class="line">　　我们可以用struct tagMyStruct varName来定义变量，但要注意，使用</span><br><span class="line">tagMyStruct varName来定义变量是不对的，因为struct 和tagMyStruct合在一起才</span><br><span class="line">能表示一个结构类型。 </span><br><span class="line">2) typedef为这个新的结构起了一个名字，叫MyStruct。 </span><br><span class="line">　　typedef struct tagMyStruct MyStruct; </span><br><span class="line">　　因此，MyStruct实际上相当于struct tagMyStruct，我们可以使用MyStruct varName</span><br><span class="line">来定义变量。 </span><br><span class="line">3)、规范做法： </span><br><span class="line">　　struct tagNode </span><br><span class="line">　　&#123; </span><br><span class="line">　　char *pItem; </span><br><span class="line">　　struct tagNode *pNext; </span><br><span class="line">　　&#125;; </span><br><span class="line">　　typedef struct tagNode *pNode; </span><br><span class="line">3. typedef &amp; #define的问题 </span><br><span class="line">　　有下面两种定义pStr数据类型的方法，两者有什么不同？哪一种更好一点？ </span><br><span class="line">　　typedef char* pStr; </span><br><span class="line">　　#define pStr char*; </span><br><span class="line">　　答案与分析： </span><br><span class="line">　　通常讲，typedef要比#define要好，特别是在有指针的场合。请看例子： </span><br><span class="line">　　typedef char* pStr1; </span><br><span class="line">　　#define pStr2 char * </span><br><span class="line">　　pStr1 s1, s2; </span><br><span class="line">　　pStr2 s3, s4; </span><br><span class="line">　　在上述的变量定义中，s1、s2、s3都被定义为char *，而s4则定义成了char，</span><br><span class="line">不是我们所预期的指针变量，根本原因就在于#define只是简单的字符串替换而typedef</span><br><span class="line">则是为一个类型起新名字。 </span><br><span class="line">　　上例中define语句必须写成 pStr2 s3, *s4; 这这样才能正常执行。 </span><br><span class="line">　　#define用法例子： </span><br><span class="line">　　#define f(x) x*x </span><br><span class="line">　　main( ) </span><br><span class="line">　　&#123; </span><br><span class="line">　　int a&#x3D;6，b&#x3D;2，c； </span><br><span class="line">　　c&#x3D;f(a) &#x2F; f(b)； </span><br><span class="line">　　printf(&quot;%d &#x2F;&#x2F;n &quot;，c)； </span><br><span class="line">　　&#125; </span><br><span class="line">　　以下程序的输出结果是: 36。 </span><br><span class="line">　　因为如此原因，在许多C语言编程规范中提到使用#define定义时，</span><br><span class="line">如果定义中包含表达式，必须使用括号，则上述定义应该如下定义才对： </span><br><span class="line">　　#define f(x) (x*x) </span><br><span class="line">　　当然，如果你使用typedef就没有这样的问题。 </span><br><span class="line">4. typedef &amp; #define的另一例 </span><br><span class="line">　　下面的代码中编译器会报一个错误，你知道是哪个语句错了吗？ </span><br><span class="line">　　typedef char * pStr; </span><br><span class="line">　　char string[4] &#x3D; &quot;abc&quot;; </span><br><span class="line">　　const char *p1 &#x3D; string; </span><br><span class="line">　　const pStr p2 &#x3D; string; </span><br><span class="line">　　p1++; </span><br><span class="line">　　p2++; </span><br><span class="line">　　答案与分析： </span><br><span class="line">　 　  是p2++出错了。这个问题再一次提醒我们：typedef和#define不同，</span><br><span class="line">它不是简单的文本替 换。上述代码中const pStr p2并不等于const char * p2。const pStr p2</span><br><span class="line">和const long x本质 上  没有区别，都是对变量进行只读限制，只不过此处变量p2的数据类型</span><br><span class="line">是我们自己定义的而不是系统固有类型而已。因此，const pStr p2的含义是：限定数据类型为</span><br><span class="line">char *的变量p2为只读，因此p2++错误。 </span><br><span class="line"></span><br><span class="line">　　&lt;font color&#x3D;red size&#x3D;4&gt;#define与typedef引申谈 </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">　　1) #define宏定义有一个特别的长处：可以使用 #ifdef ,#ifndef等来进行逻辑判断，</span><br><span class="line">还可以使用#undef来取消定义。 </span><br><span class="line"></span><br><span class="line">　　2) typedef也有一个特别的长处：它符合范围规则，使用typedef定义的变量类型其作用</span><br><span class="line">范围限制在所定义的函数或者文件内（取决于此变量定义的位置），而宏定义则没有这种特性。</span><br><span class="line">            &lt;&#x2F;font&gt;</span><br><span class="line"> </span><br><span class="line">5. typedef &amp; 复杂的变量声明 </span><br><span class="line">　　在编程实践中，尤其是看别人代码的时候，常常会遇到比较复杂的变量声明,</span><br><span class="line">使用typedef作简化自有其价值，比如： </span><br><span class="line">　　下面是三个变量的声明，我想使用typdef分别给它们定义一个别名，请问该如何做？ </span><br><span class="line">　　&gt;1：int *(*a[5])(int, char*); </span><br><span class="line">　　&gt;2：void (*b[10]) (void (*)()); </span><br><span class="line">　　&gt;3. double(*)() (*pa)[9]; </span><br><span class="line">　　答案与分析： </span><br><span class="line">　　对复杂变量建立一个类型别名的方法很简单，你只要在传统的变量声明表达式里</span><br><span class="line">用类型名替代变量名，然后把关键字typedef加在该语句的开头就行了。 </span><br><span class="line">　　&gt;1：int *(*a[5])(int, char*); </span><br><span class="line">　　&#x2F;&#x2F;pFun是我们建的一个类型别名 </span><br><span class="line">　　typedef int *(*pFun)(int, char*); </span><br><span class="line">　　&#x2F;&#x2F;使用定义的新类型来声明对象，等价于int* (*a[5])(int, char*); </span><br><span class="line">　　pFun a[5]; </span><br><span class="line">　　&gt;2：void (*b[10]) (void (*)() ); &#x2F;&#x2F; 此蓝色部分为个人理解，未找到原文出处 </span><br><span class="line">　　&#x2F;&#x2F;首先为上面表达式蓝色部分声明一个新类型 </span><br><span class="line">　　typedef void (*pFunParam)(); </span><br><span class="line">　　&#x2F;&#x2F;整体声明一个新类型 </span><br><span class="line">　　typedef void (*pFun)(pFunParam); </span><br><span class="line">　　&#x2F;&#x2F;使用定义的新类型来声明对象，等价于void (*b[10]) (void (*)()); </span><br><span class="line">　　pFun b[10]; </span><br><span class="line">　　&gt;3. double(* (*pa)[9] )();  &#x2F;&#x2F; 此蓝色部分为个人理解，未找到原文出处 </span><br><span class="line">　　&#x2F;&#x2F;首先为上面表达式蓝色部分声明一个新类型 </span><br><span class="line">　　typedef double(*pFun)(); </span><br><span class="line">　　&#x2F;&#x2F;整体声明一个新类型 </span><br><span class="line">　　typedef pFun (*pFunParam)[9]; </span><br><span class="line">　　&#x2F;&#x2F;使用定义的新类型来声明对象，等价于double(*(*pa)[9])(); </span><br><span class="line">　　pFunParam pa;</span><br></pre></td></tr></table></figure>
+
+
+## 14.13奇特的指针
+
+|10章做过部分笔记 ，看括号优先级
+- |:-:|
+int board[][] |int数组的数组
+int **ptr|指向int的指针的指针
+<font color="red">int *risks[10]|指针数组，10个元素，每个元素是一个指向int的指针
+int(*rusks)[10]|数组指针，一个指针指向具有十个元素的数组
+int* oof[3][4]|指针数组，二维
+int (* uuf)[3][4]|二位数组指针
+int(* uof[3]) [4]|具有4个元素的int数组的指针
+
+
+- 14.14函数指针
+
+>函数具有可赋值给指针的物理内存地址，一个函数的函数名就是一个指针，它指向函数的代码。一个函数的地址是该函数的进入点，也是调用函数的地址。函数的调用可以通过函数名，也可以通过指向函数的指针来调用。函数指针还允许将函数作为变元传递给其他函数。
+>      不带括号和变量列表的函数名，这可以表示函数的地址，正如不带下标的数组名可以表示数组的首地址。
+
+定义形式：
+
+>类型 （*指针变量名）（参数列表）；
+
+>例如：
+       int (*p)(int i,int j);
+
+<pre>
+#include<iostream>
+#include<cstdlib>
+using namespace std;
+
+int func()
+{
+    cout << "my name is zyh_helen" << endl;
+    return 0;
+}
+
+int main()
+{
+    int(*p)() = func;   //函数指针初始化方式1
+    int(*p1)() = &func; //函数指针初始化方式2
+
+    func();//函数调用方式1
+    (*p)();//函数调用方式2
+    p();   //函数调用方式3
+
+    system("pause");
+    return 0;
+}
+</cstdlib></iostream></pre>
+
+# 十六.C预处理和C库
+[博客C预处理](https://www.cnblogs.com/xyqhello/p/3632198.html)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">    编译程序之前，先由预处理器检查程序。根据程序中使用的预处理器指令，预处理器用符号缩略语所代表的内容</span><br><span class="line">    替换程序中的缩略语。</span><br><span class="line">    </span><br><span class="line">     1.编译器的处理步骤：</span><br><span class="line">    </span><br><span class="line">    第一步：翻译处理：工作内容(1)把源代码中出现的字符映射到源字符集。</span><br><span class="line">     (2)编译器查找反斜线后面紧跟换行符的实例并删除这些实例。将多个物理行替换为一个逻辑行。</span><br><span class="line">    </span><br><span class="line">    (3)编译器将文本划分为预处理的语言符号（token）序列和空白字符及注释序列（编译器会将注释序列替换为一</span><br><span class="line">    个空格字符。所以注释序列可以出现在源代码的任何地方）。</span><br><span class="line">    </span><br><span class="line">    第二步：预处理：   </span><br><span class="line"></span><br><span class="line">    预处理的格式：ANSI标准允许#符合前后有空格或制表符，还允许在#和指令的其余部分之间有空格。但是旧版</span><br><span class="line">    均不允许这些空格出现。预处理范围：预处理指令从#开始，到其后第一个换行符为止。所以预处理指令不允许换</span><br><span class="line">    行。所以可以使用反斜线和换行符组合使预处理指令跨越多行。</span><br><span class="line">    系统把宏的主体定义为语言符号（Token）类型字符串。而不是字符型字符串。Token是指由空格符隔开的单词。</span><br><span class="line">    “2*3”是一个Token,“2  *  3”是三个Token组成的字符串。</span><br><span class="line"></span><br><span class="line">    第三步：把源代码翻译为机器语言。第一步和第二步只是对源代码文件进行文本处理，进行字符串方面的替换。真</span><br><span class="line">    正的根据语义翻译为机器语言是在这步。</span><br><span class="line"></span><br><span class="line">     2.预处理器(preprocessor)种类</span><br><span class="line">    </span><br><span class="line">    预处理器可以使用反斜线和换行符组合可以横跨多个物理行，但是其最终只占用一个逻辑行。</span><br><span class="line">    </span><br><span class="line">    第一部分：#define定义常量</span><br><span class="line">    </span><br><span class="line">    #define ：格式：#define macro body</span><br><span class="line">    macro是被称为宏的缩略语，其是一个根据变量命名规则的命名的单词。</span><br><span class="line">    body被称为实体。可以是任何字符串。预处理器将程序中宏实例替换为实体。</span><br><span class="line">    #define使用参数：#define macro body 其中marco的格式类似函数.由name(args)组成。但是name和（之间不能</span><br><span class="line">    有空格。括号内部和body一样，可以有空格)注意在body中的参数和body都要用括号括起来。如</span><br><span class="line"></span><br><span class="line">    #define ADD(X, Y) X + Y &#x2F;&#x2F;compiled rightly, but not safe enough</span><br><span class="line">    #define ADD(X, Y) ((X) + (Y)) &#x2F;&#x2F;good #define ADD (X, Y) ((X) + (Y)) &#x2F;&#x2F;error！ No spaces between ADD and (X, Y)</span><br><span class="line">&lt;font color&#x3D;red&gt;</span><br><span class="line"></span><br><span class="line">    #运算符：常量字符串中和参数相同的字符子串不会被替换为参数的</span><br><span class="line">    字符串形式。如果想在常量字符串中使用参数字符串，那么ANSI C允许</span><br><span class="line">    在body中使用#符号。如果x为参数名，那么#x就是相应的“x”。</span><br><span class="line">    </span><br><span class="line">      ##运算符：#是获取参数的字符串形式，而##是将两个Token拼接起</span><br><span class="line">     来得到一个新的Token. </span><br><span class="line"></span><br><span class="line">&lt;&#x2F;font&gt;</span><br><span class="line"></span><br><span class="line">     如 #define NAME(N)   x   N  中x   N就是空格符隔开的两个token。但是如果#define NAME(N) x ## N</span><br><span class="line">     就是将NAME(N)替换为xN.</span><br><span class="line">    总之，#用来拼接字符型字符串，##用来拼接语言符号型符号串。 可变宏：…和__VA_ARGS__</span><br><span class="line">    函数宏中参数列表的最后一个参数为省略号（…）。预定义宏__VA_ARGS__用在body中代表省略号代表什么。</span><br><span class="line">    在宏拓展中，将__VA_ARGS__替换为…位置实际上的参数。注意，省略号只能替代最后的宏参数。</span><br><span class="line">    总结：</span><br><span class="line">    1，宏的名字中macro名字部分不能有空格，但是在body替代字符串中可以使用空格。在参数列表中可以使用空格</span><br><span class="line">    2，在body部分，用圆括号括住每个参数，并括住宏的整体定义。</span><br></pre></td></tr></table></figure>
+
+[C库](https://blog.csdn.net/qq_36955347/article/details/71511900)
+16.9数学库
+
+   ` | ` |`
+ - |:-:| -:|-:|
+int abs( int x)|求整数x的绝对值|计算结果|
+double fabs(double x)|求双精度实数x的绝对值|计算结果
+double acos(double x)|计算cos-1(x)的值|计算结果|x在-1～1范围内
+double asin(double x)|计算sin-1(x)的值|计算结果|x在-1～1范围内
+double atan(double x)|计算tan-1(x)的值|计算结果| 
+double atan2(double x)|计算tan-1(x/y)的值|计算结果
+ double cos(double x)|计算cos(x)的值|计算结果|x的单位为弧度
+double cosh(double x)|计算双曲余弦cosh(x)的值|计算结果| 
+double exp(double x)|求ex的值|计算结果| 
+double fabs(double x)|求双精度实数x的绝对值|计算结果| 
+double floor(double x)|求不大于双精度实数x的最大整数|  
+double fmod(double x,double y)|求x/y整除后的双精度余数  
+double frexp(double val,int **exp)  |把双精度val分解尾数和以2为底的指数n，即val=x*2n，n存放在exp所指的变量中|返回位数x|0.5≤x<1| double log(double x)|求㏑x|计算结果|x>0
+double log10(double x)|求log10x|计算结果|x>0
+double modf(double val,double *ip)|把双精度val分解成整数部分和小数部分，整数部分存放在ip所指的变量中|返回小数部分| 
+double pow(double x,double y)|计算xy的值|计算结果| 
+double sin(double x)|计算sin(x)的值|计算结果x的单位为弧度
+double sinh(double x)|计算x的双曲正弦函数sinh(x)的值|计算结果
+ double sqrt(double x)|计算x的开方|计算结果|x≥0
+double tan(double x)|计算tan(x)|计算结果
+double tanh(double x)|计算x的双曲正切函数tanh(x)的值|计算结果 
+
+>- 通用工具库
+>
+>stdlib
+>
+>rand() srand()exit()aexit()
+>srand初始化随机种子,rand产生随机数
+>
+>`srand( (unsigned)time( NULL ) );`
+
+>- qsort函数
+
+>定义在头文件<algorithm>中，使用时需要include该头文件
+
+>功 能: 使用快速排序例程进行排序 　　
+
+>用 法: void qsort(void *base, int nelem, int width, int (*fcmp)(const void *,const void *)); 　
+</algorithm></1|></font>
+
+<blockquote>
+<ul>
+<li>16.11诊断库</li>
+</ul>
+</blockquote>
+<h2 id><a href="#" class="headerlink" title></a><assert.h></assert.h></h2><p>宏asset()向标准错误流（stderr）写一条错误消息并调用abort()来终止程序</p>
+<ul>
+<li>16.12sting.h库中的memcpy()和memmove()</li>
+</ul>
+<blockquote>
+<p>memcpy 函数用于 把资源内存（src所指向的内存区域） 拷贝到目标内存（dest所指向的内存区域）；拷贝多少个？有一个size变量控制<br>拷贝的字节数；</p>
+<p>函数原型：void <em>memcpy(void </em>dest, void *src, unsigned int count);</p>
+<p>用法：（1）可以拷贝任何类型的对象，因为函数的参数类型是void<em>（未定义类型指针），也就是说传进去的实参可以是int</em>，short<em>，char</em>等等，<br>但是由于函数拷贝的过程是一个字节一个字节的拷贝的，所以实际操作的时候要把void<em>强制转化为char</em>，这样在指针加的时候才会保证每次加一个字节　<br>&lt;/font&gt;</p>
+<font color="red">src和dest所指内存区域不能重叠，函数返回指向dest的指针。</font> 
+
+<ul>
+<li><a href="https://blog.csdn.net/holandstone/article/details/6947119" target="_blank" rel="noopener">16.13可变参数：stdarg.h</a><br>&lt;/font&gt;</li>
+</ul>
+</blockquote>
+</font></words></ctype.h></stdio.h></216;num++）></stdbool.h></b></p>
+    </article>
+    <!-- license  -->
+    
+    <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+                <div class="nextSlogan">Next Post</div>
+                <a href= "/blog/2019/02/10/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/" title= "Samba服务器">
+                    <div class="nextTitle">Samba服务器</div>
+                </a>
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href= "/blog/2018/06/13/ps/" title= "Ps">
+                    <div class="prevTitle">Ps</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
+    
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+    <div id="comment"></div>
+    <script>
+    new Valine({
+        el: '#comment' ,
+        notify:false, 
+        verify:false, 
+        appId: "g19wRrCtJOQVUMnXrqLrDfuH-gzGzoHsz",
+        appKey: "EjjgoSfgn69eAldOwhtLAlu7",
+        placeholder: "",
+        path:window.location.pathname, 
+        avatar:'mm' ,
+        visitor: true,
+    });
+    </script>
+
+
+    <!-- 评论 -->
+</main>
+            <!-- profile -->
+            
+        </div>
+        <footer class="footer footer-unloaded">
+<span id="timeDate" ,></span><span id="times"></span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt = new Date("02/01/2020 00:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime() + 250);
+        days = (now - grt) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if (String(hnum).length == 1) { hnum = "0" + hnum; } minutes = (now - grt) / 1000 / 60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if (String(mnum).length == 1) { mnum = "0" + mnum; }
+        seconds = (now - grt) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if (String(snum).length == 1) { snum = "0" + snum; }
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 " + dnum + " 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒";
+    }
+    //setInterval("createtime()", 250);
+</script>
+</footer>
+    </div>
+    <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:70vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#二-数据和C"><span class="toc-text">二.数据和C</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-e（数学科学记数法"><span class="toc-text">1.e（数学科学记数法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-浮点数"><span class="toc-text">2.浮点数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五-运算符，表达式和语句"><span class="toc-text">五.运算符，表达式和语句</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十一-字符串和字符函数"><span class="toc-text">十一.字符串和字符函数</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十二-存储类，链接和内存管理"><span class="toc-text">十二.存储类，链接和内存管理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#十三-文件输入输出"><span class="toc-text">十三.文件输入输出</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fopen-函数"><span class="toc-text">fopen()函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#null"><span class="toc-text"></span></a></li></ol></li></ol>
+    </div>
+    
+    <div class="back-top iconfont-archer">&#xe639;</div>
+    <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">目录</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">标签</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">分类</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+          <div class="sidebar-panel-archives">
+    <!-- 在ejs中将archive按照时间排序 -->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 16
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+    
+    
+    
+    <div class="archive-year"> 2018 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/blog/2018/02/01/hello-world/" >Hello World</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/blog/2018/02/01/markdown%E8%AF%AD%E6%B3%95/" >Markdown语法</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/blog/2018/06/13/ps/" >Ps</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/blog/2018/07/08/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" >C Base</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/10</span><a class="archive-post-title" href= "/blog/2019/02/10/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/" >Samba服务器</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/25</span><a class="archive-post-title" href= "/blog/2020/02/25/pat1030%20Dijkstra%20%E5%A0%86%E4%BC%98%E5%8C%96/" >Pat1030 Dijkstra</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/25</span><a class="archive-post-title" href= "/blog/2020/02/25/pat1076%20BFS/" >Pat1076 BFS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/30</span><a class="archive-post-title" href= "/blog/2020/04/30/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86&%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" >图的遍历/最短路径</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/blog/2020/06/10/test/" >PT2262解码原理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/10</span><a class="archive-post-title" href= "/blog/2020/06/10/%E7%BA%BF%E6%80%A7%E8%A1%A8%E4%B9%A0%E9%A2%98/" >线性表习题</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/12</span><a class="archive-post-title" href= "/blog/2020/06/12/%E6%95%B0%E7%94%B5/" >数电</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/blog/2020/06/13/c++%E9%98%9F%E5%88%97%E5%A0%86%E6%A0%88stl/" >C++队列堆栈stl</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/blog/2020/06/18/C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" >C和C++字符串处理</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/blog/2020/06/18/%E4%BC%A0%E6%84%9F%E5%99%A8/" >传感器</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/blog/2020/06/18/VScode-launch-json-expected-a-declaration/" >VScode launch.json Expected a Declaration</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/blog/2020/06/18/FFT/" >FFT</a>
+        </li>
+    
+    </div>
+  </div>
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+    
+        <span class="sidebar-tag-name" data-tags="字符串"><span class="iconfont-archer">&#xe606;</span>字符串</span>
+    
+        <span class="sidebar-tag-name" data-tags="萌新"><span class="iconfont-archer">&#xe606;</span>萌新</span>
+    
+        <span class="sidebar-tag-name" data-tags="VScode"><span class="iconfont-archer">&#xe606;</span>VScode</span>
+    
+        <span class="sidebar-tag-name" data-tags="队列堆栈stl"><span class="iconfont-archer">&#xe606;</span>队列堆栈stl</span>
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
+    
+        <span class="sidebar-tag-name" data-tags="Dijkstra堆优化"><span class="iconfont-archer">&#xe606;</span>Dijkstra堆优化</span>
+    
+        <span class="sidebar-tag-name" data-tags="优先队列"><span class="iconfont-archer">&#xe606;</span>优先队列</span>
+    
+        <span class="sidebar-tag-name" data-tags="BFS"><span class="iconfont-archer">&#xe606;</span>BFS</span>
+    
+        <span class="sidebar-tag-name" data-tags="BFS如何记录层数"><span class="iconfont-archer">&#xe606;</span>BFS如何记录层数</span>
+    
+        <span class="sidebar-tag-name" data-tags="ps note"><span class="iconfont-archer">&#xe606;</span>ps note</span>
+    
+        <span class="sidebar-tag-name" data-tags="解码"><span class="iconfont-archer">&#xe606;</span>解码</span>
+    
+        <span class="sidebar-tag-name" data-tags="传感器"><span class="iconfont-archer">&#xe606;</span>传感器</span>
+    
+        <span class="sidebar-tag-name" data-tags="数电"><span class="iconfont-archer">&#xe606;</span>数电</span>
+    
+        <span class="sidebar-tag-name" data-tags="期末考试"><span class="iconfont-archer">&#xe606;</span>期末考试</span>
+    
+        <span class="sidebar-tag-name" data-tags="图"><span class="iconfont-archer">&#xe606;</span>图</span>
+    
+        <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
+    
+        <span class="sidebar-tag-name" data-tags="线性表的操作"><span class="iconfont-archer">&#xe606;</span>线性表的操作</span>
+    
+        <span class="sidebar-tag-name" data-tags="c base"><span class="iconfont-archer">&#xe606;</span>c base</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+    缺失模块。<br/>
+    1、请确保node版本大于6.2<br/>
+    2、在博客根目录（注意不是archer根目录）执行以下命令：<br/>
+    <span style="color: #f75357; font-size: 1rem; line-height: 2rem;">npm i hexo-generator-json-content --save</span><br/>
+    3、在根目录_config.yml里添加配置：
+    <pre style="color: #787878; font-size: 0.6rem;">
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: true
+    tags: true</pre>
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+        <span class="sidebar-category-name" data-categories="语法"><span class="iconfont-archer">&#xe60a;</span>语法</span>
+    
+        <span class="sidebar-category-name" data-categories="网络"><span class="iconfont-archer">&#xe60a;</span>网络</span>
+    
+        <span class="sidebar-category-name" data-categories="basic"><span class="iconfont-archer">&#xe60a;</span>basic</span>
+    
+        <span class="sidebar-category-name" data-categories="pat"><span class="iconfont-archer">&#xe60a;</span>pat</span>
+    
+        <span class="sidebar-category-name" data-categories="单片机"><span class="iconfont-archer">&#xe60a;</span>单片机</span>
+    
+        <span class="sidebar-category-name" data-categories="期末考试"><span class="iconfont-archer">&#xe60a;</span>期末考试</span>
+    
+        <span class="sidebar-category-name" data-categories="电子"><span class="iconfont-archer">&#xe60a;</span>电子</span>
+    
+        <span class="sidebar-category-name" data-categories="数据结构"><span class="iconfont-archer">&#xe60a;</span>数据结构</span>
+    
+        <span class="sidebar-category-name" data-categories="数据结构刷题"><span class="iconfont-archer">&#xe60a;</span>数据结构刷题</span>
+    
+        <span class="sidebar-category-name" data-categories="菜鸟语法"><span class="iconfont-archer">&#xe60a;</span>菜鸟语法</span>
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+    </div>
+</div> 
+    <script>
+    var siteMeta = {
+        root: "/blog/",
+        author: "minhao"
+    }
+</script>
+    <!-- CDN failover -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ === 'undefined')
+        {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/blog/,lib/jquery.min.js,">\x3C/script>')
+        }
+    </script>
+    <script src="/blog/scripts/main.js"></script>
+    <!-- algolia -->
+    
+    <!-- busuanzi  -->
+    
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    <!-- CNZZ  -->
+    
+    </div>
+    <!-- async load share.js -->
+    
+        <script src="/blog/scripts/share.js" async></script>    
+     
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+</body>
+</html>
+
+

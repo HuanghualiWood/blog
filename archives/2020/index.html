@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cn">
+<html lang="en">
     <!-- title -->
 
 
@@ -346,35 +346,57 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/blog/2020/06/13/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" >
+        <a class="abstract-title" href = "/blog/2020/06/18/FFT/" >
             
-                <span>Hello World</span>
+                <span>FFT</span>
         </a>
         <div class="abstract-content">
-            
-c语言 
->======
->7/9/2018 4:12:24 PM 
->>***
->>**第三章 数据和C**  
->>***
->>**1.**       **e （数学科学记数法）**
->用指数表示法显示数字，以 E+n 替换部分数字，其中 E（代表指数）表示将前面的数字乘以 10 的 n 次幂。例如，用 2 位小数的“科学记数”格式表示 12345678901，结果为 1.23E+10，即 1.23 乘以 10 的 10 次幂。您可以指定要使用的小数位数。
->>
->***
->>**2.**      **浮点数** 
->>[（浮点数网站详解）](https://blog.csdn...
+            快速傅里叶变换摘自
+
+
+对于N点序列,它的离散傅立叶变换为(DFT)为：
+
+X[k]=\sum_{n=0}^{N-1}e^{-j\frac{2\pi}{N}{nk}}x[n]其中k=0,1,….,N-1,上面的式子展开一下：
+
+X[k]=\sum_{n=0}^{N-1}x[n]\cdot[cos(\frac{2\pi}{N}kn)-jsin(\frac{2\pi}{N}kn)]
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/13</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/18</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/blog/2020/06/18/VScode-launch-json-expected-a-declaration/" >
+            
+                <span>VScode launch.json Expected a Declaration</span>
+        </a>
+        <div class="abstract-content">
+            VScode launch.json expected a declaration今天想在VScode调试cpp，发现了一个问题弄了好久😭，每次设置完debug，自动生成的launch.json文件都会报错
+经过摸索，发现这个错误其实并无卵用。偶然点了波浪线下面的那个灯泡，写着错误修复，内容是Disable error squiggles，然后错误久消失了，debug可以用了。
+一直以为是json里面有格式问题或者是路径没配置好，发现都不是。。。
+
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/18</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "c base">c base</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "VScode">VScode</a>
     
 </div>
             
@@ -387,24 +409,43 @@ c语言
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/blog/2020/06/13/ps/" >
+        <a class="abstract-title" href = "/blog/2020/06/18/%E4%BC%A0%E6%84%9F%E5%99%A8/" >
             
-                <span>Ps</span>
+                <span>传感器</span>
         </a>
         <div class="abstract-content">
-            ps素描方法:1去色，查找边缘，成角的线条，图册混合模式，颜色减淡2去色，反相，最小值，混合选项，创建空白图层，选区羽化，添加蒙版，添加杂色，填充rgb240x3的图层蒙版：*图层蒙版*剪贴蒙版  Crtl+Shift+G矢量蒙版快速蒙版通道：颜色通道:存储颜色专色通道
-增强画质第一，先打开原图，双击解锁。第二，CTRL+J创建副本养成好习惯。对副本模式选择“亮度”第三，选择“滤镜”菜单下的“锐化—USM锐化”命令，在设置窗口中适当调节一下锐化参数，根据你原图模糊的情况来调节，第四，经过第三步，为照片清晰大致做了个基础。接着选择“图像”菜单下“模式—LAB颜色”命令，在弹出的窗口中选择“...
+            
+灵敏度
+
+灵敏度输出的变化量 $\delta$y与引起该变化量的输入变化量$\delta$x之比即为静态灵敏度
+
+k=\frac{\Delta y}{\Delta x}
+静态误差
+求取方法：把全部校准数据与拟合直线上对应的残差看成随机分布，求标出其标准偏差$\sigma$
+
+\sigma=\sqrt{\frac{1}{n-1}\sum_{i=1}^{n}({\Delta y_i}^2)}$\Delta y_i$—各测试点的残差
+
+
+动态响应两种分析：
+
+1线性常系数微分方程
+
+2拉氏变换 较一般的激励函数，当函数或其导数具有不连续间断点时
+
+
+传递函数
+G(s)=\frac{Y(s)}...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/13</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/18</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "ps note">ps note</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "传感器">传感器</a>
     
 </div>
             
@@ -417,80 +458,28 @@ c语言
     
     
     <article class="index-post">
-        <a class="abstract-title" href = "/blog/2020/06/13/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86&%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" >
+        <a class="abstract-title" href = "/blog/2020/06/18/C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" >
             
-                <span>图的遍历/最短路径</span>
+                <span>C和C++字符串处理</span>
         </a>
         <div class="abstract-content">
-            一.DFS
-
-
-DFS求连通分量的个数
-什么是连通分量？
-
-连通分量个数就是使用DFS的次数
-
-二.BFS
-宽度优先搜索算法（又称广度优先搜索）是最简便的图的搜索算法之一，这一算法也是很多重要的图的算法的原型。Dijkstra单源最短路径算法和Prim最小生成树算法都采用了和宽度优先搜索类似的思想。其别名又叫BFS，属于一种盲目搜寻法，目的是系统地展开并检查图中的所有节点，以找寻结果。换句话说，它并不考虑结果的可能位置，彻底地搜索整张图，直到找到结果为止。
-
-
-
-松弛函数(算法导论里的东西)
-对边集合 E 中任意边，以 w(u,v) 表示顶点 u 出发到顶点 v 的边的权值，以 d[v]...
+            刷题的时候经常遇到处理字符串的，每次都会有所遗忘，特此总结一个模板
+%s格式字符串bai会从给定的内存空间du开始向后逐个输出字zhi符，直到遇到\0结束。格式dao字符串为%s时，后面的参数应该为一个内存地址(指针)，如果给出的是一个字符变量，那么会将字符变量中的值认作地址，例如字符变量ch中保存的是字符’a’，那么printf会将’a’对应的ASCII码97作为内存地址
+==为什么数组中的元素不能是引用？==
+c++中，引用可以说只是某个变量的别名，所谓别名，是和指针类型区分开的：指针类型也可以指向某个变量，但指针类型本身也是一个变量，而引用实际上不是一个变量。更本质来说，可以理解为...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/13</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/18</span>
             </div>
             <!-- tags  -->
             
             <div class= abstract-tags >
     
-        <a class="post-tag" href="javascript:void(0);" data-tags = "图">图</a>
+        <a class="post-tag" href="javascript:void(0);" data-tags = "字符串">字符串</a>
     
 </div>
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href = "/blog/2020/06/13/1/" >
-            
-                <span>1</span>
-        </a>
-        <div class="abstract-content">
-            
-title: c++队列堆栈
-tags: “c++base”
-catogories: - pta
-
-
-添加库queue
-
-1234#include &lt;iostream&gt;#include &lt;queue&gt;#include &lt;string&gt;using namespace std;
-
-五个操作q.push()q.pop()q.front()q.back()q.empty()
-
-2.bool empty() const
-判断队列是否为空
-c.empty();
-3.size_type size() const
-返回队列中元素个数
-c.size()
-4.value...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/13</span>
-            </div>
-            <!-- tags  -->
             
         </div>
     </article>
@@ -507,16 +496,7 @@ c.size()
         </a>
         <div class="abstract-content">
             
-title: c++队列堆栈
-tags: “c++base”
-catogories: - pta
-
-
-添加库queue
-
-1234#include &lt;iostream&gt;#include &lt;queue&gt;#include &lt;string&gt;using namespace std;
-
-五个操作q.push()q.pop()q.front()q.back()q.empty()
+添加库queue1234#include &lt;iostream&gt;#include &lt;queue&gt;#include &lt;string&gt;using namespace std;五个操作q.push()q.pop()q.front()q.back()q.empty()
 
 2.bool empty() const
 判断队列是否为空
@@ -524,7 +504,8 @@ c.empty();
 3.size_type size() const
 返回队列中元素个数
 c.size()
-4.value...
+4.value_type&amp; front();
+   const value_type&amp; front() co...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -532,6 +513,12 @@ c.size()
                 <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/06/13</span>
             </div>
             <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "队列堆栈stl">队列堆栈stl</a>
+    
+</div>
             
         </div>
     </article>
@@ -549,8 +536,6 @@ c.size()
         <div class="abstract-content">
             
 # 数电笔记
-
-
 
 
 
@@ -575,6 +560,8 @@ c.size()
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "数电">数电</a>
     
+        <a class="post-tag" href="javascript:void(0);" data-tags = "期末考试">期末考试</a>
+    
 </div>
             
         </div>
@@ -593,7 +580,6 @@ c.size()
         <div class="abstract-content">
             
 # PT2262解码原理 
-
 
 
  
@@ -632,7 +618,7 @@ c.size()
                 <span>线性表习题</span>
         </a>
         <div class="abstract-content">
-            线性表习题123456789&#x2F;*2-2-3编写一个时间复杂度为O（n）,空间复杂度为O（1）的算法，删除顺序表中所有值为x的元素*&#x2F;&#x2F;*2-2-4从有序顺序表中删除其值在给定范围s与t之间，包含s和t的所有元素，如果t或s不合理，显示错误信息）*&#x2F;&#x2F;*2-2-8 将数组中两个顺序表的位置置换*&#x2F;&#x2F;*2-3-1设计一个递归算法，删除不带头结点的单链表L中所有的值为x的结点*&#x2F;&#x2F;*2-3-2在带头结点的单链表L中删除所有值为x的结点，并释放其空间*&#x2F;&#x2F;*2-3-3 L为带头节点的单链...
+            线性表习题123456789/*2-2-3编写一个时间复杂度为O（n）,空间复杂度为O（1）的算法，删除顺序表中所有值为x的元素*//*2-2-4从有序顺序表中删除其值在给定范围s与t之间，包含s和t的所有元素，如果t或s不合理，显示错误信息）*//*2-2-8 将数组中两个顺序表的位置置换*//*2-3-1设计一个递归算法，删除不带头结点的单链表L中所有的值为x的结点*//*2-3-2在带头结点的单链表L中删除所有值为x的结点，并释放其空间*//*2-3-3 L为带头节点的单链表，编写算法实现从尾到头反向输出每个结点的值*//*2-3-4 试编写在带头结点的单链表L中删除一个最小值结点...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -646,6 +632,47 @@ c.size()
         <a class="post-tag" href="javascript:void(0);" data-tags = "数据结构">数据结构</a>
     
         <a class="post-tag" href="javascript:void(0);" data-tags = "线性表的操作">线性表的操作</a>
+    
+</div>
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href = "/blog/2020/04/30/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86&%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" >
+            
+                <span>图的遍历/最短路径</span>
+        </a>
+        <div class="abstract-content">
+            一.DFS
+DFS求连通分量的个数
+什么是连通分量？
+
+连通分量个数就是使用DFS的次数
+
+二.BFS
+宽度优先搜索算法（又称广度优先搜索）是最简便的图的搜索算法之一，这一算法也是很多重要的图的算法的原型。Dijkstra单源最短路径算法和Prim最小生成树算法都采用了和宽度优先搜索类似的思想。其别名又叫BFS，属于一种盲目搜寻法，目的是系统地展开并检查图中的所有节点，以找寻结果。换句话说，它并不考虑结果的可能位置，彻底地搜索整张图，直到找到结果为止。
+
+
+
+松弛函数(算法导论里的东西)
+对边集合 E 中任意边，以 w(u,v) 表示顶点 u 出发到顶点 v 的边的权值，以 d[v] 表...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2020/04/30</span>
+            </div>
+            <!-- tags  -->
+            
+            <div class= abstract-tags >
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags = "图">图</a>
     
 </div>
             
@@ -715,10 +742,6 @@ c.size()
     </article>
     
     <!-- paginator  -->
-    
-    <nav class="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/blog/archives/2020/page/2/">2</a><a class="extend next" rel="next" href="/blog/archives/2020/page/2/">NEXT &amp;#62;</a>
-    </nav>
     
 </main>
             <!-- profile -->
@@ -891,9 +914,52 @@ c.size()
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 13
+        Total : 16
         </div>
         <!-- search  -->
         
@@ -904,23 +970,51 @@ c.size()
     
     
     
-    <div class="archive-year"> 2020 </div>
+    <div class="archive-year"> 2018 </div>
     <ul class="year-list">
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/blog/2020/02/01/hello-world/" >Hello World</a>
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/blog/2018/02/01/hello-world/" >Hello World</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/10</span><a class="archive-post-title" href= "/blog/2020/02/10/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/" >Samba服务器</a>
+            <span class="archive-post-date">02/01</span><a class="archive-post-title" href= "/blog/2018/02/01/markdown%E8%AF%AD%E6%B3%95/" >Markdown语法</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">02/24</span><a class="archive-post-title" href= "/blog/2020/02/24/markdown%E8%AF%AD%E6%B3%95/" >Markdown语法</a>
+            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/blog/2018/06/13/ps/" >Ps</a>
         </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/08</span><a class="archive-post-title" href= "/blog/2018/07/08/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" >C Base</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2019 </div>
+    <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/10</span><a class="archive-post-title" href= "/blog/2019/02/10/SAMBA%E6%9C%8D%E5%8A%A1%E5%99%A8/" >Samba服务器</a>
+        </li>
+    
+    
+    
+    
+    
+        </ul>
+    
+    <div class="archive-year"> 2020 </div>
+    <ul class="year-list">
     
     
         <li class="archive-post-item">
@@ -930,6 +1024,11 @@ c.size()
     
         <li class="archive-post-item">
             <span class="archive-post-date">02/25</span><a class="archive-post-title" href= "/blog/2020/02/25/pat1076%20BFS/" >Pat1076 BFS</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">04/30</span><a class="archive-post-title" href= "/blog/2020/04/30/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86&%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" >图的遍历/最短路径</a>
         </li>
     
     
@@ -949,27 +1048,27 @@ c.size()
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/blog/2020/06/13/1/" >1</a>
-        </li>
-    
-    
-        <li class="archive-post-item">
             <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/blog/2020/06/13/c++%E9%98%9F%E5%88%97%E5%A0%86%E6%A0%88stl/" >C++队列堆栈stl</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/blog/2020/06/13/%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86&%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84/" >图的遍历/最短路径</a>
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/blog/2020/06/18/C%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%A4%84%E7%90%86/" >C和C++字符串处理</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/blog/2020/06/13/ps/" >Ps</a>
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/blog/2020/06/18/%E4%BC%A0%E6%84%9F%E5%99%A8/" >传感器</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/13</span><a class="archive-post-title" href= "/blog/2020/06/13/c%E8%AF%AD%E8%A8%80%E5%AD%A6%E4%B9%A0/" >Hello World</a>
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/blog/2020/06/18/VScode-launch-json-expected-a-declaration/" >VScode launch.json Expected a Declaration</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/18</span><a class="archive-post-title" href= "/blog/2020/06/18/FFT/" >FFT</a>
         </li>
     
     </div>
@@ -977,29 +1076,39 @@ c.size()
         <div class="sidebar-panel-tags">
     <div class="sidebar-tags-name">
     
+        <span class="sidebar-tag-name" data-tags="字符串"><span class="iconfont-archer">&#xe606;</span>字符串</span>
+    
         <span class="sidebar-tag-name" data-tags="萌新"><span class="iconfont-archer">&#xe606;</span>萌新</span>
+    
+        <span class="sidebar-tag-name" data-tags="VScode"><span class="iconfont-archer">&#xe606;</span>VScode</span>
+    
+        <span class="sidebar-tag-name" data-tags="队列堆栈stl"><span class="iconfont-archer">&#xe606;</span>队列堆栈stl</span>
+    
+        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
     
         <span class="sidebar-tag-name" data-tags="Dijkstra堆优化"><span class="iconfont-archer">&#xe606;</span>Dijkstra堆优化</span>
     
         <span class="sidebar-tag-name" data-tags="优先队列"><span class="iconfont-archer">&#xe606;</span>优先队列</span>
     
-        <span class="sidebar-tag-name" data-tags="markdown"><span class="iconfont-archer">&#xe606;</span>markdown</span>
-    
         <span class="sidebar-tag-name" data-tags="BFS"><span class="iconfont-archer">&#xe606;</span>BFS</span>
     
         <span class="sidebar-tag-name" data-tags="BFS如何记录层数"><span class="iconfont-archer">&#xe606;</span>BFS如何记录层数</span>
     
+        <span class="sidebar-tag-name" data-tags="ps note"><span class="iconfont-archer">&#xe606;</span>ps note</span>
+    
         <span class="sidebar-tag-name" data-tags="解码"><span class="iconfont-archer">&#xe606;</span>解码</span>
     
-        <span class="sidebar-tag-name" data-tags="ps note"><span class="iconfont-archer">&#xe606;</span>ps note</span>
+        <span class="sidebar-tag-name" data-tags="传感器"><span class="iconfont-archer">&#xe606;</span>传感器</span>
+    
+        <span class="sidebar-tag-name" data-tags="数电"><span class="iconfont-archer">&#xe606;</span>数电</span>
+    
+        <span class="sidebar-tag-name" data-tags="期末考试"><span class="iconfont-archer">&#xe606;</span>期末考试</span>
     
         <span class="sidebar-tag-name" data-tags="图"><span class="iconfont-archer">&#xe606;</span>图</span>
     
         <span class="sidebar-tag-name" data-tags="数据结构"><span class="iconfont-archer">&#xe606;</span>数据结构</span>
     
         <span class="sidebar-tag-name" data-tags="线性表的操作"><span class="iconfont-archer">&#xe606;</span>线性表的操作</span>
-    
-        <span class="sidebar-tag-name" data-tags="数电"><span class="iconfont-archer">&#xe606;</span>数电</span>
     
         <span class="sidebar-tag-name" data-tags="c base"><span class="iconfont-archer">&#xe606;</span>c base</span>
     
@@ -1036,15 +1145,25 @@ jsonContent:
         <div class="sidebar-panel-categories">
     <div class="sidebar-categories-name">
     
-        <span class="sidebar-category-name" data-categories="网络"><span class="iconfont-archer">&#xe60a;</span>网络</span>
+        <span class="sidebar-category-name" data-categories="语法"><span class="iconfont-archer">&#xe60a;</span>语法</span>
     
-        <span class="sidebar-category-name" data-categories="pat"><span class="iconfont-archer">&#xe60a;</span>pat</span>
+        <span class="sidebar-category-name" data-categories="网络"><span class="iconfont-archer">&#xe60a;</span>网络</span>
     
         <span class="sidebar-category-name" data-categories="basic"><span class="iconfont-archer">&#xe60a;</span>basic</span>
     
+        <span class="sidebar-category-name" data-categories="pat"><span class="iconfont-archer">&#xe60a;</span>pat</span>
+    
         <span class="sidebar-category-name" data-categories="单片机"><span class="iconfont-archer">&#xe60a;</span>单片机</span>
     
-        <span class="sidebar-category-name" data-categories="习题"><span class="iconfont-archer">&#xe60a;</span>习题</span>
+        <span class="sidebar-category-name" data-categories="期末考试"><span class="iconfont-archer">&#xe60a;</span>期末考试</span>
+    
+        <span class="sidebar-category-name" data-categories="电子"><span class="iconfont-archer">&#xe60a;</span>电子</span>
+    
+        <span class="sidebar-category-name" data-categories="数据结构"><span class="iconfont-archer">&#xe60a;</span>数据结构</span>
+    
+        <span class="sidebar-category-name" data-categories="数据结构刷题"><span class="iconfont-archer">&#xe60a;</span>数据结构刷题</span>
+    
+        <span class="sidebar-category-name" data-categories="菜鸟语法"><span class="iconfont-archer">&#xe60a;</span>菜鸟语法</span>
     
     </div>
     <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
@@ -1079,7 +1198,22 @@ jsonContent:
     </div>
     <!-- async load share.js -->
      
-    </body>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 </html>
 
 
